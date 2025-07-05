@@ -1,0 +1,72 @@
+<view id="printbtn" class="homepagebtn" style=" background: url({{resourceUrl}}/images/icon/homePage.png) no-repeat; background-size: 100% 100%;" bindtap='goWxAppHomePageForHomePageButton'></view>
+<view class="jindutop" style=" background: #36a3ff no-repeat bottom right; background-size:  auto 220rpx">
+		<view>
+			<view>提现金额</view>
+			<view class="tixiannum">￥<span>{{responseInfo.withdrawAmt}}.00</span></view>
+			<view>{{responseInfo.createTimeFormat}}</view>			
+		</view>
+	</view>
+	<view class="ordernum">订单编号<text>{{responseInfo.tradeRecordId}}</text></view>
+	<view class="mar"></view>
+	<view class="">
+		<view class="callservice" bindtap='callServiceTelNo'>如有疑问请联系客服：{{serverTelNo}}<text class="iconfont icon-phonepress"></text></view>
+		<view class="tixianjindu">
+			<view  wx:if="{{reconStatus.reconStatus == 13}}"  class="buzhou">
+				<view class="buzhouleft">
+					<view class="buzhouline whrite"></view>
+					<view class="stepcircle">3</view>
+					<view class="buzhouline"></view>
+				</view>
+				<view class="buzhouright">
+					<view class="tit">提现处理中</view>
+					<!-- <view class="text">已经成功提现，预计0-5工作日到账</view>
+					<view class="text">{{responseInfo.refundBank}}</view> -->
+				</view>
+			</view>
+			<view  wx:elif="{{responseInfo.reconStatus == 10 || reconStatus.reconStatus == 15}}"  class="buzhou alreadygo">
+				<view class="buzhouleft">
+					<view class="buzhouline whrite"></view>
+					<view class="stepcircle">3</view>
+					<view class="buzhouline"></view>
+				</view>
+				<view class="buzhouright">
+					<view class="tit">成功</view>
+					<view class="text">已经成功提现，预计0-5工作日到账</view>
+					<view class="text">{{responseInfo.refundBank}}</view>
+				</view>
+			</view>
+			<view  wx:elif="{{responseInfo.reconStatus == 11 || reconStatus.reconStatus == 14 || reconStatus.reconStatus == 16 || reconStatus.reconStatus == 17 || reconStatus.reconStatus == 18}}"  class="buzhou alreadygo">
+				<view class="buzhouleft">
+					<view class="buzhouline whrite"></view>
+					<view class="stepcircle">3</view>
+					<view class="buzhouline"></view>
+				</view>
+				<view class="buzhouright">
+					<view class="tit">失败</view>
+					<view class="text">处理失败</view>
+				</view>
+			</view>             
+			<view class="buzhou alreadygo">
+				<view class="buzhouleft">
+					<view class="buzhouline"></view>
+					<view class="stepcircle">2</view>
+					<view class="buzhouline"></view>
+				</view>
+				<view class="buzhouright">
+					<view class="tit">处理中</view>
+					<view class="text">请耐心等待</view>
+				</view>
+			</view>     
+			<view class="buzhou alreadygo">
+				<view class="buzhouleft">
+					<view class="buzhouline"></view>
+					<view class="stepcircle">1</view>
+					<view class="buzhouline whrite"></view>
+				</view>
+				<view class="buzhouright">
+					<view class="tit">提交成功</view>
+					<view class="text">将申请已提交</view>
+				</view>
+			</view>			
+		</view>
+	</view>

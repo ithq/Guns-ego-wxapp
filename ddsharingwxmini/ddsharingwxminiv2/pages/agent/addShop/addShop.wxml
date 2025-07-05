@@ -1,0 +1,242 @@
+<!--pages/agent/addShop/addShop.wxml-->
+<view class="main">
+    <form bindsubmit='submitShop'>
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon1}}" class="icon"></image>
+                {{lg.shopName}}<!-- 商户名称 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text><input type="text" name="shopName" class="input" placeholder="{{lg.placeholderShopName}}"></input>
+            </view>
+        </view>
+
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon2}}" class="icon"></image>
+                {{lg.area}}<!-- 所在区域 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text>
+                <!-- <input type="text" name="regionID" class="input" placeholder="{{lg.placeholderArea}}"></input> -->
+                <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                    <view class="picker">
+                        <!-- {{region[0]}}，{{region[1]}}，{{region[2]}} -->
+                        <text wx:if="{{region.length > 0}}">{{region[0]}}，{{region[1]}}，{{region[2]}}</text>
+                        <text class="gray" wx:else>{{lg.placeholderArea}}</text>
+                        <input type="text" name="country" value="中国" hidden="{{true}}"></input>
+                        <input type="text" name="province" value="{{region[0]}}" hidden="{{true}}"></input>
+                        <input type="text" name="city" value="{{region[1]}}" hidden="{{true}}"></input>
+                        <input type="text" name="district" value="{{region[2]}}" hidden="{{true}}"></input>
+                    </view>
+                </picker>
+            </view>
+        </view>
+
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon8}}" class="icon"></image>
+                {{lg.address}}<!-- 详细地址 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text><input type="text" name="address" class="input" placeholder="{{lg.placeholderAddress}}"></input>
+            </view>
+        </view>
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon4}}" class="icon"></image>
+                {{lg.scenes}}<!-- 场景 -->
+            </view>
+            <view class="right" data-url="../chooseScene/chooseScene" bindtap="jumpPage">
+                <text class="red"></text><input type="text" name="sceneName" class="input" value="{{sceneName}}" placeholder="{{lg.placeholderscenes}}" disabled="true"></input>
+                <input type="text" name="industry" class="input" value="{{sceneId}}" hidden="{{true}}"></input>
+            </view>
+        </view>
+
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon3}}" class="icon"></image>
+                {{lg.businessHours}}<!-- 营业时间 -->
+            </view>
+            <view class="right">
+                <text class="red"></text><input type="text" name="businessHours" class="input" placeholder="{{lg.placeholderBusinessHours}}"></input>
+            </view>
+        </view>
+
+        <view class="inputItem inputItemLogo">
+            <view class="left">
+                <image src="{{imgUrl + icon5}}" class="icon"></image>
+                {{lg.logo}}<!-- logo -->
+            </view>
+            <view class="right">
+                <image src="{{logoImg}}" class="addLogo" bindtap="addImage"></image>
+                <input type="text" name="logo" value="{{logoImg}}" hidden="{{true}}"></input>
+            </view>
+        </view>
+
+
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon6}}" class="icon"></image>
+                {{lg.latLon}}<!-- 经纬度 -->
+            </view>
+            <view class="right" bindtap="getLocation">
+                <text class="red">*</text><input type="text" name="coordinate" value="{{coordinate}}" class="input" placeholder="{{lg.placeholderLatlon}}" disabled="true"></input>
+                <input type="text" name="longitude" value="{{longitude}}" class="input" hidden="{{true}}"></input>
+                <input type="text" name="latitude" value="{{latitude}}" class="input" hidden="{{true}}"></input>
+            </view>
+        </view>
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon7}}" class="icon"></image>
+                {{lg.deposit}}<!-- 押金 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text><input type="digit" name="deposit" class="input" placeholder="{{lg.placeholderDeposit}}"></input>
+            </view>
+        </view>
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon8}}" class="icon"></image>
+                {{lg.freeTime}}<!-- 免费时长 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text><input type="digit" name="freeTime" class="input" placeholder="{{lg.placeholderFreeTime}}"></input>
+            </view>
+        </view>
+        
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon8}}" class="icon"></image>
+                {{lg.chargeMode}}<!-- 计费方式 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text>
+                 <!-- 1小时。2半小时 3天 -->
+                <radio-group name="priceType" class="radio-group weui-input">
+                    <radio style="margin-right:20rpx;" checked class="radio" value="1">
+                        {{lg.isHour}}
+                    </radio>
+                    <radio style="margin-right:20rpx;" class="radio" value="2">
+                        {{lg.isHalfHour}}
+                    </radio>
+                    <!-- <radio style="margin-right:10rpx;" class="radio" value="3">
+                        {{lg.isDay}}
+                    </radio> -->
+                </radio-group>
+            </view>
+        </view>
+
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon9}}" class="icon"></image>
+                {{lg.price}}<!-- 计费单价 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text><input type="digit" name="priceHour" class="input" placeholder="{{lg.placeholderPrice}}"></input>
+            </view>
+        </view>
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon10}}" class="icon"></image>
+                {{lg.capping}}<!-- 日封顶价格 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text><input type="digit" name="priceDayMax" class="input" placeholder="{{lg.placeholdercapping}}"></input>
+            </view>
+        </view>
+
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon17}}" class="icon"></image>
+                {{lg.rentWay}}<!-- 租借方式 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text>
+                <!-- 0用户自己提现。1系统自动退款 -->
+                <radio-group name="zitui" class="radio-group weui-input">
+                    <radio style="margin-right:10rpx;" checked class="radio" value="0">
+                        {{lg.zitui0}}
+                    </radio>
+                    <radio style="margin-right:10rpx;" class="radio" value="1">
+                        {{lg.zitui1}}
+                    </radio>
+                </radio-group>
+            </view>
+        </view>
+
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon18}}" class="icon"></image>
+                {{lg.isDeposit}}<!-- 是否免押 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text>
+                <!-- 0否。1是 -->
+                <radio-group name="freeDeposit" class="radio-group weui-input">
+                    <radio style="margin-right:10rpx;" checked class="radio" value="1">
+                        {{lg.isMian1}}
+                    </radio>
+                    <radio style="margin-right:10rpx;" class="radio" value="0">
+                        {{lg.isMian2}}
+                    </radio>
+                </radio-group>
+            </view>
+        </view>
+
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon12}}" class="icon"></image>
+                {{lg.phone}}<!-- 联系电话 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text><input type="text" name="tel" class="input" placeholder="{{lg.placeholderPhone}}"></input>
+            </view>
+        </view>
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon13}}" class="icon"></image>
+                {{lg.salesman}}<!-- 业务员 -->
+            </view>
+            <view class="right">
+                <input type="text" class="input" name="agentId4" placeholder="{{lg.placeholderSalesman}}" value="{{ywName}}" disabled="true" data-url="../chooseAgent/chooseAgent?groupid=5" bindtap="jumpPage"></input>
+                <input type="text" class="input" name="agentId4" placeholder="{{lg.placeholderSalesman}}" value="{{ywId}}" disabled="true" hidden="{{true}}"></input>
+                <button class="delAgent theme_background_color" bindtap="emptyAgent4">清空</button>
+            </view>
+        </view>
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon14}}" class="icon"></image>
+                {{lg.salesRoyalty}}<!-- 业务员提成 -->
+            </view>
+            <view class="right">
+                <input type="text" class="input" name="ywTc" value="{{ywTc}}" placeholder="{{lg.placeholderSalesRoyalty}}" disabled="true"></input>
+            </view>
+        </view>
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon15}}" class="icon"></image>
+                {{lg.storeAdminisitor}}<!-- 商户管理员 -->
+            </view>
+            <view class="right">
+                <input type="text" class="input" name="agentId5" value="{{dpName}}" placeholder="{{lg.placeholderStore}}" disabled="true" data-url="../chooseAgent/chooseAgent?groupid=6&id={{ywId}}" bindtap="jumpPage"></input>
+                <input type="text" class="input" name="agentId5" value="{{dpId}}" placeholder="{{lg.placeholderStore}}" disabled="true" hidden="{{true}}"></input>
+                <button class="delAgent theme_background_color" bindtap="emptyAgent5">清空</button>
+            </view>
+        </view>
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon16}}" class="icon"></image>
+                {{lg.storeRoyalty}}<!-- 管理员提成 -->
+            </view>
+            <view class="right">
+                <input type="text" class="input" name="dpTc" value="{{dpTc}}" placeholder="{{lg.placeholderStoreRoyalty}}" disabled="true"></input>
+            </view>
+        </view>
+        <input type="text" class="input" name="type" value="{{type}}" hidden="{{true}}"></input>
+        <view class="footer">
+            <view class="promit">{{lg.promitTxt}}</view>
+            <button formType="submit" type="primary" class="theme_btn saveBtn">{{lg.saveBtn}}</button>
+        </view>
+    </form>
+</view>

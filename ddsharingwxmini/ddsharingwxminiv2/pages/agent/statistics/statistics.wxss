@@ -1,0 +1,146 @@
+/* pages/agent/statistics/statistics.wxss */
+.header{
+    padding-top:1rpx;
+    height: 380rpx;
+    background-size: cover;
+}
+.times{
+    font-size:32rpx;
+    font-weight:bold;
+    color:rgba(255,255,255,1);
+    margin-top: 148rpx;
+    margin-left: 30rpx;
+    display: flex;
+    justify-content: center;
+}
+.beginTime{
+    margin-right: 30rpx;
+}
+.endTime{
+    margin-left: 30rpx;
+}
+.downArrow{
+    width:21rpx;
+    height:12rpx;
+    margin-left: 6rpx;
+    vertical-align: text-bottom;
+    margin-bottom: 13rpx;
+}
+
+.totalStatistics{
+    padding: 0 60rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40rpx;
+}
+.turnover,.earnings{
+    font-size:30rpx;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+.earnings{
+    margin-left: 75rpx;
+}
+
+.industryStatistics{
+    margin-top: 37rpx;
+    padding: 0 30rpx;
+    font-size:28rpx;
+}
+.title{
+    font-size:28rpx;
+}
+
+.pieChartBox{
+    display: flex;
+    /* justify-content: center; */
+}
+.pieChart{
+    width: 40vw;
+    height: 300rpx;
+}
+.statisticsNum{
+    width: 60vw;
+    text-align: center;
+    justify-content: space-between;
+}
+.sflex_2{
+    display: flex;
+}
+.sflex{
+    flex: 1;
+    font-size: 24rpx;
+    /* line-height: 40rpx; */
+}
+.grayTxt{
+    color: #999999;
+}
+
+.grayBg{
+    width: 100%;
+    height: 15rpx;
+    background: #F6F7F9;
+}
+
+.barChart{
+    width: 100%;
+    height: 300rpx;
+}
+
+.sflex_3{
+    display: flex;
+    margin-top: 20rpx;
+}
+.item{
+    flex: 1;
+    text-align: center;
+}
+.blodTxt{
+    font-size:24rpx;
+    font-weight:bold;
+}
+.grayTitle{
+    font-size:22rpx;
+    color: #999;
+}
+
+
+.statisticsVal{
+    margin-top: 10rpx;
+}
+.graySences{
+    display: flex;
+    justify-content: left;
+    font-size:22rpx;
+    color: #999999;
+    line-height: 22rpx;
+}
+.colorBg{
+    float: left;
+    width:22rpx;
+    height:22rpx;
+    border-radius:4rpx;
+    margin-right: 6rpx;
+    vertical-align: text-top;
+}
+
+/* .colorBg1{
+    background: #8385FC;
+}
+.colorBg2{
+    background: #8385FC;
+}
+.colorBg3{
+    background: #8385FC;
+}
+.colorBg4{
+    background: #8385FC;
+}
+.colorBg5{
+    background: #8385FC;
+}
+.colorBg6{
+    background: #8385FC;
+} */

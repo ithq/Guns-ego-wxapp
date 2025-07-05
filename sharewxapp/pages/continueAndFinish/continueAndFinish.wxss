@@ -1,0 +1,102 @@
+
+page{
+  height: 100%;
+  background: #fff;
+}
+.topfeedback{
+    width: 51.73%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.topfeedback text{
+    display: block;
+    margin-bottom: 30rpx;
+    color: #fff;
+    font-size: 52rpx; 
+}
+.topfeedback view{
+   color: #fff;
+   font-size: 32rpx; 
+}
+.costdetail{
+  height: 37.81%;
+  margin-bottom: 100rpx;
+}
+.costtit{
+  padding: 20rpx 30rpx 0;
+  height: 22.84%;
+  font-size: 32rpx;
+  color: #323232;
+  background: #fff;
+  display: flex;
+  align-items: center;
+}
+.costtit text{
+  margin-right: 20rpx;
+  font-size: 42rpx;
+  color: #36a3ff;
+}
+.costmain{
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  height: 19.29%;
+  font-size: 26rpx;
+  color: #959595;
+  background: #fff;
+  border-bottom: 1rpx solid #eef3f4;
+}
+.costmainflex{
+  width: 100%;
+}
+.costmain text{
+  float: right;
+  color: #323232;
+}
+
+.up-button{
+    width: 100%;
+    border-radius: 50rpx;
+    display: flex;    /*设置显示样式**/
+    align-items: center;    /**子view垂直居中*/
+    vertical-align: center; /**垂直居中*/
+    justify-content: center; /**内容居中*/
+    margin-bottom: 15rpx;
+}
+.up-button form{
+  display: block;
+  width: 70%;
+  height: 100%;
+}
+.down-button{
+    width:100%;
+    border-radius: 50rpx;
+    display: flex;    /*设置显示样式**/
+    align-items: center;    /**子view垂直居中*/
+    vertical-align: center; /**垂直居中*/
+    justify-content: center; /**内容居中*/
+}
+.down-button form{
+  display: block;
+  width: 70%;
+  height: 100%;
+}
+.btn{
+    width: 100%;
+}
+.btnUp{
+  border-radius:50rpx 50rpx 50rpx 50rpx;
+  background-color:rgb(214, 209, 209);
+  color: #444;
+}
+.btnDown{
+    background: #58acec;
+    border-radius: 50rpx 50rpx 50rpx 50rpx;
+    color: #fff;
+}
+.btn::after{
+  border: 0;
+}

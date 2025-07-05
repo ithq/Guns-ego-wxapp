@@ -1,0 +1,50 @@
+const language = [
+  {
+    noRented: "未租借",
+    requesting: "请求中",
+    leased: "租借中",
+    revoked: "已撤销",
+    trouble: "故障单",
+    returned: "已归还",
+    purchase: "购买单",
+    timeout: "超时单",
+    refunded: "已退款",
+    deleted: "已删除",
+    // 账户变更类型：1.余额充值 2.余额自动退款 3 租金支出，4.押金转余额，5.余额转押金,6.余额手动提现,7.逾期购买
+    echargeBalance: "余额充值",
+    chargeStatu1: "余额自动退款",
+    chargeStatu2: "租借消费",
+    chargeStatu3: "押金转余额",
+    chargeStatu4: "余额转押金",
+    chargeStatu5: "余额提现",
+    chargeStatu6: "逾期购买",
+    symbol: "￥",
+    symbolText: "元",
+    copy: "复制",
+    copySuccessful: "复制成功",
+    loading: "加载中...",
+    noData: "暂无记录",
+    noMore: "没有更多了",
+    modalTitle: "温馨提示",
+    confirm: "确定",
+    cancel: '取消',
+    scanFail: "扫码失败",
+    cancelPayment: "支付已取消",
+    paymentSuccessful: "支付成功",
+    hour: "小时",
+    min: "分钟",
+    seconds: "秒",
+    tips: "系统提示",
+    networkLost: "网络走丢啦~",
+    refresh: "刷新",
+    weChat: '微信',
+    useTutorial: "使用教程",
+    powerBank: "充电宝",
+    passwordLine: "密码线",
+    bluetoothCable: "蓝牙线",
+    correspond: "未找到对应设备信息"
+  }
+]
+module.exports = {
+  language:language
+}

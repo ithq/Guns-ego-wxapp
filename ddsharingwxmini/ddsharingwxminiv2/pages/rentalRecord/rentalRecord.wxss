@@ -1,0 +1,150 @@
+/* pages/rentalRecord/rentalRecord.wxss */
+page {
+  background: #F5F5F7;
+}
+
+.container {
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.rental_tab_item {
+  padding: 20rpx 0;
+  font-size: 26rpx;
+  font-weight:700;
+  color: #000000;
+}
+
+.rental_tab_item::after {
+  content: '';
+  display: block;
+  width: 24rpx;
+  height: 4rpx;
+  margin-top: 10rpx;
+  background-color:#fff;
+  border-radius:2rpx;
+}
+
+.active {
+  color:#00C176;
+}
+
+.rental_tab_item.active::after{
+  background-color:rgba(0,193,118,1);
+}
+
+.rental_scroll_warp {
+  width: 100%;
+  position: relative;
+}
+
+.rental_scroll {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.rental_scroll::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+
+scroll-view [style*="overflow"]::-webkit-scrollbar {  
+  display: none;  
+} 
+
+.rental_record_list {
+  padding: 30rpx;
+}
+
+.rental_record_item {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx 40rpx;
+  margin-bottom: 30rpx;
+}
+
+.rental_record_status {
+  padding: 30rpx 0;
+  margin-bottom: 30rpx;
+  border-bottom: 1px dashed rgba(186,186,186,0.5);
+}
+
+.rental_status {
+  font-size: 26rpx;
+  padding-bottom: 20rpx;
+}
+
+.rental_amount {
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.rental_record_content {
+  font-size: 26rpx;
+}
+
+.copy_warp {
+  position: relative;
+}
+
+.copy_box {
+  position: absolute;
+  top: -48rpx;
+  right: -130rpx;
+  width: 160rpx;
+  height: 130rpx;
+}
+
+.rental_record_content_item {
+  display: inline-block;
+  min-width: 154rpx;
+  padding-bottom: 20rpx;
+}
+
+.rental_record_content_item_data {
+  display: inline-block;
+}
+
+.rental_record_copy {
+  margin-left: 46rpx;
+  border: 1px solid rgba(186, 186, 186, 0.3);
+  border-radius: 4rpx;
+  font-size: 18rpx;
+  color: #000;
+  padding: 0 4rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+}
+
+.offlineColor {
+  color: #FF3944;
+}
+
+/* 没有数据 */
+.no_data {
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #F5F5F7;
+}
+.no_data_warp {
+  margin-top: -7vh;
+}
+
+.null_img{
+  width: 49.34vw;
+  height: 49.34vw;
+}
+.no_data_txt{
+  font-size: 28rpx;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 700;
+  padding-top: 40rpx;
+}

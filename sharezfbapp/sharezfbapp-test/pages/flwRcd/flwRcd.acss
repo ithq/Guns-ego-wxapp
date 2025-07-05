@@ -1,0 +1,90 @@
+page{
+	background: #fff;
+  height: 100%;
+}
+.flwrcd{
+height:80px;
+padding:37rpx 34rpx 42rpx 76rpx;
+border-bottom:1rpx solid #f1f3f6;
+line-height:30rpx;
+background:#fff;
+display:block;
+border-radius:0;
+width:100%;
+box-sizing:border-box;
+-webkit-box-sizing:border-box;
+text-align:left;
+}
+.flwrcdtit{
+	position: relative;
+	margin-bottom: 20rpx;
+	font-size: 32rpx;
+	color: #444;
+}
+.flwrcdtit:after{
+	content: '';
+	position: absolute;
+	left: -36rpx;
+	top: 11rpx;
+	width: 14rpx;
+	height: 14rpx;
+	background: #36a3ff;
+	border-radius: 50%;
+}
+.flwrcddetail{
+	font-size: 26rpx;
+	color: #959595;
+}
+.line{
+	display: inline-block;
+	margin: 0 40rpx;
+	width: 1rpx;
+	height: 24rpx;
+	background: #e4e7eb;
+}
+.status{
+	float: right;
+	color: #959595;
+	font-size: 26rpx;
+}
+.status text{
+	margin-left: 16rpx;
+	font-size: 26rpx;
+	vertical-align: middle;
+}
+.flwdetaill{
+	padding: 0 34rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+	background: #eef3f4;
+	border-bottom: 1rpx solid #fff;
+	font-size: 26rpx;
+  text-align: left;
+	overflow: hidden;
+}
+.shouqi .icon-goto{
+  display: inline-block;
+	transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+}
+.chakan .icon-goto{
+	display: inline-block;
+	transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+}
+button::after{
+  border:1px solid rgba(0, 0, 0, 0);
+  border-bottom:1px solid #ddd;
+}
+.button-hover{
+  background: #ddd;
+}
+button[disabled] {
+  color: #323232;
+  background: #fff;
+}
+button[disabled][type="default"],
+wx-button[disabled]:not([type]) {
+color: #323232;
+background-color:#fff;
+}

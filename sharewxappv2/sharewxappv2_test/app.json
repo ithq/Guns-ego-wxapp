@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/help/help",
+    "pages/kp/kp",
+    "pages/usrCt/usrCt",
+    "pages/fnhRchg/fnhRchg",
+    "pages/cntuAndFnsh/cntuAndFnsh",
+    "pages/rdyToBleRchg/rdyToBleRchg",
+    "pages/scnRslt/scnRslt"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#3ED3F4",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "共享充电",
+    "backgroundColor": "#EEEEEE",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "networkTimeout": {
+    "request": 30000
+  },
+  "sitemapLocation": "sitemap.json"
+}

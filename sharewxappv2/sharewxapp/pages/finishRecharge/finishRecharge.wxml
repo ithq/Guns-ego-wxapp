@@ -1,0 +1,32 @@
+<view id="printbtn" class="homepagebtn" style=" background: url({{resourceUrl}}/images/icon/homePage.png) no-repeat; background-size: 100% 100%;" bindtap='goWxAppHomePageForHomePageButton'></view>
+   <view class="banner" style=" background-image: url({{resourceUrl}}/images/images/finishRecharge.png), -webkit-linear-gradient(top, #33dfcd, #1dc2ff);background-repeat: no-repeat; background-position: bottom right;background-size: auto 100%;">
+  <view class="checkresult">
+    <view>
+        <text class="iconfont icon-successreturn"></text>
+        <view class="checkresulttip">归还成功</view>        
+    </view>
+  </view>    
+</view>
+<view class="costdetail">
+  <view class="costmain">
+    <view class="costmainflex">
+       本次充电时长<text>{{userTimeText}}</text>
+    </view>   
+  </view>
+  <view class="costmain">
+    <view class="costmainflex">
+        本次充电使用费<text>￥ {{useAmount}} 元</text>
+    </view>   
+  </view>
+  <view class="costmain" style='border-bottom:none;'>
+    <view class="costmainflex">
+        剩余预付金<text>{{balanceForYfj}} 元</text>
+    </view>   
+  </view>
+<view style='height:6%;'></view>
+  <form  bindsubmit="goToWithDraw" report-submit="true">
+    <view class="default-button" hidden="{{dbOperationHid}}">
+        <button class="btn" disabled="{{!dbOperationFlag}}" formType="submit"><text class="iconfont"></text>退剩余预付金</button>    
+    </view>
+  </form>  
+</view>

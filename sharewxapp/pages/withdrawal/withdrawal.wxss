@@ -1,0 +1,229 @@
+page{
+	width: 100%;
+	height: 100%;
+	background: #eef3f4;
+}
+.payinfo{
+	position: relative;
+	width: 94.66%;
+	height: 38.14%;
+	margin: 0 auto;
+    background: #fff;
+    border-radius: 10rpx;
+}
+.inputinfo{
+	height: 68.55%;
+	width: 90%;
+	margin: 0 auto;
+}
+.paynum{
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	height: 30.57%;
+	font-size: 28rpx;
+	color: #444;
+}
+.aboutinput{
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	width: 100%;
+	height: 40.07%;
+	font-size: 60rpx;
+	color: #000;
+	border-bottom: 1rpx solid #e2e2e2;
+  overflow: hidden;
+}
+.inputbox{
+	width: 80%;
+	height: 70%;
+	margin: 0 auto;
+}
+.aboutinput .input{
+	display: inline-block;
+	outline: none;
+	text-align: center;
+	font-size: 80rpx;
+	background: #fff;
+}
+.guangbiao{
+	display: inline-block;
+	width: 2rpx;
+	height: 90%;
+	background: #444;
+	border-radius: 10rpx;
+	animation:fadeIn 1s infinite;
+-webkit-animation:fadeIn 1s infinite;
+}
+@keyframes fadeIn {
+	0% {opacity: 0;}
+	50% {opacity: 1;}
+	100% {opacity: 0;}
+}
+@-webkit-keyframes fadeIn {
+	0% {opacity: 0;}
+	50% {opacity: 1;}
+	100% {opacity: 0;}
+}
+.huiyuan{
+	display: flex;
+	align-items: center;
+	height: 22.71%;
+	color: #959595;
+	font-size: 28rpx;
+}
+.huiyuan text{
+	color: #36a3ff;
+}
+.klbtn{
+	position: absolute;
+	bottom: 7.4%;
+	left: 50%;
+	width: 84.4%;
+	height: 19.13%;
+	margin-left: -42.2%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100rpx;
+	background: -webkit-linear-gradient(top,#36a3ff,#07adff);
+	background: linear-gradient(top,#36a3ff,#07adff);
+	box-shadow: 0 3rpx 10rpx rgba(7,173,255,.3);
+    -webkit-box-shadow: 0 3rpx 10rpx rgba(7,173,255,.3);
+	font-size: 36rpx;
+	color: #fff;
+}
+.knowzd{
+	width: 100%;
+	height: 8%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #959595;
+	font-size: 28rpx;
+	text-align: center;
+}
+
+.keybord{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 42.53%;
+	overflow: hidden;
+	font-size: 0;
+	background: #fff;
+}
+.numbox{
+	float: left;
+	width: 100%;
+	height: 100%;
+	font-size: 60rpx;
+	color: #42475c;
+	overflow: hidden;
+
+}
+.numbox .num,.numbox .numgrey{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	float: left;
+	width: 33.33333333%;
+	height: 25.04%;
+	text-align: center;
+	border: 1rpx solid #e4e8ea;
+	color: #666;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.numbox .numgrey{
+	background: #e3e6e9;
+}
+.numbox .num:active,.numbox .numgrey:active{
+	background: #ddd;
+}
+
+button[disabled][type="default"], button[disabled]:not([type]) {
+   color: #fff;
+   background: #2da8e1;
+   opacity: .5;
+}
+
+.cash-tip {
+  padding: 0 4%;
+  margin: 36rpx auto;
+  line-height: 40rpx;
+  font-size: 26rpx;
+  color: #21b3fc;
+  text-align: left;
+  transition-property: color;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  -webkit-transition-property: color;
+  -webkit-transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease;
+}
+
+.cash-history{
+  padding: 0 4%;
+  margin: 5rpx auto 40rpx;
+  text-align: left;
+  transition-property: color;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  -webkit-transition-property: color;
+  -webkit-transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease;
+  text-decoration:underline;
+}
+
+.cash-history .iconfont{
+  font-size: 26rpx;
+  text-decoration:underline;
+}
+
+.cash-tip:active {
+  color: #075f88;
+}
+
+.cash-tab {
+  width: 92%;
+  margin: 0 auto 60rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border: 1rpx solid #33bff5;
+  border-radius: 10rpx;
+}
+
+.cash-tab .tab {
+  float: left;
+  width: 50%;
+  height: 100%;
+  font-size: 32rpx;
+  text-align: center;
+  color: #33bff5;
+}
+
+.cash-tab .tab:nth-of-type(1) {
+  border-radius: 10rpx 0 0 10rpx;
+}
+
+.cash-tab .tab:nth-of-type(2) {
+  border-radius: 0 10rpx 10rpx 0;
+}
+
+.cash-tab .tab.active {
+  background: #33bff5;
+  color: #fff;
+}
+
+.cash-box {
+  display: none;
+}
+.button-hover{
+  background: #ddd;
+}
+.cash-fill .cashallactive{
+  background: #ddd;
+}

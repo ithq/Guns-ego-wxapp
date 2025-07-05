@@ -1,0 +1,163 @@
+<!--pages/agent/agentDetail/agentDetail.wxml-->
+<view class="main">
+    <form bindsubmit='editAgent'>
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon1}}" class="icon"></image>
+                {{lg.agentLeve}}<!-- 代理等级 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text><input type="text" name="groupName" value="{{info.groupName}}" class="input" disabled="true"></input>
+                <input type="text" name="groupId" value="{{info.groupId}}" class="input" hidden="{{true}}"></input>
+            </view>
+        </view>
+
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon2}}" class="icon"></image>
+                {{lg.agentNickname}}<!-- 代理昵称 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text><input type="text" name="name" class="input" value="{{info.name}}" placeholder="{{lg.placeholderAgent}}"></input>
+            </view>
+        </view>
+
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon2}}" class="icon"></image>
+                {{lg.agentUser}}<!-- 绑定用户 -->
+            </view>
+            <view class="right" data-url="../chooseUser/chooseUser" bindtap="jumpPage">
+                <text class="red">*</text><input type="text" name="userName" class="input" value="{{userName}}" placeholder="{{lg.placeholderUser}}" disabled="true"></input>
+                <input type="text" name="userId" class="input" value="{{userId}}" hidden="{{true}}"></input>
+            </view>
+        </view>
+
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon3}}" class="icon"></image>
+                {{lg.area}}<!-- 所在区域 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text>
+                <picker mode="region" value="{{region}}" custom-item="{{customItem}}" bindchange="bindRegionChange">
+                    <view class="picker">
+                        <!-- {{region[0]}}，{{region[1]}}，{{region[2]}} -->
+                        <text wx:if="{{region.length > 0}}">{{region[0]}}-{{region[1]}}-{{region[2]}}</text>
+                        <text class="gray" wx:else>{{lg.placeholderArea}}</text>
+                        <input type="text" name="country" value="中国" hidden="{{true}}"></input>
+                        <input type="text" name="provinceName" value="{{region[0]}}" hidden="{{true}}"></input>
+                        <input type="text" name="cityName" value="{{region[1]}}" hidden="{{true}}"></input>
+                        <input type="text" name="areaName" value="{{region[2]}}" hidden="{{true}}"></input>
+                    </view>
+                </picker>
+            </view>
+        </view>
+
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon3}}" class="icon"></image>
+                {{lg.address}}<!-- 详细地址 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text><input type="text" name="address" class="input" value="{{info.address}}" placeholder="{{lg.placeholderDetail}}"></input>
+            </view>
+        </view>
+
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon4}}" class="icon"></image>
+                {{lg.phone}}<!-- 联系电话 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text><input type="digit" name="tel" class="input" value="{{info.tel}}" placeholder="{{lg.placeholderConcat}}"></input>
+            </view>
+        </view>
+
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon5}}" class="icon"></image>
+                {{lg.ratio}}<!-- 提成比例 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text><input type="digit" name="agentMoney" class="input" value="{{info.agentMoney}}" placeholder="{{lg.placeholderRatio}}" disabled="true"></input>
+            </view>
+        </view>
+
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon6}}" class="icon"></image>
+                {{lg.freeRent}}<!-- 免费租借 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text>
+                <radio-group name="userClass" class="radio-group weui-input">
+                    <radio style="margin-right:10rpx;" checked="{{info.userClass == 0 ? 'true' : ''}}" class="radio" value="0">
+                        {{lg.anAllow}}
+                    </radio>
+                    <radio style="margin-right:10rpx;margin-left: 40rpx;" checked="{{info.userClass == 1 ? 'true' : ''}}" class="radio" value="1">
+                        {{lg.allow}}
+                    </radio>
+                </radio-group>
+            </view>
+        </view>
+
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon7}}" class="icon"></image>
+                {{lg.isPopup}}<!-- 弹出许可 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text>
+                <radio-group name="ejectType" class="radio-group weui-input">
+                    <radio style="margin-right:10rpx;" checked="{{info.ejectType == 0 ? 'true' : ''}}" class="radio" value="0">
+                        {{lg.anAllow}}
+                    </radio>
+                    <radio style="margin-right:10rpx;margin-left: 40rpx;" checked="{{info.ejectType == 1 ? 'true' : ''}}" class="radio" value="1">
+                        {{lg.allow}}
+                    </radio>
+                </radio-group>
+            </view>
+        </view>
+
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon8}}" class="icon"></image>
+                {{lg.isWithdraw}}<!-- 提现许可 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text>
+                <radio-group name="withdraw" class="radio-group weui-input">
+                    <radio style="margin-right:10rpx;" checked="{{info.withdraw == 0 ? 'true' : ''}}" class="radio" value="0">
+                        {{lg.anAllow}}
+                    </radio>
+                    <radio style="margin-right:10rpx;margin-left: 40rpx;" checked="{{info.withdraw == 1 ? 'true' : ''}}" class="radio" value="1">
+                        {{lg.allow}}
+                    </radio>
+                </radio-group>
+            </view>
+        </view>
+
+        <view class="inputItem">
+            <view class="left">
+                <image src="{{imgUrl + icon9}}" class="icon"></image>
+                {{lg.accountStatu}}<!-- 账号状态 -->
+            </view>
+            <view class="right">
+                <text class="red">*</text>
+                <radio-group name="lock" class="radio-group weui-input">
+                    <radio style="margin-right:10rpx;" checked="{{info.lock == 1 ? 'true' : ''}}" class="radio" value="1">
+                        {{lg.anAllow}}
+                    </radio>
+                    <radio style="margin-right:10rpx;margin-left: 40rpx;" checked="{{info.lock == 0 ? 'true' : ''}}" class="radio" value="0">
+                        {{lg.allow}}
+                    </radio>                    
+                </radio-group>
+            </view>
+        </view>
+
+
+
+        <button formType="submit" type="primary" class="theme_btn saveBtn">{{lg.saveBtn}}</button>
+    </form>
+</view>

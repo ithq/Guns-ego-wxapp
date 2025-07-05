@@ -1,0 +1,84 @@
+.pwdBoxcls{
+  width:96%;
+  height:248px;
+  background:rgba(255,255,255,1);
+  box-shadow:1px 5px 5px 1px rgba(0,0,0,0.06);
+  border-radius:5px;
+  margin-left: 6px;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+.pwdTitle{
+  width:150px;
+  height:30px;
+  font-size:21px;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  line-height:30px;
+  padding-top: 20px;
+  padding-left: 15px;
+}
+.pwdTitle1{
+  padding-left: 18px;
+  width:220px;
+  height:17px;
+  font-size:12px;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(149,149,149,1);
+  line-height:17px;
+}
+.bottomBarCls{
+  position: absolute;
+  bottom: 100px;
+  width:100%;
+  height:17px;
+  font-size:12px;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(149,149,149,1);
+  line-height:17px;
+  text-align: center;
+}
+.passwordcode{
+    height: 66.2%;
+    text-align: center;
+}
+.passwordcode .text{
+    margin-top: 20rpx;
+}
+.codelistfive,
+.codelistsix{
+    height: 40.625%;
+    text-align: center;
+    font-size: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.codelistfive text,
+.codelistsix text{  
+    display: inline-block;
+    margin: 0 7rpx;
+    color: #FF610A;
+    font-weight: bolder;
+    font-family: 'Hiragino Sans GB';
+    text-align: center;
+    border: 2rpx #cdcfcf solid;
+    border-radius: 5rpx;
+    background-color: #F5F5F5;
+}
+.codelistfive text{
+    width: 95rpx;
+    height: 95rpx;
+    line-height: 98rpx;
+    font-size: 72rpx;
+}    
+.codelistsix text{
+    width: 80rpx;
+    height:80rpx;
+    line-height: 80rpx;
+    font-size: 50rpx;
+}

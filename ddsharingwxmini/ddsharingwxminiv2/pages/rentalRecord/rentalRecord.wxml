@@ -1,0 +1,62 @@
+<!--pages/rentalRecord/rentalRecord.wxml-->
+<wxs module="filter" src="../../config/filter.wxs"></wxs>
+<view class="container flex_column flex_center_y">
+	<view class="nav">
+		<navigation-bar leftTitle="{{lg.pageTitle}}" back="{{true}}" bindback="goBack"></navigation-bar>
+	</view>
+
+	<view class="rental_scroll_warp flex_1">
+		<scroll-view class="rental_scroll" scroll-y="true" bindscrolltolower='scrollToLower' lower-threshold='50' refresher-enabled="{{true}}" refresher-threshold="{{100}}" refresher-default-style="black" refresher-background="#fff" refresher-triggered="{{triggered}}" bindrefresherrefresh="onRefresh">
+			<view class="rental_record_list"  wx:if="{{!noData}}">
+				<view class="rental_record_item" wx:for="{{orderList}}" wx:key="index" bindtap="jumpPage" data-id="{{item.orderSn}}" data-url="../rentalRecordDetail/rentalRecordDetail">
+					<view class="rental_record_status flex_center_y flex_column">
+						<text class="rental_status">{{filter.borrowState(item.borrowState, commonLg)}}</text>
+						<text class="rental_amount">{{commonLg.symbol}}{{filter.moneyFormato(item.payPrice)}}</text>
+					</view>
+
+					<view class="rental_record_content gray_color flex">
+						<text class="rental_record_content_item">{{lg.orderNumber}}</text>
+						<text class="rental_record_content_item_data">{{item.orderSn}}</text>
+						<view class="copy_warp">
+							<view class="copy_box flex_center_y" catchtap="copyTxt" data-txt="{{item.orderSn}}">
+								<view class="rental_record_copy">{{commonLg.copy}}</view>
+							</view>
+						</view>
+					</view>
+					<!-- 电池ID -->
+					<view class="rental_record_content gray_color" wx:if="{{item.batteryId && tabStatu == 1}}">
+						<text class="rental_record_content_item">{{lg.batteryID}}</text>
+						<text class="rental_record_content_item_data">{{item.batteryId}}</text>
+					</view>
+					<!-- 设备ID -->
+					<view class="rental_record_content gray_color" wx:if="{{item.deviceId && tabStatu != 1}}">
+						<text class="rental_record_content_item">{{lg.deviceID}}</text>
+						<text class="rental_record_content_item_data">{{item.deviceId}}</text>
+					</view>
+					<view class="rental_record_content gray_color">
+						<text class="rental_record_content_item">{{lg.rentShop}}</text>
+						<text class="rental_record_content_item_data">{{item.shopName}}</text>
+					</view>
+					<view class="rental_record_content gray_color">
+						<text class="rental_record_content_item">{{lg.rentTime}}</text>
+						<text class="rental_record_content_item_data">{{item.borrowTime}}</text>
+					</view>
+					<view class="rental_record_content gray_color">
+						<text class="rental_record_content_item">{{lg.useTime}}</text>
+						<text class="rental_record_content_item_data">{{item.usedMinute}}</text>
+					</view>
+				</view>
+			</view>
+
+			<view class="no_data" wx:if="{{noData}}">
+				<view class="no_data_warp">
+					<image src="{{imgUrl + 'nearStore/null3.png'}}" class="null_img" mode="widthFix"></image>
+					<view class="no_data_txt">{{commonLg.noData}}</view>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+</view>
+
+<!-- 刷新 -->
+<refresh description="{{commonLg.networkLost}}" btnTxt="{{commonLg.refresh}}" wx:if="{{refresh}}" bindrefresh="toRefresh"></refresh>

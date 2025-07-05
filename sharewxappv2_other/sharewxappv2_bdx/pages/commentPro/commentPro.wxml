@@ -1,0 +1,18 @@
+<view id="homeBtn" class="homeBtnCls" style="bottom:30px; margin-right:30px;" bindtap='goToIndexPage'>
+    <image src='/img/icon/home.png' class='homeIconCls'></image>
+</view>
+  <scroll-view class="scroll-view-list" scroll-y="true" scroll-x="false" lower-threshold="50" >
+    <view class="h2">常见问题解答</view>
+    <view class="contentbox">
+      <view class="title">1、 充值后，没有收到动态密码怎么办？</view>
+      <view class="content">答：动态密码不是通过短信发送，支付成功后，点击微信支付成功页面下方的完成，会自动跳转到密码页面，如已关闭支付成功页面，可再次扫码，点继续使用，可重新获取动态密码。</view>
+      <view class="title">2、 为什么正确输入了密码，还是不能充电？</view>
+      <view class="content">答：正确输入密码后，开机或电源指示灯处会常亮绿灯，同时会亮起蓝色电量指示灯。如没有亮起上述指示灯，则有可能是充电器本身已损坏。</view>
+      <view class="title">3、押金如何退还？</view>
+      <view class="content">答：点击首页左上角的微信头像进入个人中心，点击“提现”；在提现页面输入金额，点击“提现”按钮；操作成功后，等待资金到账即可（根据充值路径不同到账时间会不同）。</view>
+      <view class="title">4、 我充了一会电，中途拔掉了没充，想继续再充电时为何充不了？</view>
+      <view class="content">答：再次扫码（无需再次充值），选择继续使用，重新输入新的动态密码即可继续充电。</view>
+      <view class="title">6、我扫描充电器上的二维码，提示充电器没有上架，请联系客服，这是什么原因？</view>
+      <view class="content">答：出现这种提示，是产品设备还没有激活，请联系消费场所负责人协助激活设备后才可使用。</view>     
+    </view>
+  </scroll-view>

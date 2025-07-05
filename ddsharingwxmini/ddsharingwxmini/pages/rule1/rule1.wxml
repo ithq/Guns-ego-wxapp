@@ -1,0 +1,24 @@
+<view class="container">
+    <view class="order-info">
+        <view class="item">
+            <view class="l">SN:0{{device.iotProductId}}{{device.iotDeviceId}}</view>
+            <view class="r" bindtap='goPages' data-url='/pages/orderList/orderList'>使用记录</view>
+        </view>
+    </view>
+    <view class="banner">
+        <image src="/static/images/fty_single_pay_banner.jpg" mode="widthFix"></image>
+    </view>
+    <view class="fee-box">
+        <view class="rule-img">
+            <image src="/static/images/fee_rule1.png" mode="aspectFit"></image>
+        </view>
+        <view class="desc">
+            <view class="desc-item">*前1小时扣费0.1元，1小时至24小时扣费1元</view>
+            <view class="desc-item">*预付款1元</view>
+            <view class="desc-item">*结束充电，即可退还剩余预付款</view>
+        </view>
+    </view>
+    <view class="bottom">
+        <button class="btn" hover-class="btn-hover" bindtap="pay">付费获取密码</button>
+    </view>
+</view>

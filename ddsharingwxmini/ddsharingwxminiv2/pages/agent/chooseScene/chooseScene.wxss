@@ -1,0 +1,68 @@
+/* pages/agent/chooseScene/chooseScene.wxss */
+.header{
+    position: fixed;
+    width: 100%;
+    padding: 30rpx;
+    background: white;
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+    box-shadow:0px 3rpx 22rpx rgba(0,0,0,0.03);
+    z-index: 10;
+}
+.searchBox{
+    display: flex;
+}
+.searchInputBox{
+    position: relative;
+    width:690rpx;
+    height:70rpx;
+    background:rgba(245,245,247,1);
+    border-radius:36rpx;
+}
+.search{
+    position: absolute;
+    width:23rpx;
+    height:25rpx;
+    top: 23rpx;
+    left: 36rpx;
+}
+.searchInput{
+    position: absolute;
+    width: 600rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    left: 70rpx;
+    font-size:22rpx;
+}
+
+
+/* 列表 */
+.agentList{
+    padding: 0 30rpx;
+    margin-top: 130rpx;
+    height: 1077rpx;
+    box-sizing: border-box;
+}
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+.listItem{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20rpx 0;
+}
+.avatar{
+    width: 50rpx;
+    height: 75rpx;
+}
+.userName{
+    width: 580rpx;
+    font-size:26rpx;
+    margin-left: 30rpx;
+    line-height: 80rpx;
+    border-bottom: 1px dashed rgba(216,216,216,1);
+}

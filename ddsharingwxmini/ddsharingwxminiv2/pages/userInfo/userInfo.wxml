@@ -1,0 +1,36 @@
+<!--pages/personalInformation/personalInformation.wxml-->
+<wxs module="filter" src="../../config/filter.wxs"></wxs>
+
+<navigation-bar leftTitle="{{lg.pageTitle}}" back="{{true}}" bindback="goBack"></navigation-bar>
+
+<View class="user_info_warp">
+	<view class="user_info_login flex_between_center">
+		<view class="user_info_login_login">
+			{{userInfo.firstName}}
+			<view class="user_info_login_id">ID:{{userInfo.number}}</view>
+		</view>
+
+		<view class="user_info_login_avatar">
+			<image class="image_percent" src="{{userInfo.pic}}" wx:if="{{userInfo.pic}}"></image>
+			<image class="image_percent" src="{{imgUrl + 'personalCenter/icon_defaultAvatar3.png'}}" wx:else></image>
+		</view>
+	</view>
+</View>
+
+<view class="menu_warp">
+	<view class="menu_item flex_between_center">
+		<view class="menu_item_title">{{lg.phone}}</view>
+		<view class="menu_item_contetnt" wx:if="{{userInfo.tel}}">{{filter.telFormat(userInfo.tel)}}</view>
+		<button class="menu_item_tel_btn theme_color" hover-class="hover_class" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:else>{{lg.immediatelyBinding}}</button>
+	</view>
+	<view class="menu_item flex_between_center">
+		<view class="menu_item_title">{{lg.weChat}}</view>
+		<view class="menu_item_contetnt">{{lg.bound}}</view>
+	</view>
+</view>
+
+<!-- 弹框 -->
+<toast id='toast'></toast>
+
+
+

@@ -1,0 +1,277 @@
+/* pages/offlineGeneral/scanResult/scanResult.wxss */
+
+page,form {
+  height: 100%;
+}
+
+view, image, text {
+  line-height: 1;
+}
+
+.swiper {
+  position: relative;
+  margin-top: 12rpx;
+}
+
+.scenecontbox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+.banner {
+  position: relative;
+  background: url(../img/scanresult.png), -webkit-linear-gradient(top, #36a3ff, #1dc2ff);
+  background-image: url(../img/scanresult.png), linear-gradient(top, #36a3ff, #1dc2ff);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: auto 100%;
+}
+
+.yourmoney {
+  position: absolute;
+  left: 7.6%;
+  bottom: 15.66%;
+}
+
+.yourmoney {
+  color: #fff;
+}
+
+.moneytext {
+  line-height: 60rpx;
+  font-size: 24rpx;
+}
+
+.moneynum {
+  font-size: 64rpx;
+}
+
+.scenecont {
+  position: relative;
+  width: 100%;
+  height: 65.3%;
+}
+
+.phonebox {
+  width: 92%;
+  height: 9%;
+  margin: 0 auto;
+}
+
+.phone {
+  display: flex;
+  align-items: center;
+  height: 76%;
+  padding: 0 5%;
+  border: 1px solid #f3f4f6;
+  border-radius: 10rpx;
+  box-shadow: 0 8rpx 20rpx rgba(151, 160, 173, 0.2);
+}
+
+.phone label {
+  width: 30%;
+  font-size: 28rpx;
+  color: #323232;
+}
+
+.phone label text {
+  color: #f00;
+}
+
+.phone input {
+  width: 70%;
+  font-size: 26rpx;
+  outline: none;
+}
+
+.phone input::-webkit-input-placeholder {
+  color: #bababa;
+  font-size: 26rpx;
+}
+
+.phone input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #bababa;
+  font-size: 26rpx;
+}
+
+.phone input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #bababa;
+  font-size: 26rpx;
+}
+
+.phone input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #bababa;
+  font-size: 26rpx;
+}
+
+.feescale {
+  height: 50.38%;
+  padding: 0 4%;
+  color: #959595;
+  font-size: 26rpx;
+}
+
+.feescaletitbox {
+  display: flex;
+  align-items: center;
+  height: 12%;
+}
+
+.feescaletitflex {
+  width: 100%;
+}
+
+.feescaletit {
+  color: #323232;
+  font-size: 32rpx;
+  line-height: .56rem;
+}
+
+.feescaletitl {
+  float: left;
+}
+
+.feescaletitr {
+  float: right;
+  font-size: 26rpx;
+}
+
+.feescaletitl text {
+  margin-right: 15rpx;
+  color: #ffc436;
+  font-size: 32rpx;
+}
+
+.feescaletitr, .feescaletitr text {
+  color: #959595;
+}
+
+.feescaletitr text {
+  margin-left: 10rpx;
+  font-size: 26rpx;
+}
+
+.feescaletit image {
+  display: inline-block;
+  width: 30rpx;
+  height: 24rpx;
+  margin-right: 15rpx;
+}
+
+.feescale .feemain {
+  line-height: 46rpx;
+}
+.feescale .feemain {
+  line-height: 46rpx;
+}
+.feescale view{
+  line-height: 56rpx;
+}
+.feemain1{
+  margin-bottom: 8rpx;
+  margin-top: 8rpx;
+}
+.radioclass{
+  height: 15rpx;
+}
+/*扫码按钮*/
+
+.down-button{
+    position: fixed;
+    bottom: 200rpx;
+    width:100%;
+    border-radius: 50rpx;
+    display: flex;    /*设置显示样式**/
+    align-items: center;    /**子view垂直居中*/
+    vertical-align: center; /**垂直居中*/
+    justify-content: center; /**内容居中*/
+}
+
+.down-button{
+    width:100%;
+    border-radius: 50rpx;
+    display: flex;    /*设置显示样式**/
+    align-items: center;    /**子view垂直居中*/
+    vertical-align: center; /**垂直居中*/
+    justify-content: center; /**内容居中*/
+}
+.down-button form{
+  display: block;
+  width: 70%;
+  height: 100%;
+}
+.btn{
+    width: 100%;
+}
+
+.btnDown{
+    background: #58acec;
+    border-radius: 50rpx 50rpx 50rpx 50rpx;
+    color: #fff;
+}
+button[class="scanbtn"]::after {
+  border: 0;
+}
+
+.scenecontboxblur{
+    -webkit-filter: blur(5rpx);
+    filter: blur(5rpx);
+}
+.layer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 11;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.layercontbox {
+  position: relative;
+  width: 77.33%;
+  height: 80.76%;
+}
+
+.round1 {
+  position: absolute;
+  top: -10.94%;
+  left: -2.8%;
+  width: 177rpx;
+  height: 177rpx;
+  background: url(../img/round1.png) no-repeat center;
+  background-size: 100% 100%;
+}
+
+.round2 {
+  z-index: 1;
+  position: absolute;
+  right: -10%;
+  top: 30%;
+  width: 186rpx;
+  height: 186rpx;
+  background: url(../img/round2.png) no-repeat center;
+  background-size: 100% 100%;
+}
+
+.round3 {
+  position: absolute;
+  top: 62%;
+  left: -12%;
+  width: 168rpx;
+  height: 168rpx;
+  background: url(../img/round3.png) no-repeat center;
+  background-size: 100% 100%;
+}
+
+.hide {
+  display: none;
+}

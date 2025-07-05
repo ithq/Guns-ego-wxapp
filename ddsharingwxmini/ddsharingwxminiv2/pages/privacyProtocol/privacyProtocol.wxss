@@ -1,0 +1,6 @@
+/* pages/privacyProtocol/privacyProtocol.wxss */
+.protocol_warp {
+  padding: 30rpx;
+  font-size: 24rpx;
+  line-height: 48rpx;
+}

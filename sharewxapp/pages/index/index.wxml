@@ -1,0 +1,29 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <view class="search">
+    <view wx:if="{{msgFlag && unRead>9}}" class='touxiang-imgred'>9+</view>
+    <view wx:elif="{{msgFlag && unRead<=9}}" class='touxiang-imgred'>{{unRead}}</view>
+    <form bindsubmit="userCenterBindtap" report-submit="true">
+      <button formType="submit" class="touxiang-img" disabled="{{!dbOperationFlag}}">
+        <image src="{{headImgUrl}}"></image>
+      </button>
+    </form>
+    <view class="text" bindtap="positionChoose">
+      <text class='iconfont icon-sousuo'></text>{{address}}</view>
+    <form bindsubmit="list" report-submit="true">
+      <button class='listbtn' formType="submit" disabled="{{!dbOperationFlag}}">
+        <view class="listbtnview">
+          <text class='iconfont icon-liebiao'></text>
+        </view>
+      </button>
+    </form>
+  </view>
+  <view wx:if ="{{batchNo!=undefined && batchNo!=null && batchNo!=''}}" class="couponentryout" style="background: url({{ossImgRoot}}/images/coupon/indexcouponentry1.png) no-repeat top center; background-size: auto 100%;" bindtap="getCouponInfo">
+    <view class="couponentry">
+      <view class="animate">
+        <text class="marquee_div">{{text}}</text>
+      </view>
+    </view>
+  </view>
+  <map id="map" markers="{{markers}}" latitude="{{latitude}}" longitude="{{longitude}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location controls="{{controls}}" scale="16" bindcontroltap="bindcontroltap" />
+</view>

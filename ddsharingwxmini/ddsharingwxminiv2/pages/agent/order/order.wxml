@@ -1,0 +1,95 @@
+<!--pages/agent/order/order.wxml-->
+<wxs module="filter" src="../../../config/filter.wxs"></wxs>
+<no-data promit="{{lg.promit}}" wx:if="{{showData}}"></no-data>
+<view class="main">
+    <view class="header">
+        <view class="searchBox">
+            <view class="searchInputBox">
+                <image src="{{imgUrl + iconSearch}}" class="search"></image>
+                <input type="text" confirm-type="search" bindconfirm="bindconfirm" class="searchInput" value="{{key}}" placeholder="{{lg.inputPleasehold}}"/><!-- 请输入查询内容 -->
+            </view>
+        </view>
+
+        <view class="navBar">
+            <view class="{{orderStatu == 0 ? 'barItem active' : 'barItem'}}" data-i="0" bindtap="changeNav">
+                {{lg.inRent}}({{orderCount.onLoan}})<!-- 租借中 -->
+            </view>
+            <view class="{{orderStatu == 1 ? 'barItem active' : 'barItem'}}" data-i="1" bindtap="changeNav">
+                {{lg.completed}}({{orderCount.completed}})<!-- 已完成 -->
+            </view>
+    
+            <view class="{{orderStatu == 3 ? 'barItem active' : 'barItem'}}" data-i="3" bindtap="changeNav" wx:if="{{type == 1}}">
+                {{lg.timeOut}}({{orderCount.overtimeBill}})<!-- 超时单 -->
+            </view>
+        </view>
+    </view>
+
+
+    <scroll-view class="rental_record_list"
+        scroll-y="{{true}}"
+        refresher-enabled="{{true}}"
+        refresher-threshold="{{50}}"
+        lower-threshold="{{200}}"
+        refresher-triggered="{{triggered}}"
+        bindrefresherpulling="onPulling"
+        bindrefresherrefresh="onRefresh"
+        bindrefresherrestore="onRestore"
+        bindrefresherabort="onAbort"
+        bindscrolltolower="lodeMore"
+    >   
+        <view class="rental_record_item" wx:for="{{listData}}" wx:key="index" wx:for-item="i" bindtap="jumpPage" data-url="../orderDetail/orderDetail?orderid={{i.orderSn}}">
+            <view class="rental_record_status flex_center_y flex_column">
+                 <!-- 0.未租借 1.请求中 2.租借中 3.已撤销 4.故障单 5.已归还 6.购买单 8.超时单 -1.已删除 -->
+                <text class="rental_status">{{i.borrowState == 2 ? lg.inRent : i.borrowState == 5 ? lg.completed : i.borrowState == 6 ? lg.buy : i.borrowState == 8 ? lg.timeOut : i.borrowState}}</text>
+                <text class="rental_amount">{{commonLg.symbol}}{{filter.moneyFormato(i.payPrice)}}</text>
+            </view>
+            <view class="rental_record_content gray_color">
+                <text class="rental_record_content_item">{{lg.orderNumber}}</text>
+                <text class="rental_record_content_item_data">{{i.orderSn}}</text>
+                <view class="rental_record_copy" catchtap="copyTxt" data-txt="{{i.orderSn}}">{{commonLg.copy}}</view>
+            </view>
+            <view class="rental_record_content gray_color">
+                <text class="rental_record_content_item">{{lg.rentShop}}</text>
+                <text class="rental_record_content_item_data">{{i.shopName}}</text>
+            </view>
+            <view class="rental_record_content gray_color">
+                <text class="rental_record_content_item">{{lg.rentTime}}</text>
+                <text class="rental_record_content_item_data">{{i.borrowTime}}</text>
+            </view>
+            <view class="rental_record_content gray_color">
+                <text class="rental_record_content_item">{{lg.useTime}}</text>
+                <text class="rental_record_content_item_data">{{i.usedMinute}}</text>
+            </view>
+        </view>
+
+        <!-- <view class="rental_record_item" wx:for="{{1}}">
+            <view class="rental_record_status flex_center_y flex_column">
+                
+                <text class="rental_status">132132</text>
+                <text class="rental_amount">123123</text>
+            </view>
+    
+            <view class="rental_record_content gray_color">
+                <text class="rental_record_content_item">{{lg.orderNumber}}</text>
+                <text class="rental_record_content_item_data">123123</text>
+                <view class="rental_record_copy" catchtap="copyTxt" data-txt="12321">{{commonLg.copy}}</view>
+            </view>
+            <view class="rental_record_content gray_color">
+                <text class="rental_record_content_item">{{lg.rentShop}}</text>
+                <text class="rental_record_content_item_data">132123</text>
+            </view>
+            <view class="rental_record_content gray_color">
+                <text class="rental_record_content_item">{{lg.rentTime}}</text>
+                <text class="rental_record_content_item_data">123321</text>
+            </view>
+            <view class="rental_record_content gray_color">
+                <text class="rental_record_content_item">{{lg.useTime}}</text>
+                <text class="rental_record_content_item_data" >12312</text>
+            </view>
+        </view> -->
+
+        <view class="noMore" hidden="{{loadMore}}">
+            ——— {{commonLg.noMore}} ———
+        </view>
+    </scroll-view>
+</view>

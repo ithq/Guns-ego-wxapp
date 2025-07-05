@@ -1,0 +1,17 @@
+// 支持es4语法
+var filter = {
+  toMoney: function(value) {
+    if (value == null || value == undefined) {
+      return "";
+    }
+    var fl = parseFloat(value);
+    if (!isNaN(fl)) {
+      return fl.toFixed(2);
+    }
+    return "";
+  }
+}
+// 导出对外暴露的属性
+module.exports = {
+  toMoney: filter.toMoney
+}

@@ -1,0 +1,82 @@
+<!--pages/billingDetail/billingDetail.wxml-->
+<wxs module="filter" src="../../config/filter.wxs"></wxs>
+<navigation-bar leftTitle="{{lg.pageTitle}}" back="{{true}}" bindback="goBack"></navigation-bar>
+
+<!-- 充值详情 -->
+<view class="billing_detail" wx:if="{{showRecharge}}">
+  <view class="billing_detail_type_warp flex_center_center flex_column">
+    <view class="billing_detail_type">{{commonLg.echargeBalance}}</view>
+    <view class="billing_detail_amount">+{{commonLg.symbol}}{{filter.moneyFormato(billContent.amount)}}</view>
+  </view>
+   <!-- 充值金额 -->
+  <view class="billing_detail_content gray_color">
+    <text class="billing_detail_item">{{lg.rechargeAmount}}</text>
+    <text class="billing_detail_item_data">{{commonLg.symbol}}{{filter.moneyFormato(billContent.amount)}}</text>
+  </view>
+  <!-- 充值时间 -->
+  <view class="billing_detail_content gray_color">
+    <text class="billing_detail_item">{{lg.time}}</text>
+    <text class="billing_detail_item_data">{{billContent.createDate}}</text>
+  </view>
+  <!-- 充值方式 -->
+  <view class="billing_detail_content gray_color">
+    <text class="billing_detail_item">{{lg.way}}</text>
+    <text class="billing_detail_item_data">{{lg.weChat}}</text>
+  </view>
+  <!-- 交易单号 -->
+  <view class="billing_detail_content gray_color flex">
+    <text class="billing_detail_item">{{lg.number}}</text>
+    <text>{{billContent.tradeNo}}</text>
+    <view class="copy_warp">
+      <view class="copy_box flex_center_y" catchtap="copyTxt" data-txt="{{billContent.tradeNo}}">
+        <view class="rental_record_copy">{{commonLg.copy}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 交易状态 -->
+  <view class="billing_detail_content gray_color">
+    <text class="billing_detail_item">{{lg.status}}</text>
+    <text class="billing_detail_item_data">{{billContent.accountChangeState == 1 ? lg.transactionSuccess : lg.transactionFail}}</text>
+  </view>
+</view>
+
+<!-- 消费详情 -->
+<view class="billing_detail" wx:if="{{!showRecharge}}">
+  <view class="billing_detail_type_warp flex_center_center flex_column">
+    <view class="billing_detail_type">
+        {{filter.billType(billContent.accountChangeType, commonLg)}}
+    </view>
+    <view class="billing_detail_amount">-{{commonLg.symbol}}{{filter.moneyFormato(filter.abs(billContent.changeAmount))}}</view>
+  </view>
+
+  <!-- 金额 -->
+  <view class="billing_detail_content gray_color">
+    <text class="billing_detail_item">{{billContent.accountChangeType == 3 ? lg.consumptionAmount : billContent.accountChangeType == 6 ? lg.withdrawalAmount : billContent.accountChangeType == 7 ? lg.purPrice : lg.consumptionAmount}}</text>
+    <text class="billing_detail_item_data">{{commonLg.symbol}}{{filter.moneyFormato(filter.abs(billContent.changeAmount))}}</text>
+  </view>
+  <!-- 时间 -->
+  <view class="billing_detail_content gray_color">
+    <text class="billing_detail_item">{{billContent.accountChangeType == 3 ? lg.rentalTime : billContent.accountChangeType == 6 ? lg.withdrawalAmount : billContent.accountChangeType == 7 ? lg.PurTime : lg.transactionTime}}</text>
+    <text class="billing_detail_item_data">{{billContent.addTime}}</text>
+  </view>
+  <!-- 方式 -->
+  <view class="billing_detail_content gray_color">
+    <text class="billing_detail_item">{{ billContent.accountChangeType == 6 ? lg.withdrawalMethod : lg.payMethod}}</text>
+    <text class="billing_detail_item_data">{{lg.weChat}}</text>
+  </view>
+  <!-- 交易单号 -->
+  <view class="billing_detail_content gray_color flex">
+    <text class="billing_detail_item">{{lg.number}}</text>
+    <text class="billing_detail_item_data">{{billContent.serialNo}}</text>
+    <view class="copy_warp">
+      <view class="copy_box flex_center_y" catchtap="copyTxt" data-txt="{{billContent.serialNo}}">
+        <view class="rental_record_copy">{{commonLg.copy}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 当前状态 -->
+  <view class="billing_detail_content gray_color">
+    <text class="billing_detail_item">{{lg.status}}</text>
+    <text class="billing_detail_item_data">{{billContent.accountChangeState == 1 ? lg.transactionSuccess : lg.transactionFail}}</text>
+  </view>
+</view>

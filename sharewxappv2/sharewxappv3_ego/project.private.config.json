@@ -1,0 +1,24 @@
+{
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "q",
+                    "pathName": "pages/index/index",
+                    "query": "https://ewx.szego168.com/rest/share/rh?id=5700295451",
+                    "scene": 1011
+                }
+            ]
+        }
+    }
+}

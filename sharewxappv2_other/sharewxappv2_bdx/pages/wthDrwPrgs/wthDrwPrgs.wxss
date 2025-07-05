@@ -1,0 +1,95 @@
+body{
+	background: #fff;
+}
+.prsTop{
+	display: flex;
+	align-items: center;
+	height: 300rpx;
+	padding-left: 30rpx;
+	color: #fff;
+	font-size: 24rpx;
+}
+.txnNum{
+	margin: 30rpx 0;
+	font-size: 41rpx;
+}
+.txnNum text{
+	font-size: 67rpx;
+}
+.odrNum{
+	padding: 0 30rpx;
+	height: 90rpx;
+	line-height: 90rpx;
+	font-size: 24rpx;
+	color: #444;
+	background: #fff;
+}
+.odrNum text{
+	margin-left: 26rpx;
+	color: #959595;
+}
+.mar{
+	background: #f1f3f6;
+	height: 20rpx;
+}
+.callservice{
+	line-height: 100rpx;
+	font-size: 26rpx;
+	padding: 0 33rpx;
+	height: 100rpx;
+	color: #444;
+	border-bottom: #f1f3f6 1rpx solid;
+}
+.callservice text{
+	color: #88db45;
+	float: right;
+	font-size: 70rpx;
+}
+.bZh{
+	color: #959595;
+	display: flex;
+	align-items: center;
+	padding: 0 40rpx;
+	height: 154rpx;
+	overflow: hidden;
+}
+.bZhleft{
+	float: left;
+	width: 48rpx;
+	margin-right: 42rpx;
+}
+.bZhline{
+	background: #c7c7c7;
+	margin-left: 22rpx;
+	width: 5rpx;
+	height: 53rpx;
+}
+.bZhRight{
+	float: left;
+}
+.stepcircle{
+	text-align: center;
+	font-size: 26rpx;
+	background: #c7c7c7;
+	width: 48rpx;
+	height: 48rpx;
+	line-height: 48rpx;
+	color: #fff;
+	border-radius: 50%;
+}
+.bZhRight .tit{
+	margin-bottom: 22rpx;
+	font-size: 32rpx;
+}
+.bZhRight .text{
+	font-size: 24rpx;
+}
+.alreadygo .bZhline,.alreadygo .stepcircle{
+	background: #FF610A;
+}
+.alreadygo .tit,.alreadygo .tit{
+	color: #444;
+}
+.bZh .whrite{
+	background: #fff;
+}

@@ -1,0 +1,92 @@
+/* pages/continueAndFinished/continueAndFinished.wxss */
+.order-info {
+    padding-top: 5rpx;
+    background: #fff;
+    height: auto;
+    overflow: hidden;
+}
+
+.item {
+    margin-left: 31.25rpx;
+    margin-right: 31.25rpx;
+    height: 83rpx;
+    line-height: 83rpx;
+}
+
+.item .l {
+    float: left;
+}
+
+.item .r {
+    float: right;
+}
+
+.banner {
+    width: 100%;
+    height: 330rpx;
+}
+
+.banner image {
+    width: 100%;
+}
+
+.fee-box {
+    padding: 40rpx;
+}
+
+.rule-img {
+    height: 68rpx;
+    width: 209rpx;
+}
+
+.rule-img image {
+    height: 68rpx;
+    width: 209rpx;
+}
+
+.fee-box .desc {
+    margin-top: 10px;
+}
+
+.fee-box .desc-item {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #E7D9B1;
+}
+
+.desc-item .l {
+    float: left;
+}
+
+.desc-item .r {
+    float: right;
+}
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 46px;
+    border-top: 1px solid #cdcfcf;
+}
+
+.flex {
+    display: flex;
+}
+
+.bottom .btn {
+    border-radius: 0px;
+    box-sizing: none;
+    background-color: #FFFFFF;
+    width: 50%;
+    height: 46px;
+    line-height: 46px;
+}
+
+.bottom .btn:nth-child(2) {
+    border-left: 1px solid #cdcfcf;
+}
+
+.bottom .btn::after {
+    border: 0px;
+}

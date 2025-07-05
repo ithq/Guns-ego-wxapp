@@ -1,0 +1,22 @@
+<view class="container">
+    <view class="banner">
+        <image src="/static/images/fty_single_pay_banner.jpg" mode="widthFix"></image>
+    </view>
+    <view class="title">
+        <view class="line time-minute">{{timeStr}}</view>
+        <view class="line time-title">请输入当前密码(第{{index}}组)</view>
+    </view>
+    <view class="paswd">
+        <view class="password" wx:for="{{passlist}}">{{item}}</view>
+    </view>
+    <view class="hint">
+        <image bindtap="replacePassWd" class="hint_img" src="/static/images/refresh.png" mode="aspectFit"></image>
+        <view bindtap="replacePassWd" class="hint_title">密码无效时，点击获取新密码</view>
+    </view>
+    <view class="bottom">
+        <view class="flex">
+            <button class="btn" bindtap="closeSingleOrder" wx:if="{{closeOrderBtn == 1}}">结束使用</button>
+            <button class="btn" bindtap="singleFaultTorefund" wx:if="{{singleFaultTorefund == 1}}">故障上报</button>
+        </view>
+    </view>
+</view>

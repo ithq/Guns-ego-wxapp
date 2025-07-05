@@ -1,0 +1,74 @@
+<!--pages/agent/fencheng/fencheng.wxml-->
+<no-data promit="{{lg.promit}}" wx:if="{{showData}}"></no-data>
+<wxs module="filter" src="../../../config/filter.wxs"></wxs>
+<view class="main">
+    <view class="header">
+        <view class="searchBox">
+            <view class="searchInputBox">
+                <image src="{{imgUrl + iconSearch}}" class="search"></image>
+                <input name="search" type='text' confirm-type="search" bindconfirm="bindconfirm" class="searchInput" placeholder="{{lg.inputPleasehold}}" /><!-- 请输入查询内容 -->
+            </view>
+        </view>
+
+        <view class="navBar">
+            <view class="{{statu == 0 ? 'barItem active' : 'barItem'}}" data-i="0" bindtap="changeNav">
+                {{lg.all}}({{shareStatistics.totalShareAmount}})<!-- 全部 -->
+            </view>
+            <view class="{{statu == 1 ? 'barItem active' : 'barItem'}}" data-i="1" bindtap="changeNav">
+                {{lg.wechat}}({{shareStatistics.wechatAmount}})<!-- 微信 -->
+            </view>
+            <view class="{{statu == 2 ? 'barItem active' : 'barItem'}}" data-i="2" bindtap="changeNav">
+                {{lg.alipay}}({{shareStatistics.alipayAmount}})<!-- 支付宝 -->
+            </view>
+            <view class="{{statu == 3 ? 'barItem active' : 'barItem'}}" data-i="3" bindtap="changeNav">
+                {{lg.app}}({{shareStatistics.appAmount}})<!-- App -->
+            </view>
+        </view>
+    </view>
+
+
+    <!-- 列表 -->
+	<view class="transaction_content_warp flex_1">
+		<scroll-view 
+			class="transaction_scroll" 
+			scroll-y="true" 
+			bindscrolltolower='scrollToLower' 
+			lower-threshold='30' 
+			refresher-enabled="{{true}}" 
+			refresher-threshold="{{50}}" 
+			refresher-default-style="black" 
+			refresher-background="#fff" 
+			refresher-triggered="{{triggered}}" 
+			bindrefresherrefresh="onRefresh"
+		>
+			<view class="transaction_list" wx:for="{{listData}}" wx:key="index">
+				<!-- <block > -->
+				<view class="transaction_mounth" wx:if="{{item.monthShow}}">{{item.month}}</view>
+				<view class="transaction_mounth_list">
+					<view class="transaction_mounth_list_item flex" wx:for="{{item.orderCommissionList}}" wx:for-item="i" wx:for-index="idx" wx:key="idx" bindtap="jumpPage" data-url="{{'../fenchengDetail/fenchengDetail?id='+i.id}}">
+						<view class="transaction_icon_warp flex_center_center">
+							<image class="transaction_icon" mode="widthFix" src="{{imgUrl + 'fencheng/icon1.png'}}"></image>
+						</view>
+
+						<view class="transaction_mounth_list_item_list flex_between_center border_bottom_dotted">
+							<view class="transaction_type_warp flex">
+								<view class="transaction_type">{{lg.orderNum}}：{{i.orderId}}</view>
+								<view class="transaction_grade">{{lg.divideGrade}}：{{i.type == 1 ? lg.agent1 : i.type == 2 ? lg.agent2 : i.type == 3 ? lg.agent3 : i.type == 4 ? lg.agent4 : i.type == 5 ? lg.agent5 : i.type == 6 ? lg.agent6 : i.type == 7 ? lg.agent7 : i.type == 8 ? lg.agent8 : i.type == 9 ? lg.agent9 : i.type}}</view>
+								<view class="transaction_time">{{i.createDate}}</view>
+							</view>
+							<!-- <view class="transaction_amount" wx:if="{{i.fenchengAmount >= 0}}">+{{common.symbol}}{{filter.moneyFormato(i.fenchengAmount)}}</view>
+							<view class="transaction_amount" wx:else>-{{common.symbol}}{{filter.moneyFormato(i.fenchengAmount)}}</view> -->
+							<view class="transaction_amount">{{i.fenchengAmount > 0 ? '+' : '-'}}{{common.symbol}}{{filter.moneyFormato(filter.abs(i.fenchengAmount))}}</view>
+						</view>
+					</view>
+				</view>
+				<!-- </block> -->
+			</view>
+			<view class="noMore" hidden="{{loadMore}}">
+				——— {{common.noMore}} ———
+			</view>
+		</scroll-view>
+	</view>
+
+
+</view>

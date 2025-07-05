@@ -1,0 +1,75 @@
+  <view id="printbtn" class="homepagebtn" style=" background: url({{resourceUrl}}/images/icon/homePage.png) no-repeat; background-size: 100% 100%;" bindtap='goWxAppHomePageForHomePageButton'></view>
+  <view class="nav">
+    <view class="navli {{orderStatus == ''?'active':''}}" data-orderstatus='' bindtap='myorderByOrderstatus'>
+      <view class="flex">全部</view>
+    </view>
+    <view class="navli {{orderStatus == 10?'active':''}}" data-orderstatus='10' bindtap='myorderByOrderstatus'>
+      <view class="flex">使用中</view>
+    </view>
+    <view class="navli {{orderStatus == 11?'active':''}}" data-orderstatus='11' bindtap='myorderByOrderstatus'>
+      <view class="flex">已归还</view>
+    </view>
+  </view>
+  <scroll-view class="scroll-view-list" scroll-y="true" scroll-x="false" lower-threshold="50" bindscrolltolower="onScrollLower">
+  <block wx:if="{{items.length > 0}}" wx:for="{{items}}" wx:key="{{id}}" wx:for-index="index">
+    <view class="assureDevl">
+      <view wx:if="{{item.myOrderStatus == 10}}" class="assureDevltit shiyongzhong">
+        {{item.createTimeFormat}}
+        <text>使用中</text>
+      </view>
+      <view wx:elif="{{item.myOrderStatus == 11}}" class="assureDevltit yiguihuan">
+        {{item.backTimeFormat}}
+        <text>已归还</text>
+      </view>
+      <view wx:elif="{{item.myOrderStatus == -11}}" class="assureDevltit yiguihuan">
+        {{item.backTimeFormat}}
+        <text style="color:red" >退款成功</text>
+      </view>
+      <view class="assureDevlcont">
+        <view class="assureDevlinfo">
+          <text class="label">订单编号</text>
+          <text class="infor">{{item.orderId}}</text>
+        </view>
+        <view wx:if="{{item.myOrderStatus == 10}}" class="assureDevlinfo">
+          <text class="label">已产生费用</text>
+          <text class="infor">￥{{item.expectTradeAmount}}</text>
+        </view>
+        <view wx:if="{{item.myOrderStatus == 11}}" class="assureDevlinfo">
+          <text class="label">租借时长</text>
+          <text class="infor">{{item.lentTimeRange}}</text>
+        </view>
+        <view wx:if="{{item.myOrderStatus == 10 || item.myOrderStatus == 11}}" class="assureDevlinfo">
+          <text class="label">预付金</text>
+          <text class="infor">￥{{item.deposit}}</text>
+        </view>
+        <view class="assureDevlinfo">
+          <text class="label">充电器编号</text>
+          <text class="infor">{{item.chargerId}}</text>
+        </view>
+        <view class="assureDevlinfo">
+          <text class="label">终端商户</text>
+          <text class="infor">{{item.terminalMerName}}</text>
+        </view>
+        <view class="assureDevlinfo">
+          <text class="label">终端地址</text>
+          <text class="infor">{{item.terminalMerAddr}}</text>
+        </view>
+      </view>
+      <view wx:if="{{item.myOrderStatus == 10 && item.overUseFlag == true}}" class="assureDevltip">
+        <form bindsubmit="overCharging" data-chargerid="{{item.chargerId}}" data-custno="{{item.custNo}}" report-submit="true">
+          <button disabled="{{!dbOperationFlag}}" formType="submit">
+            <text class="iconfont icon-jieshu"></text>结束使用</button>
+        </form>
+      </view>
+      <view wx:if="{{item.myOrderStatus == 11}}" class="alreadyreturn">
+        实付款：
+        <text class="money">￥{{item.tradeAmount}}</text>
+      </view>
+    </view>
+  </block>
+  <view class="nodatashow" style="display:{{nodatashowHide ? 'block':'none'}}">
+    <image src="{{resourceUrl}}/images/images/nodata.png"></image>
+    <view class='p'>无数据！</view>
+  </view>
+  <image class="loading" style="display:{{loadingHidden ? 'block':'none'}}" src='{{resourceUrl}}/images/icon/loading.gif'></image>
+</scroll-view>

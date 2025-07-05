@@ -1,0 +1,25 @@
+/* pages/withdrawalSuccess/withdrawalSuccess.wxss */
+.withdrawa_result {
+  padding-top: 11vh;
+  text-align: center;
+}
+
+.withdrawa_result_img {
+  width:370rpx;
+  height:370rpx;
+}
+
+.withdrawa_result_status {
+  padding-top: 50rpx;
+  padding-bottom: 30rpx;
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #030303;
+}
+
+.withdrawa_result_btn {
+  width:500rpx;
+  height:88rpx;
+  margin-top: 110rpx;
+  line-height: 88rpx;
+}

@@ -1,0 +1,167 @@
+/* pages/agent/fencheng/fencheng.wxss */
+.main{
+    height: 100%;
+}
+.header{
+    position: fixed;
+    width: 100%;
+    padding: 30rpx;
+    background: white;
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+    box-shadow:0px 3rpx 22rpx rgba(0,0,0,0.03);
+    z-index: 10;
+}
+.searchBox{
+    display: flex;
+}
+.searchInputBox{
+    position: relative;
+    width:900rpx;
+    height:70rpx;
+    background:rgba(245,245,247,1);
+    border-radius:36rpx;
+}
+.search{
+    position: absolute;
+    width:23rpx;
+    height:25rpx;
+    top: 23rpx;
+    left: 36rpx;
+}
+.searchInput{
+    position: absolute;
+    width: 500rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    left: 70rpx;
+    font-size:22rpx;
+}
+.scanBtn{
+    margin-left: 20rpx;
+    width:70rpx;
+    height:70rpx;
+}
+
+
+.navBar{
+    display: flex;
+    /* padding: 0 30rpx; */
+    font-size:24rpx;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20rpx; 
+    font-weight: bold;
+}
+.barItem{
+    flex: 1;
+    padding-bottom: 8rpx;
+}
+
+.active{
+    position: relative;
+    color:rgba(0,193,118,1);
+}
+
+.active::after{
+    position: absolute;
+    content: '';
+    width: 30rpx;
+    height: 2px;
+    bottom: 0;
+    background: rgba(0,193,118,1);
+    bottom: -8rpx;
+    left: 50%;
+    margin-left: -15rpx;
+}
+
+
+
+.transaction_scroll {
+    position: absolute;
+    top: 150rpx;
+    bottom: 0;
+    padding-top: 40rpx;
+  }
+  
+  .transaction_list {
+    padding: 0rpx;
+  }
+  
+  .transaction_scroll::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+  }
+  
+  scroll-view [style*="overflow"]::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .transaction_mounth {
+    padding: 20rpx 36rpx;
+    font-size: 28rpx;
+    color: #999999;
+    background: #F5F5F7;
+  }
+  
+  .transaction_mounth_list_item {
+    height: 153rpx;
+    padding: 0 36rpx;
+  }
+  
+  .transaction_icon_warp {
+    width: 74rpx;
+    height: 100%;
+  }
+  
+  .transaction_icon {
+    width: 42rpx;
+    height: 42rpx;
+  }
+  
+  .transaction_mounth_list_item_list {
+    flex: 1;
+    height: 100%;
+    /* border-bottom: 1px dashed rgba(186,186,186,0.3); */
+  }
+  
+  .transaction_mounth_list_item:nth-last-of-type(1) .border_bottom_dotted::after {
+    border-color: #fff;
+  }
+  
+  .transaction_type_warp {
+    padding: 10rpx 0;
+    flex-direction: column;
+  }
+  
+  .transaction_type {
+    font-size: 30rpx;
+  }
+
+  .transaction_grade {
+    padding: 10rpx 0;
+    font-size: 24rpx;
+    color: #333333;
+  }
+  
+  .transaction_time {
+    font-size: 24rpx;
+    color: #999999;
+  }
+  
+  .transaction_amount {
+    font-size: 30rpx;
+    color: #F80000;
+  }
+  
+  .transaction_amount_warp {
+    flex-direction: column;
+  }
+  
+  .transaction_amount_consume {
+    font-size: 30rpx;
+    color: #F80000;
+    padding-bottom: 10rpx;
+  }

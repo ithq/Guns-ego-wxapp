@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/commentPro/commentPro",
+    "pages/kp/kp",
+    "pages/flwRcd/flwRcd",
+    "pages/wthDrwl/wthDrwl",
+    "pages/myWlt/myWlt",
+    "pages/usrCt/usrCt",
+    "pages/fnhRchg/fnhRchg",
+    "pages/cntuAndFnsh/cntuAndFnsh",
+    "pages/rdyToRchg/rdyToRchg",
+    "pages/rdyToBleRchg/rdyToBleRchg",
+    "pages/scnRslt/scnRslt",
+    "pages/wthDrwPrgs/wthDrwPrgs",
+    "pages/myOrds/myOrds",
+    "pages/myMsg/myMsg",
+    "pages/faultOption/faultOption",
+    "pages/faultReport/faultReport",
+    "pages/webView/webView"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#FF610A",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "乖乖电",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx9c4d8a040404b0bf"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "networkTimeout": {
+    "request": 30000
+  },
+  "sitemapLocation": "sitemap.json"
+}

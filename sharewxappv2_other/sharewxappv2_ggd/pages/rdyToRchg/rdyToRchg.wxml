@@ -1,0 +1,55 @@
+<view style='height:100%; background:rgba(245,245,245,1)'>
+    <view id="homeBtn" class="homeBtnCls" bindtap='goToIndexPage'>
+      <image src='/img/icon/home.png' class='homeIconCls'></image>
+    </view> 
+    <!--
+    <view style='height:3px; width:100%'> </view> 
+    -->
+    <view class="banner bgimg">
+      <image bindtap="clickAdvertInfo" mode='aspectFit' src='{{advertImage}}'></image>
+    </view>
+    <view class="pwdBoxcls">
+      <view style='height:3px; width:100%'> </view>
+      <view class='pwdTitle'>充电器解锁密码</view>
+      <view class='pwdTitle1'>充电器键盘中依次输入以下密码即可充电</view>
+      <view class="passwordcode">
+        <view class="codelistfive">
+          <view hidden="{{password0!=''?false:true}}">
+            <text>{{password0}}</text>
+          </view>
+          <view hidden="{{password1!=''?false:true}}">
+            <text>{{password1}}</text>
+          </view>
+          <view hidden="{{password2!=''?false:true}}">
+            <text>{{password2}}</text>
+          </view>
+          <view hidden="{{password3!=''?false:true}}">
+            <text>{{password3}}</text>
+          </view>
+          <view hidden="{{password4!=''?false:true}}">
+            <text>{{password4}}</text>
+          </view>
+          <view hidden="{{password5!=''?false:true}}">
+            <text>{{password5}}</text>
+          </view>
+        </view>  
+        <view>
+          <view class="passwordDesc">
+            <text style='color:red'>*</text>再次扫充电器二维码结束使用
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--
+    <view style='height:10px; width:100%'> </view>   
+    <view class="bottomBarCls">再次扫码可重新获取解锁码</view>
+    -->
+    <view class="official">
+      <official-account></official-account>
+    </view>
+    <view class="bottom">
+      <view class="flex" wx:if="{{faultTorefund}}">
+        <button class="btnFaultOption" bindtap="faultOption" class="btn btnFaultOption">故障上报</button>
+      </view>
+    </view>
+</view>

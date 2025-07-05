@@ -1,0 +1,94 @@
+<!--pages/helpCenter/helpCenter.wxml-->
+<navigation-bar leftTitle="{{lg.pageTitle}}" back="{{true}}" bindback="goBack"></navigation-bar>
+
+<!-- 客服弹框 -->
+<show-modal class="show-modal" title="{{lg.callTitle}}" btnText="{{lg.callBtn}}" bindmodalConfirm="call">
+	<view slot="modal_content" >
+		<view>{{lg.phone}}: {{phoneNumber}}</view>
+		<view>{{lg.time}}: 24小时</view>
+	</view>
+</show-modal>
+
+<view class="help_center_nav_bar_warp">
+	<view class="help_center_nav_title">
+		{{lg.navTitle}}
+	</view>
+	<view class="help_center_nav_bar_content flex">
+		<!-- bindtap="jumpPage" data-url="../useTutorialType/useTutorialType" -->
+		<view class="help_center_nav_bar_item" bindtap="goUserMethod" data-url="../useTutorial/useTutorial">
+			<image mode="widthFix" src="{{imgUrl + 'help/icon_use3.png'}}" class="help_center_nav_bar_item_icon" />
+			<view class="help_center_nav_bar_item_text">
+				{{lg.tutorial}}
+			</view>
+		</view>
+		<view class="help_center_nav_bar_item" bindtap="jumpPage" data-url="../feedBack/feedBack">
+			<image mode="widthFix" src="{{imgUrl + 'help/icon_device3.png'}}" class="help_center_nav_bar_item_icon" />
+			<view class="help_center_nav_bar_item_text">
+				{{lg.repair}}
+			</view>
+		</view>
+		<view class="help_center_nav_bar_item" bindtap="jumpPage" data-url="../historicalFeedback/historicalFeedback">
+			<image mode="widthFix" src="{{imgUrl + 'help/icon_issue3.png'}}" class="help_center_nav_bar_item_icon" />
+			<view class="help_center_nav_bar_item_text">
+				{{lg.suggest}}
+			</view>
+			<view class="subscript" wx:if="{{notViewedNum > 0}}">{{notViewedNum}}</view>
+		</view>
+		<view class="help_center_nav_bar_item" bindtap="dialNumber">
+			<image mode="widthFix" src="{{imgUrl + 'help/icon_service3.png'}}" class="help_center_nav_bar_item_icon" />
+			<view class="help_center_nav_bar_item_text">
+				{{lg.service}}
+			</view>
+		</view>
+	</view>
+</view>
+
+<!-- 问题 -->
+<view class="help_center_faq_warp">
+	<scroll-view scroll-y="true" id="help_center_faq_list">
+		<view class="help_center_faq_item flex">
+			<view class="help_center_faq_avatar_warp flex_centr_center">
+				<image mode="widthFix" src="{{imgUrl + 'help/icon_zd3.png'}}" class="image_percent" />
+			</view>
+			<view class="help_center_faq_item_content">
+				<view class="help_center_faq_item_content_warp">
+					<view class="help_center_faq_title">
+						{{lg.serviceTxt}}
+					</view>
+				</view>
+
+				<view class="help_center_faq_item_content_warp">
+					<view class="help_center_faq_title">
+						{{lg.questionTitle}}
+					</view>
+					<view class="help_center_faq_list" wx:for="{{faqList}}" wx:key="id" bindtap="getAnswer" data-id="{{item.id}}">
+						{{item.index}}.{{item.title}}
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="help_center_faq_item flex" wx:for="{{answerList}}" wx:key="id">
+			<view class="help_center_faq_avatar_warp flex_center_center">
+				<image mode="widthFix" src="{{imgUrl + 'help/icon_zd3.png'}}" class="image_percent" />
+			</view>
+			<view class="help_center_faq_item_content">
+				<view class="help_center_faq_item_content_warp">
+					<view class="help_center_faq_title">
+						{{item.content}}
+					</view>
+					<view class="help_center_faq_like_warp flex_center_center">
+						<view class="help_center_faq_like_item flex" bindtap="clickUsrful" data-id="{{item.id}}" data-flag="useful">
+							<image mode="widthFix" src="{{item.useful != 2 ? imgUrl + 'help/icon_good3.png' : imgUrl + 'help/icon_good_gray3.png'}}" class="help_center_faq_like_icon" />
+							<text>{{lg.useful}}</text>
+						</view>
+						<view class="help_center_faq_like_item flex" bindtap="clickUsrful" data-id="{{item.id}}" data-flag="useless">
+							<image mode="widthFix" src="{{item.useless != 3 ? '/images/help/icon_down3.png' : imgUrl + 'help/icon_good_down3.png'}}" class="help_center_faq_like_icon" />
+							<text>{{lg.useless}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</scroll-view>
+</view>

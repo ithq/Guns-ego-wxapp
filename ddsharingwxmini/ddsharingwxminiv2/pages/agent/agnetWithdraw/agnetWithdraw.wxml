@@ -1,0 +1,22 @@
+<!--pages/agent/agnetWithdraw/agnetWithdraw.wxml-->
+<!-- <navigation-bar title="{{lg.pageTitle}}" back="{{true}}" bindback="goBack"></navigation-bar> -->
+<wxs module="filter" src="../../../config/filter.wxs"></wxs>
+<view class="withdraw_warp">
+	<view class="withdraw_balance_warp flex_center_x flex_column">
+		<text>{{lg.balance}}</text>
+		<text>{{commonLg.symbol}}{{filter.moneyFormato(money)}}</text>
+	</view>
+
+	<view class="withdraw_wechat gray_color">
+		<image class="withdraw_wechat_icon" mode="widthFix" src="{{imgUrl + 'withdrawal/icon_wechat_pay3.png'}}" />
+    <text>{{lg.withdrawTxt}}</text>{{name}}
+	</view>
+
+	<view class="withdraw_input flex_center_y">
+		<text class="symbol">{{commonLg.symbol}}</text>
+		<input type="digit" class="withdraw_amount" placeholder-style="color:##999999; font-weight:400; font-size:26rpx" placeholder="{{lg.inputPlaceholder}}" value="{{withdrawalAmount}}" bindinput="getAmount" />
+		<text class="withdrawAll" bindtap="withdrawAll" data-amount="{{money}}">{{lg.withdrawAll}}</text>
+	</view>
+
+	<view class="withdraw_btn  {{withdrawalAmount ? 'active' : 'default'}}" hover-class="hover_class" bindtap="withdrawImmediately">{{lg.withdrawBtn}}</view>
+</view>

@@ -1,0 +1,154 @@
+/* pages/feedbackDetails/feedbackDetails.wxss */
+.container {
+  padding: 36rpx 36rpx 132rpx;
+}
+
+.user-feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.date {
+  align-self: center;
+  font-size: 22rpx;
+  color: #7B7B7B;
+}
+
+.feedback-info {
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: 30rpx;
+}
+
+.avatar {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.feedback-img {
+  width: 110rpx;
+  border-radius: 12rpx;
+}
+
+.feedback-img-img {
+  width: 110rpx;
+  height: 110rpx;
+}
+
+.feedback-content {
+  max-width: 62.66%;
+  padding: 20rpx;
+  background: rgba(0, 193, 118, 0.06);
+  border-radius: 14rpx;
+  font-size: 26rpx;
+}
+
+.service-feedback {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.service-feedback .date{
+  padding-top: 20rpx;
+  padding-bottom: 50rpx;
+}
+
+.service-feedback .feedback-info {
+  justify-content: flex-start;
+}
+
+.service-feedback .avatar{
+  margin-right: 20rpx;
+}
+
+.service-feedback .problem {
+  padding-bottom: 20rpx;
+}
+
+.service-feedback .feedback-content {
+  text-align: left;
+}
+
+.user-feedback .date{
+  padding-bottom: 30rpx;
+}
+
+.user-feedback .feedback-info {
+  justify-content: flex-end;
+}
+
+.user-feedback .avatar{
+  margin-left: 20rpx;
+}
+
+.user-feedback .problem {
+  padding-bottom: 10rpx;
+}
+
+.useful {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-left: 20rpx;
+}
+
+.icon {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.icon:nth-last-of-type(1) {
+  margin-top: 20rpx;
+}
+
+.chatbox {
+  height: 102rpx;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  background: #F7F7F7;
+  border-top: 1px solid #D2D2D2;
+}
+
+.send-img {
+  margin-left: 6rpx;
+  padding: 0 30rpx;
+}
+
+.send-img-icon {
+  width: 46rpx;
+  height: 40rpx;
+}
+
+.type-box {
+  flex: 1;
+}
+
+.input-box {
+  width: 100%;
+  height: 102rpx;
+  border: none;
+  height: 102rpx;
+  font-size: 26rpx;
+}
+
+.sent-btn {
+  height: 54rpx;
+  padding: 0 32rpx;
+  margin-right: 36rpx;
+  margin-left: 30rpx ;
+  background: #00C176;
+  border-radius: 43rpx;
+  line-height: 54rpx;
+  font-size: 28rpx;
+  color: #fff;
+}

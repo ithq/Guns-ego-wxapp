@@ -1,0 +1,16 @@
+<view class="wrap">
+  <view hidden="{{replacePassWdHid}}" class='item replacePassWd'>
+    <image onTap="replacePassWd" class='img' src="/assets/icon/genghuanmima.png"></image>
+    <text onTap="replacePassWd" class='text'>{{replacePassWdText}}</text>
+  </view>
+  <view hidden="{{replacePassWdHid}}" class='line'></view>
+  <view class='item replaceDevice'>
+    <image onTap="replaceDevice" class='img' src="/assets/icon/genghuanshebei.png"></image>
+    <text onTap="replaceDevice" class='text'>{{replaceDeviceText}}</text>
+  </view>
+  <view class='line'></view>
+  <view class='item faultReport'>
+    <image onTap="faultReport" class='img' src="/assets/icon/guzhangshangbao.png"></image>
+    <text onTap="faultReport" class='text'>{{faultReportText}}</text>
+  </view>
+</view>

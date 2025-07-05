@@ -1,0 +1,37 @@
+<!--pages/bluetooth/lease/lease.wxml-->
+<wxs module="filter" src="../../../config/filter.wxs"></wxs>
+<view class="container_warp">
+	<view class="container">
+		<navigation-bar title="{{lg.pageTitle}}" back="{{back}}" bindback="goBack"></navigation-bar>
+		
+		<!-- 图 -->
+		<ad-custom unit-id="adunit-0961c81fdc7c743a"></ad-custom>
+		<!-- 选择 -->
+		<view class="line_select">
+			<view class="line_lease_title">{{lg.caption_1}}</view>
+			<view class="line_lease_time flex">
+				<view class="line_lease_time_item flex flex_1 flex_center_center" wx:for="{{priceArray.priceResults}}" wx:key="index" bindtap="chooseDuration" data-data="{{item}}">
+					<view class="line_lease_time_btn">{{item.price}}{{commonLg.symbolText}}{{item.timeLong}}{{commonLg.hour}}</view>
+				</view>
+			</view>
+		</view>
+
+		<!-- 说明 -->
+		<view class="line_lease_caption">
+			<view class="line_lease_title">{{lg.caption_2}}</view>
+			<view class="line_lease_caption_item">{{lg.tips_1}}</view>
+			<view class="line_lease_caption_item">{{lg.tips_2}}</view>
+			<view class="line_lease_caption_item">{{lg.tips_3}}</view>
+		</view>
+	</view>
+	<!-- 图 -->
+	<ad unit-id="adunit-fd0ff0cb4966f00e"></ad>
+
+	<!-- 广告 -->
+	<view class="adBox" wx:if="{{showAd && priceArray.adUrl != ''}}" >
+		<view class="adImgBox">
+			<image src="{{priceArray.adUrl}}" mode="widthFix" class="adImg"></image>
+			<image src="/images/close.png" class="closeImg" bindtap="closeAd"></image>
+		</view>
+	</view>
+</view>

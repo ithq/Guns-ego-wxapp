@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/kp/kp",
+    "pages/flwRcd/flwRcd",
+    "pages/cntuAndFnsh/cntuAndFnsh",
+    "pages/myMsg/myMsg",
+    "pages/fnhRchg/fnhRchg",
+    "pages/myOrds/myOrds",
+    "pages/rdyToRchg/rdyToRchg",
+    "pages/scnRslt/scnRslt",
+    "pages/wthDrwPrgs/wthDrwPrgs",
+    "pages/usrCt/usrCt",
+    "pages/myWlt/myWlt",
+    "pages/wthDrwl/wthDrwl",
+    "pages/commentPro/commentPro",
+    "pages/webView/webView",
+    "pages/faultOption/faultOption",
+    "pages/faultReport/faultReport",
+    "pages/rdyToBleRchg/rdyToBleRchg",
+    "pages/bleConnect/bleConnect"
+  ],
+  "window": {
+    "defaultTitle": "易购智能充电",
+    "titleBarColor": "#FF610A"
+  }
+}

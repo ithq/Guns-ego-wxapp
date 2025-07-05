@@ -1,0 +1,95 @@
+/* pages/rentalRecordDetail/rentalRecordDetail.wxss */
+page {
+  background: #F5F5F7;
+}
+
+.container {
+  width: 100vw;
+  padding: 30rpx;
+  min-height: 100vh;
+}
+
+.rental_record_detail_warp {
+  width: 100%;
+  flex: 1 0 auto;
+}
+
+.rental_record_detail {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx 40rpx;
+}
+
+.rental_record_status {
+  padding-bottom: 50rpx;
+}
+
+.rental_status {
+  font-size: 26rpx;
+  padding-bottom: 24rpx;
+}
+
+.rental_amount {
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.rental_record_detail_item {
+  font-size: 26rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 1px dashed rgba(186,186,186,0.5);
+}
+
+.rental_record_detail_item:nth-last-of-type(1) {
+  border-color: #fff;
+}
+
+.item_title {
+  padding: 30rpx 0;
+  font-size: 28rpx;
+}
+
+.record_item {
+  display: inline-block;
+  min-width: 154rpx;
+  padding-bottom: 20rpx;
+}
+
+.record_item_data {
+  display: inline-block;
+}
+
+.copy_warp {
+  position: relative;
+}
+
+.copy_box {
+  position: absolute;
+  top: -48rpx;
+  right: -130rpx;
+  width: 160rpx;
+  height: 130rpx;
+}
+
+.rental_record_copy {
+  margin-left: 46rpx;
+  border: 1px solid rgba(186,186,186,0.3);
+  border-radius: 4rpx;
+  font-size: 18rpx;
+  color: #000;
+  line-height: 30rpx;
+  height: 30rpx;
+  padding: 0 4rpx;
+}
+
+.rental_record_rule {
+  line-height: 36rpx;
+}
+
+.rental_record_detail_btn {
+  flex: 0 0 auto;
+  width:500rpx;
+  height:88rpx;
+  line-height: 88rpx;
+  margin-bottom: 48rpx;
+}

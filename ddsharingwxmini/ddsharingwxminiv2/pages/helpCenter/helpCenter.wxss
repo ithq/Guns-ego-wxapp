@@ -1,0 +1,107 @@
+/* pages/helpCenter/helpCenter.wxss */
+page {
+  background-color: #F5F5F7;
+}
+
+.help_center_nav_bar_warp {
+  padding: 30rpx 60rpx;
+  background-color: #fff;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
+}
+
+.help_center_nav_title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #000;
+}
+
+.help_center_nav_bar_content {
+  padding-top: 15rpx;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.help_center_nav_bar_item {
+  width: 128rpx;
+  position: relative;
+}
+
+.help_center_nav_bar_item_icon {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.help_center_nav_bar_item_text {
+  font-size: 24rpx;
+  color: #000;
+}
+
+.subscript {
+  position: absolute;
+  top: 0rpx;
+  right: 28rpx;
+  width: 28rpx;
+  height: 28rpx;
+  background: #FF3944;
+  border-radius: 50%;
+  font-size: 22rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 28rpx;
+}
+
+.help_center_faq_warp {
+  padding: 16rpx 30rpx 0;
+}
+
+.help_center_faq_avatar_warp {
+  width: 66rpx;
+  height: 66rpx;
+  margin-top: 6rpx;
+  margin-right: 16rpx;
+  overflow: hidden;
+}
+
+.help_center_faq_item_content {
+  flex: 1;
+}
+
+.help_center_faq_item_content_warp {
+  background: #fff;
+  border-radius: 20rpx;
+  font-size: 28rpx;
+  margin-bottom: 16rpx;
+}
+
+.help_center_faq_title {
+  padding: 26rpx;
+  border-bottom: 4rpx solid #F5F5F7;
+}
+
+.help_center_faq_list {
+  color: #52A3FD;
+  padding: 26rpx 0;
+  margin: 0 26rpx;
+  border-bottom: 1px solid rgba(186,186,186,0.5);
+}
+
+.help_center_faq_list:nth-last-of-type(1) {
+  border-color: #fff;
+}
+
+.help_center_faq_like_warp {
+  padding: 25rpx 0;
+}
+
+.help_center_faq_like_item {
+  margin: 0 50rpx;
+  font-size: 20rpx;
+  align-items: flex-end;
+}
+
+.help_center_faq_like_icon {
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 10rpx;
+  margin-bottom: 3rpx;
+}

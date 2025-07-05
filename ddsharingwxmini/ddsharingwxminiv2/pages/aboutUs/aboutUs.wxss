@@ -1,0 +1,38 @@
+/* pages/aboutUs/aboutUs.wxss */
+.about_us_logo_warp {
+  margin: 170rpx 50rpx 0;
+  padding-bottom: 70rpx;
+  border-bottom: 1px solid rgba(229, 229, 229, 0.5);
+  text-align: center;
+}
+
+.about_us_logo {
+  width: 200rpx;
+}
+
+.gray {
+  color: rgba(186, 186, 186, 1);
+}
+
+.gray:nth-of-type(1){
+  margin-right: 10rpx;
+}
+
+.gray:nth-of-type(2){
+  margin-left: 10rpx;
+}
+
+.about_us_version {
+  font-size: 28rpx;
+  margin-top: 30rpx;
+}
+
+.about_us_content {
+  padding: 0 80rpx;
+}
+
+.about_us_item {
+  padding: 40rpx 0;
+  border-bottom: 1px solid rgba(229, 229, 229, 0.5);
+  font-size: 28rpx;
+}

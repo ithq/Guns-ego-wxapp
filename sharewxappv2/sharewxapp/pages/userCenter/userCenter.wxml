@@ -1,0 +1,55 @@
+<!--pages/person/index.wxml-->
+<view id="printbtn" class="homepagebtn" style=" background: url({{resourceUrl}}/images/icon/homePage.png) no-repeat; background-size: 100% 100%;" bindtap='goWxAppHomePageForHomePageButton'></view>
+<view class="usercentertop" style=" background:-webkit-linear-gradient(top, #33dfcd, #1dc2ff) no-repeat top center; background-size: auto 100%;">
+  <view class="avatarbox">
+    <view class="avatar">
+      <image src="{{headImgUrl}}"></image>
+    </view>
+    <view class="personalinfo">
+        <view class="nicknameclass">{{nickName}}</view>
+        <view class="accountclass">账号：{{custNo}} </view>
+     </view>
+   </view>
+</view>
+<view class='usercenterbar'></view>
+<view class="ucercenternav"> 
+  <form bindsubmit="myWallet" report-submit="true">
+    <button formType="submit" class="navbtn" disabled="{{!dbOperationFlag}}">
+      <view>
+        <view style=" background: url({{resourceUrl}}/images/icon/mywallet.png) no-repeat; background-size: 42rpx 42rpx;;" class="iconbtn wallet"></view>
+        我的钱包
+        <view class="walletnum">
+          ￥{{availableBalance}}
+          <text class="iconfont icon-more"></text>
+        </view>
+      </view>
+    </button>
+  </form>
+  <form bindsubmit="myOrders" report-submit="true">
+    <button formType="submit" class="navbtn" disabled="{{!dbOperationFlag}}">
+      <view>
+        <view class="iconbtn order" style=" background: url({{resourceUrl}}/images/icon/order.png) no-repeat; background-size: 42rpx 42rpx;"></view>
+        我的订单
+        <view class="walletnum">
+          {{orderCount}}
+          <text class="iconfont icon-more"></text>
+        </view>
+      </view>
+    </button>
+  </form>
+  <form bindsubmit="myMessages" report-submit="true">
+    <button formType="submit" class="navbtn" disabled="{{!dbOperationFlag}}">
+      <view>
+        <view class="messageredbox">
+          <view wx:if="{{msgFlag}}" class="messagered"></view>
+          <view class="iconbtn news" style=" background: url({{resourceUrl}}/images/icon/message.png) no-repeat; background-size: 42rpx 42rpx;"></view>
+        </view>
+        我的消息
+        <view class="walletnum">
+          {{unRead}}
+          <text class="iconfont icon-more"></text>
+        </view>
+      </view>
+    </button>
+  </form>
+</view>

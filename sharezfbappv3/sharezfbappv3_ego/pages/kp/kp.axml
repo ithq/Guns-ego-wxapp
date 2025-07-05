@@ -1,0 +1,12 @@
+<view style='margin-top: 200px;' >
+  <view class="logViewCls">
+    <image class='logCls' src="/assets/img/log.jpg"></image>
+  </view>
+  <text  a:if ="{{needUserAuth==0}}" class='loginDoingCls'>系统登录中....</text>
+  <view a:if ="{{needUserAuth==1}}">
+    <view class="kpSystemName">{{systemName}}-获取需要获取如下权限</view>
+    <view class="logininfo">昵称、头像</view>
+    <button disabled="{{!doubleOperateFlag}}" a:if="{{canIUseAuthButton}}" class="loginGetUserInfoCls" open-type="getAuthorize" onGetAuthorize="onGetAuthorize" onError="onAuthError" scope='userInfo'>授权登陆</button>
+    <view a:else style="margin-left:33%;">请升级支付宝版本</view>
+  </view>
+</view>

@@ -1,0 +1,61 @@
+<view style='height:100%;'>
+    <view id="homeBtn" class="homeBtnCls" bindtap='goToIndexPage'>
+      <image src='/img/icon/home.png' class='homeIconCls'></image>
+    </view>
+    <view style='width:100%; margin-top:20px;' >
+        <view class='viewTitle1'>全类型手机速充</view>
+        <!--<view class='viewTitle2'>全类型手机速充</view>-->
+    </view>
+    <view class='viewBar'  style=" background-image: url({{advertImage}});background-repeat: no-repeat; background-position: bottom right;background-size: auto 100%;" bindtap="clickAdvertInfo"> 
+       <view class="moneyCls">
+          <view class="moneyTitle">余额(元)</view>
+          <view class="moneyBalance">{{balanceForCust}}</view>
+        </view>
+    </view>
+    <view class="feeBoxCls" >
+        <view class="feeTitlebox">
+            <view class="feeTitle"><text class="iconfont icon-feiyong"></text> 计费规则</view>
+        </view>
+        <block wx:if="{{isFeeeByTime}}">
+          <radio-group bindchange="radioChange">
+            <view  hidden="{{feeTypebyTime1!=null?false:true}}" class="feemain1">
+              <radio id='feeTypebyTime1' class='radioclass' value="{{feeTypebyTime1}}" checked="{{true}}" />
+              <label for='feeTypebyTime1'>支付费用<label style='color:red;font-weight:bold'> {{feeAmountByTime1}} </label>元,充电<label style='color:green;font-weight:bold'> {{feeHourbyTime1}} </label>小时</label>
+            </view>
+            <view hidden="{{feeTypebyTime2!=null?false:true}}" class="feemain1">
+              <radio id='feeTypebyTime2' class='radioclass' value="{{feeTypebyTime2}}" checked="{{false}}" />
+              <label for='feeTypebyTime2'>支付费用<label style='color:red;font-weight:bold'> {{feeAmountByTime2}} </label>元,充电<label style='color:green;font-weight:bold'> {{feeHourbyTime2}} </label>小时</label>
+            </view>
+            <view hidden="{{feeTypebyTime3!=null?false:true}}" class="feemain1">
+                <radio id='feeTypebyTime3' class='radioclass'  value="{{feeTypebyTime3}}" checked="{{false}}" />
+                <label for='feeTypebyTime3'>支付费用<label style='color:red;font-weight:bold'> {{feeAmountByTime3}} </label>元,充电<label style='color:green;font-weight:bold'> {{feeHourbyTime3}} </label>小时</label>
+            </view>
+            <view  hidden="{{feeTypebyTime4!=null?false:true}}" class="feemain1">
+              <radio id='feeTypebyTime4' class='radioclass'  value="{{feeTypebyTime4}}" checked="{{false}}" />
+              <label for='feeTypebyTime4'>支付费用<label style='color:red;font-weight:bold'> {{feeAmountByTime4}} </label>元,充电<label style='color:green;font-weight:bold'> {{feeHourbyTime4}} </label>小时</label>
+            </view>
+          </radio-group>
+        </block>
+        <block wx:else>          
+          <block wx:if="{{feeType==26}}">   
+            <view class="feemain">* 预付<label style='color:red;font-weight:bold'> {{feeYFJ}} </label>元</view>
+            <view class="feemain">* 前<label style='color:green;font-weight:bold'> {{firstMinutes}} </label>分钟充电,收费<label style='color:red;font-weight:bold'> {{firstAmount}} </label>元</view> 
+            <view class="feemain">* 超过<label style='color:green;font-weight:bold'> {{firstMinutes}} </label>分钟 每{{feeHour}}小时充电,收费<label style='color:red;font-weight:bold'> {{feeAmount}} </label>元</view>
+            <view class="feemain">* 24小时最多收费<label style='color:red;font-weight:bold'> {{feeMaxAmount24Hours}} </label>元</view>
+            <view class="feemain">* 充电费用大于预付金，扣完预付金，订单自动结束</view>
+          </block>
+          <block wx:else>   
+            <view class="feemain">* 预付<label style='color:red;font-weight:bold'> {{feeYFJ}} </label>元</view>
+            <view class="feemain">* 每充电<label style='color:green;font-weight:bold'>{{feeHour}}</label>小时,收费<label style='color:red;font-weight:bold'> {{feeAmount}} </label>元</view>
+            <view class="feemain">* 24小时最多收费<label style='color:red;font-weight:bold'> {{feeMaxAmount24Hours}} </label>元</view>
+            <view class="feemain">* 充电费用大于预付金，扣完预付金，订单自动结束</view>
+          </block>
+        </block>
+        <view class="feemain">* 该款项由平台收取，与店家无关</view>
+    </view>
+    <view class="down-button">
+      <form bindsubmit="myWantToReCharge" report-submit="true">
+            <button  class="btn btnDown" disabled="{{!doubleOperateFlag}}" formType="submit">我要充电</button>
+      </form>
+    </view>
+  </view>

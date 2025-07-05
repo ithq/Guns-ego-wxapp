@@ -1,0 +1,78 @@
+<!--components/navigation_bar/navigation_bar.wxml-->
+<view class="nav-bar {{extClass}}" style="background: {{background}};height: {{backgroundClass ? 'auto' :  navBarHeight+ navBarExtendHeight}}px;">
+	<!-- 占位，隐藏 -->
+	<view class="nav-bar__placeholder {{ios ? 'ios' : 'android'}}" style="padding-top: {{navBarHeight+ navBarExtendHeight}}px;visibility: hidden;"  wx:if="{{!backgroundClass}}"></view>
+	
+	<!-- 导航栏背景图片 -->
+	<view class="backgroundimg_warp" style="width:{{imageWidth}}px;height: {{navBarHeight+ navBarExtendHeight}}px;" wx:if="{{navImg}}">
+		<image class="backgroundimg" mode="widthFix" src="{{navImg}}"/>
+	</view>
+
+	<!-- 背景内容 -->
+	<view class='screen_container {{backgroundClass}}' style="width:{{imageWidth}}px;padding-top:{{navBarHeight+ navBarExtendHeight}}px; {{bgImg}}" wx:if="{{backgroundClass}}">
+		<slot name="container"></slot>
+	</view>
+  
+	<!-- 内容 -->
+	<view class="nav-bar__inner {{ios ? 'ios' : 'android'}}" style="{{navigationbarinnerStyle}}{{displayStyle}}">
+		<!-- 左边：返回键/icon -->
+		<view class='nav-bar__left' style="{{navBarLeft}}">
+			<!-- 只有返回键 -->
+			<block wx:if="{{back&&!home}}">
+				<view catchtap="back" class="nav-bar__button nav-bar__btn_goback {{iconTheme}}"></view>
+			</block>
+
+			<!-- 只有首页icon -->
+			<block wx:if="{{!back&&home}}">
+				<view catchtap="home" class="nav-bar__button nav-bar__btn_gohome  {{iconTheme}}"></view>
+			</block>
+
+			<!-- 返回键 + 首页icon -->
+			<block wx:elif="{{back&&home}}">
+				<view class="nav-bar__buttons {{ios ? 'ios' : 'android'}}" wx:if="{{home}}">
+					<view catchtap="back" class="nav-bar__button nav-bar__btn_goback {{iconTheme}}" wx:if="{{back}}"></view>
+					<view catchtap="home" class="nav-bar__button nav-bar__btn_gohome {{iconTheme}}"></view>
+				</view>
+			</block>
+
+			<!-- 自定义内容 -->
+			<block wx:else>
+				<slot name="left"></slot>
+			</block>
+		</view>
+
+		<!-- 中间：搜素/标题 -->
+		<view class='{{leftTitle ? "nav-bar__center_left" : "nav-bar__center"}}'>
+			<!-- 标题 -->
+			<block wx:if="{{title}}">
+				<text class='nav-bar__center-title'>{{title}}</text>
+			</block>
+
+			<!-- 标题 -->
+			<block wx:if="{{leftTitle}}">
+				<text class='nav-bar__center-title'>{{leftTitle}}</text>
+			</block>
+
+			<!-- 搜索 -->
+			<view class='nav-bar-search' style="height:{{capsulePosition.height}}px;" wx:elif="{{searchBar}}" catchtap="search">
+				<view class='nav-bar-search__icon' />
+				<view class='nav-bar-search__input'>{{searchText}}</view>
+			</view>
+
+			<!-- 暂时不开发标题loading. 看后期需要 -->
+			<!-- <view wx:if="{{loading}}" class="nav-bar__loading">
+                <view class="loading" style="width:{{size.width}}rpx;height:{{size.height}}rpx;"></view>
+            </view> -->
+
+			<!-- 自定义内容 -->
+			<block wx:else>
+				<slot name="center"></slot>
+			</block>
+		</view>
+
+		<!-- 右边 -->
+		<view class='nav-bar__right'>
+			<slot name="right"></slot>
+		</view>
+	</view>
+</view>

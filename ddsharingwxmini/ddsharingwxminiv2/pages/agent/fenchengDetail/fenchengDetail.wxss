@@ -1,0 +1,72 @@
+/* pages/agent/fenchengDetail/fenchengDetail.wxss */
+page {
+    background: #F5F5F7;
+  }
+  
+  .rental_record_detail_warp {
+    padding: 30rpx;
+  }
+  
+  .rental_record_detail {
+    width: 610rpx;
+    background: #fff;
+    border-radius: 20rpx;
+    padding: 30rpx 40rpx;
+  }
+  
+  .rental_record_status {
+    padding-bottom: 20rpx;
+    border-bottom: 1px dashed rgba(186,186,186,1);
+  }
+  
+  .rental_status {
+    font-size: 26rpx;
+    padding-bottom: 24rpx;
+  }
+  
+  .rental_amount {
+    font-size: 32rpx;
+    font-weight: 700;
+    color:rgba(248,0,0,1);
+  }
+  
+  .rental_record_detail_item {
+    font-size: 26rpx;
+    padding-bottom: 10rpx;
+    border-bottom: 1px dashed rgba(186,186,186,1);
+    margin-top: 30rpx;
+  }
+  
+  .rental_record_detail_item:nth-last-of-type(1) {
+    border: none;
+  }
+  
+  .item_title {
+    padding: 30rpx 0;
+    font-size: 28rpx;
+  }
+  
+  .record_item {
+    display: inline-block;
+    min-width: 154rpx;
+    padding-bottom: 20rpx;
+  }
+  
+  .record_item_data {
+    display: inline-block;
+  }
+  
+  .rental_record_copy {
+    display: inline-block;
+    margin-left: 16rpx;
+    border: 1px solid #BABABA;
+    border-radius: 4rpx;
+    font-size: 18rpx;
+    color: #000;
+    line-height: 24rpx;
+    padding: 0 4rpx;
+  }
+  
+  .rental_record_rule {
+    line-height: 36rpx;
+  }

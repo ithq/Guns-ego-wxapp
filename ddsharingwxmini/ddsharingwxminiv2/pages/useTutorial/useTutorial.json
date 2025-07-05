@@ -1,0 +1,6 @@
+{
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": false,
+  "disableScroll": true,
+  "usingComponents": {}
+}

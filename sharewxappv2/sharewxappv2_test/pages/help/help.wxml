@@ -1,0 +1,14 @@
+<view id="homeBtn" class="homeBtnCls" style="bottom:30px;" bindtap='goToIndexPage'>
+    <image src='/img/icon/home.png' class='homeIconCls'></image>
+</view>
+  <scroll-view class="scroll-view-list" scroll-y="true" scroll-x="false" lower-threshold="50" >
+    <view class="h2">常见问题解答</view>
+    <view class="contentbox">
+      <view class="title">1、 怎么充电？</view>
+      <view class="content">输入密码。</view>
+      <view class="title">2、 怎么查订单？</view>
+      <view class="content">
+        <image src="/img/img/indexbg.png"></image>
+      </view>
+    </view>
+  </scroll-view>

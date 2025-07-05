@@ -1,0 +1,28 @@
+/* components/noData/noData.wxss */
+.noData{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+}
+.nullBox{
+    position: absolute;
+    width: 370rpx;
+    height: 370rpx;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: -185rpx;
+}
+.null{
+    width: 370rpx;
+    height: 370rpx;
+}
+.txt{
+    font-size: 28rpx;
+    text-align: center;
+    font-size: 30rpx;
+    font-weight: bold;
+}

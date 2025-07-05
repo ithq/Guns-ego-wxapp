@@ -1,0 +1,112 @@
+/* pages/offlineGeneral/getChargingCode/getChargingCode.wxss */
+page{
+  height: 100%;
+  background: #fff;
+}
+
+.topfeedback{
+    width: 51.73%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.topfeedback text{
+    display: block;
+    margin-bottom: 30rpx;
+    color: #fff;
+    font-size: 52rpx; 
+}
+.topfeedback view{
+   color: #fff;
+   font-size: 32rpx; 
+}
+.passwordbox{
+    width: 100%;
+    height: 34.82%;
+    margin: 0 auto;
+    background: #fff;
+}
+.passwordremark{
+    height: 23.8%;
+    font-size: 32rpx;
+    color: #323232;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.passwordremark text{
+    margin-right: 2%;
+    color: #03090e;
+    font-size: 50rpx;
+}
+.passwordcode{
+    height: 66.2%;
+    text-align: center;
+}
+.passwordcode .text{
+    margin-top: 20rpx;
+}
+.codelistfive,
+.codelistsix{
+    height: 40.625%;
+    text-align: center;
+    font-size: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.codelistfive text,
+.codelistsix text{  
+    display: inline-block;
+    margin: 0 7rpx;
+    color: #1d7ece;
+    font-weight: bolder;
+    font-family: 'Hiragino Sans GB';
+    text-align: center;
+    border: 2rpx #cdcfcf solid;
+    border-radius: 5rpx;
+}
+.codelistfive text{
+    width: 95rpx;
+    height: 95rpx;
+    line-height: 98rpx;
+    font-size: 72rpx;
+}    
+.codelistsix text{
+    width: 80rpx;
+    height:80rpx;
+    line-height: 80rpx;
+    font-size: 50rpx;
+}
+.default-button{
+    border-top: 1rpx solid #e3e9eb;
+}
+.default-button .btn{
+    width: 50%;
+    background-color: #fff; 
+}
+.default-button .btn::after{
+  border: 0;
+
+}
+.btn{
+    width: 100%;
+}
+.btn::after{
+  border: 0;
+}
+.bottom{
+    position: fixed;
+    width: 100%;
+    height: 2.8rem;
+    bottom: 0rem;
+}
+.flex{
+    text-align: center;
+    width: 100%;
+}

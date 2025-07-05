@@ -1,0 +1,68 @@
+<!--pages/agent/personalCenter/personalCenter.wxml-->
+<wxs module="filter" src="../../../config/filter.wxs"></wxs>
+<View class='nav' style="height:0;">
+	<navigation-bar title="{{lg.pageTitle}}" background="rgba(0,0,0,0)" color="#fff" back="{{true}}" iconTheme="white" bindback="goBack"></navigation-bar>
+</View>
+<view class="main">
+    <view class="top" style="background: url({{imgUrl + 'index/headerBg3.png'}});">
+        <view class="earningsBox">
+            <view class="earnings">
+                <view class="number">
+                    <text class="symbol">{{common.symbol}}</text> {{filter.moneyFormato(info.sameDayAmount)}}
+                </view>
+                <view class="describe">
+                    {{lg.todayIncome}}<!-- 今日收益 -->
+                </view>
+            </view>
+            <view class="earnings">
+                <view class="number">
+                    <text class="symbol">{{common.symbol}}</text> {{filter.moneyFormato(info.shareAmount)}}
+                </view>
+                <view class="describe">
+                    {{lg.totalIncome}}<!-- 总收益 -->
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 提现金额相关信息 -->
+    <view class="amountBox">
+        <view class="canWithdraw">
+            <view class="cash">
+                <view class="cashTxt">{{lg.canWithdraw}}<!--可提现金额--></view>
+                <view class="cashNum">{{common.symbol}}{{filter.moneyFormato(info.sureWithdrawnAmount)}}</view>
+            </view>
+            <button class="theme_btn withdrawBtn" data-url="../agnetWithdraw/agnetWithdraw?canWithdraw={{info.sureWithdrawnAmount}}" bindtap="jumpPage">
+                {{lg.withdraw}}<!-- 提现 -->
+            </button>
+        </view>
+        <view class="balanceList">
+            <view class="listItem">
+                <view class="numberSmall">{{common.symbol}}{{filter.moneyFormato(info.toBeReviewedAmount)}}</view>
+                <view class="describeGray">{{lg.toAudit}}<!--待审核--></view>
+            </view>
+            <view class="listItem">
+                <view class="numberSmall">{{common.symbol}}{{filter.moneyFormato(info.completeWithdrawnAmount)}}</view>
+                <view class="describeGray">{{lg.passAudit}}<!--提现成功--></view>
+            </view>
+            <view class="listItem">
+                <view class="numberSmall">{{common.symbol}}{{filter.moneyFormato(info.failedAmount)}}</view>
+                <view class="describeGray">{{lg.notPassAudit}}<!-- 提现失败--></view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 管理菜单入口 -->
+    <view class="itemBox">
+        <view class="item" 
+        wx:for="{{lg.menuArr}}" 
+        wx:for-item="i" 
+        wx:key="index" 
+        bindtap="jumpPage" 
+        data-url="{{i.url}}" 
+        style="visibility:{{index != (lg.menuArr.length-1) ? '' : 'hidden;'}}" 
+        hidden="{{(index == 4 && info.groupId != 1) || (index == 3 && info.groupId == 6) || (index == 7 && info.groupId != 1)}}" >
+            <image src="{{imgUrl + i.img}}" class="itemImg"></image>
+            <view class="itemTxt">{{i.menu}}</view>
+        </view>
+    </view>
+</view>

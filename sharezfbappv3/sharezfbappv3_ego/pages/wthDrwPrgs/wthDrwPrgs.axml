@@ -1,0 +1,74 @@
+  <view id="homeBtn" hidden="homeBtnHidden" class="homeBtnCls" style="bottom: 45%;" onTap='goToIndexPage'>
+    <image src='/assets/icon/home.png' style='width:35px;height:35px;margin-top:11px;margin-left:13px;'></image>
+  </view>
+<view class="prsTop" style="background:no-repeat #FF610A bottom right;background-size:auto 220rpx;">
+		<view>
+			<view>提现金额</view>
+			<view class="txnNum">￥<label>{{withdrawAmt}}</label></view>
+			<view>{{responseInfo.createTimeFormat}}</view>			
+		</view>
+	</view>
+	<view class="odrNum">订单编号<text>{{responseInfo.tradeRecordId}}</text></view>
+	<view class="mar"></view>
+	<view class="">
+		<view class="callservice" onTap="callService">如有疑问请联系客服：{{serveiceTelNo}}<text class="iconfont icon-phonepress"></text></view>
+		<view class="tixianjindu">
+			<view  a:if="{{reconStatus.reconStatus == 13}}"  class="bZh">
+				<view class="bZhleft">
+					<view class="bZhline whrite"></view>
+					<view class="stepcircle">3</view>
+					<view class="bZhline"></view>
+				</view>
+				<view class="bZhRight">
+					<view class="tit">提现处理中</view>
+					<!-- <view class="text">已经成功提现，预计0-5工作日到账</view>
+					<view class="text">{{responseInfo.refundBank}}</view> -->
+				</view>
+			</view>
+			<view  a:elif="{{responseInfo.reconStatus == 10 || reconStatus.reconStatus == 15}}"  class="bZh alreadygo">
+				<view class="bZhleft">
+					<view class="bZhline whrite"></view>
+					<view class="stepcircle">3</view>
+					<view class="bZhline"></view>
+				</view>
+				<view class="bZhRight">
+					<view class="tit">成功</view>
+					<view class="text">已经成功提现，预计0-5工作日到账</view>
+					<view class="text">{{responseInfo.refundBank}}</view>
+				</view>
+			</view>
+			<view  a:elif="{{responseInfo.reconStatus == 11 || reconStatus.reconStatus == 14 || reconStatus.reconStatus == 16 || reconStatus.reconStatus == 17 || reconStatus.reconStatus == 18}}"  class="bZh alreadygo">
+				<view class="bZhleft">
+					<view class="bZhline whrite"></view>
+					<view class="stepcircle">3</view>
+					<view class="bZhline"></view>
+				</view>
+				<view class="bZhRight">
+					<view class="tit">失败</view>
+					<view class="text">处理失败</view>
+				</view>
+			</view>             
+			<view class="bZh alreadygo">
+				<view class="bZhleft">
+					<view class="bZhline"></view>
+					<view class="stepcircle">2</view>
+					<view class="bZhline"></view>
+				</view>
+				<view class="bZhRight">
+					<view class="tit">处理中</view>
+					<view class="text">请耐心等待</view>
+				</view>
+			</view>     
+			<view class="bZh alreadygo">
+				<view class="bZhleft">
+					<view class="bZhline"></view>
+					<view class="stepcircle">1</view>
+					<view class="bZhline whrite"></view>
+				</view>
+				<view class="bZhRight">
+					<view class="tit">提交成功</view>
+					<view class="text">将申请已提交</view>
+				</view>
+			</view>			
+		</view>
+	</view>

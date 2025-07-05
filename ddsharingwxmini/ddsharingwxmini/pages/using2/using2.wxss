@@ -1,0 +1,109 @@
+.banner {
+    width: 100%;
+    height: 330rpx;
+}
+
+.banner image {
+    width: 100%;
+}
+
+.title {
+    font-size: 30rpx;
+    font-weight: bolder;
+    color: #999;
+    text-align: center;
+}
+
+.c-blue {
+    color: #289afb;
+}
+
+.line {
+    display: block;
+    margin-top: 10px;
+}
+
+.time-title {
+    font-size: 35rpx;
+    color: #02B0E6;
+}
+
+.time-minute {
+    line-height: 112rpx;
+    font-size: 90rpx;
+    color: #02B0E6;
+}
+
+.paswd {
+    margin-top: 30rpx;
+    height: 68rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.password {
+    float: left;
+    font-size: 56rpx;
+    color: #000000;
+    border: solid #02B0E6 1px;
+    border-radius: 5px;
+    text-align: center;
+    width: 68rpx;
+    height: 68rpx;
+    line-height: 68rpx;
+}
+
+.password:nth-of-type(n+2) {
+    margin-left: 20rpx;
+}
+
+.hint {
+    text-align: center;
+}
+
+.hint .hint_img {
+    width: 180rpx;
+    height: 180rpx;
+    margin-top: 80rpx;
+    margin-bottom: 20rpx;
+}
+
+.hint_title {
+    font-size: 30rpx;
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+}
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 46px;
+    border-top: 1px solid #cdcfcf;
+}
+
+.flex {
+    display: flex;
+    background-color: #FFFFFF;
+}
+
+.bottom .btn {
+    border-radius: 0px;
+    box-sizing: none;
+    background-color: #FFFFFF;
+    width: 50%;
+    height: 46px;
+    line-height: 46px;
+    margin: 0 auto;
+}
+
+.bottom .btn:nth-child(2) {
+    border-left: 1px solid #cdcfcf;
+}
+
+.bottom .btn::after {
+    border: 0px;
+}

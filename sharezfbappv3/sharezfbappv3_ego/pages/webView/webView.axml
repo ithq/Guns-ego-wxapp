@@ -1,0 +1,2 @@
+<!-- 指向支付宝首页的web-view -->
+<web-view src="{{url}}" a:if="{{url}}" onMessage="test"></web-view>

@@ -1,0 +1,96 @@
+<!--pages/agent/userEdit/userEdit.wxml-->
+<wxs module="filter" src="../../../config/filter.wxs"></wxs>
+<View class="user_info_warp">
+	<view class="user_info_login flex_between_center">
+		<view class="user_info_login_login">
+			{{info.firstName}}
+			<view class="user_info_login_id">ID:{{info.number}}</view>
+		</view>
+
+		<view class="user_info_login_avatar">
+			<image class="image_percent" src="{{info.pic}}" wx:if="{{info.pic}}"></image>
+			<!-- <image class="image_percent" src="{{imgUrl + 'personalCenter/icon_defaultAvatar3.png'}}" wx:else></image> -->
+		</view>
+	</view>
+</View>
+
+<view class="menu_warp">
+	<view class="menu_item flex_between_center">
+		<view class="menu_item_title">{{lg.userType}}</view><!--用户来源-->
+		<view class="menu_item_contetnt">
+            <!-- 用户类型 1 账号登录 2 facebook 3 google 4 ios 5 微信 6 支付宝 -->
+            {{info.userType == 5 ? lg.wechat : info.userType == 6 ? lg.alipay : lg.app}}
+        </view>
+	</view>
+	<!-- <view class="menu_item flex_between_center">
+		<view class="menu_item_title">{{lg.userGrade}}</view> 
+		<view class="menu_item_contetnt">
+            普通用户                                     用户等级 
+            <image class="rightArrow" src="{{imgUrl + iconRightArrow}}"></image>
+        </view>
+	</view> -->
+
+    <view class="menu_item flex_between_center">
+		<view class="menu_item_title">{{lg.userClass}}</view> <!-- 用户类型 -->
+        <!-- 0收租金，1不收租金 -->
+		<view class="menu_item_contetnt" data-title="{{lg.userClass}}" data-clicktype="0" data-choose1="{{lg.freeUser}}" data-choose2="{{lg.normalUser}}" data-statu="{{info.userClass}}" bindtap="showChoose">
+            {{info.userClass == 1 ? lg.freeUser : lg.normalUser}}
+            <image class="rightArrow" src="{{imgUrl + iconRightArrow}}"></image>
+        </view>
+	</view>
+    <view class="menu_item flex_between_center">
+		<view class="menu_item_title">{{lg.isWithdraw}}</view> <!-- 提现许可 -->
+		<view class="menu_item_contetnt" data-title="{{lg.isWithdraw}}" data-clicktype="1" data-choose1="{{lg.allow}}" data-choose2="{{lg.unAllow}}" data-statu="{{info.withdraw}}" bindtap="showChoose">
+            {{info.withdraw == 1 ? lg.allow : lg.unAllow}}
+            <image class="rightArrow" src="{{imgUrl + iconRightArrow}}"></image>
+        </view>
+	</view>
+    <view class="menu_item flex_between_center">
+		<view class="menu_item_title">{{lg.deposit}}</view><!-- 用户押金 -->
+		<view class="menu_item_contetnt" data-title="{{lg.deposit}}" data-clicktype="2" ><!-- bindtap="showChoose" -->
+            {{filter.moneyFormato(info.accountYajin)}}{{common.symbolText}}
+            <image class="rightArrow" src="{{imgUrl + iconRightArrow}}"></image>
+        </view>
+	</view>
+    <view class="menu_item flex_between_center">
+		<view class="menu_item_title">{{lg.balance}}</view><!-- 用户余额 -->
+		<view class="menu_item_contetnt" data-title="{{lg.balance}}" data-clicktype="3" > <!-- bindtap="showChoose" -->
+            {{filter.moneyFormato(info.accountMy)}}{{common.symbolText}}
+            <image class="rightArrow" src="{{imgUrl + iconRightArrow}}"></image>
+        </view>
+	</view>
+</view>
+
+<button class="saveBtn theme_btn" bindtap="submitInfo">{{lg.save}}</button>
+
+<!-- 弹出框 选择 -->
+<view class="{{showBgBox ? 'bgBox bgBoxShow' : 'bgBox bgBoxHide'}}" wx:if="{{showAlert}}">
+    <view class="{{showBgBox ? 'content contentShow' : 'content contentHide'}}" wx:if="{{clicktype==0 || clicktype==1}}">
+        <image class="closeImg" src="{{imgUrl + closeImg}}" catchtap="hideChoose"></image>
+        <view class="title">
+            {{chooseTitle}}
+        </view>
+        
+        <view class="chooseItem" data-statu="0" catchtap="chooseChange">
+            {{choose2}}
+            <image class="chooseImg" src="{{statu == 0 ? imgUrl + full : imgUrl + empty}}" ></image>
+        </view>
+        <view class="chooseItem" data-statu="1" catchtap="chooseChange">
+            {{choose1}}
+            <image class="chooseImg" src="{{statu == 1 ? imgUrl + full : imgUrl + empty}}" ></image>
+        </view>
+    </view>
+    <!-- 输入框 -->
+    <view class="{{showBgBox ? 'content contentShow' : 'content contentHide'}}" wx:if="{{clicktype==2 || clicktype==3}}">
+        <image class="closeImg" src="{{imgUrl + closeImg}}" catchtap="hideChoose"></image>
+        <view class="title">
+            {{chooseTitle}}
+        </view>
+        <form bindsubmit='sureMoney'>
+            <view class="inputBox">
+                <input type="text" name="money" class="input" value="{{filter.moneyFormato(showValue)}}"></input>{{common.symbol}}
+            </view>
+            <button formType="submit" type="primary" class="sureBtn theme_btn">确定</button>
+        </form>
+    </view>
+</view>

@@ -1,0 +1,175 @@
+/* pages/agent/shopDevice/shopDevice.wxss */
+page{
+    background: #F5F5F7;
+}
+.main{
+    /* height: 100%; */
+    height: 100vh;
+}
+.header{
+    position: fixed;
+    width: 100%;
+    padding: 30rpx;
+    background: white;
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+    box-shadow:0px 3rpx 22rpx rgba(0,0,0,0.03);
+    z-index: 10;
+}
+.searchBox{
+    display: flex;
+}
+.searchInputBox{
+    position: relative;
+    width:600rpx;
+    height:70rpx;
+    background:rgba(245,245,247,1);
+    border-radius:36rpx;
+}
+.search{
+    position: absolute;
+    width:23rpx;
+    height:25rpx;
+    top: 23rpx;
+    left: 36rpx;
+}
+.searchInput{
+    position: absolute;
+    width: 500rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    left: 70rpx;
+    font-size:22rpx;
+}
+.scanBtn{
+    margin-left: 20rpx;
+    width:70rpx;
+    height:70rpx;
+}
+
+
+.navBar{
+    display: flex;
+    /* padding: 0 30rpx; */
+    font-size:24rpx;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20rpx; 
+    font-weight: bold;
+}
+.barItem{
+    flex: 1;
+    padding-bottom: 8rpx;
+}
+
+.active{
+    position: relative;
+    color:rgba(0,193,118,1);
+}
+
+.active::after{
+    position: absolute;
+    content: '';
+    width: 30rpx;
+    height: 2px;
+    bottom: 0;
+    background: rgba(0,193,118,1);
+    bottom: -8rpx;
+    left: 50%;
+    margin-left: -15rpx;
+}
+
+/* 列表 */
+.deviceList{
+    width: 100%;
+    height: 100%;
+    padding: 150rpx 30rpx 0;
+    box-sizing: border-box;
+}
+
+.deviceList::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+    display: none;
+}
+
+scroll-view [style*="overflow"]::-webkit-scrollbar {  
+    display: none;  
+} 
+
+.deviceList_warp {
+    height: 100%;
+}
+
+.listItem{
+    position: relative;
+    background:rgba(255,255,255,1);
+    border-radius:10rpx;
+    padding: 30rpx;
+    margin-bottom: 20rpx;
+}
+
+.itemContent {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.deviceInfo{
+    padding-bottom: 22rpx;
+}
+.infoTxt{
+    font-size:26rpx;
+    margin-bottom: 10rpx;
+}
+.text{
+    font-size: 32rpx;
+    font-weight: bold;
+}
+.iconCharge{
+    width: 20rpx;
+    height: 24rpx;
+    margin-right: 10rpx;
+}
+.canReturn{
+    margin-left: 22rpx;
+}
+.operation{
+    border-top: 1px dashed rgba(186,186,186,1);
+    display: flex;
+    padding-top: 30rpx;
+}
+.btn{
+    padding: 14rpx 20rpx !important;
+    border:1px solid rgba(186,186,186,1);
+    border-radius:6rpx;
+    font-size:24rpx;
+    color:rgba(123,123,123,1);
+    background: white;
+    margin-right: 20rpx;
+}
+
+.footer{
+    position: fixed;
+    width: 100%;
+    background:rgba(0,193,118,1);
+    bottom: 0;
+    left: 0;
+    color:white;
+    padding: 26rpx 30rpx;
+    font-size: 28rpx;
+    box-sizing: border-box;
+}
+.chooseImg{
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 10rpx;
+    vertical-align: text-bottom;
+    margin-bottom: 2rpx;
+}
+.bindAgent{
+    float: right;
+}

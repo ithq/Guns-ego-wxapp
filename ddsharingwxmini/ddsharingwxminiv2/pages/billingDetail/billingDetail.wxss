@@ -1,0 +1,64 @@
+/* pages/billingDetail/billingDetail.wxss */
+page {
+  background: #F5F5F7;
+}
+
+.billing_detail {
+  margin: 30rpx;
+  background: #fff;
+  padding: 20rpx 40rpx;
+  border-radius:20rpx;
+}
+
+.billing_detail_type_warp {
+  padding: 30rpx 0;
+  margin-bottom: 30rpx;
+  border-bottom: 1px dashed rgba(186,186,186,0.3);
+}
+
+.billing_detail_type {
+  font-size:26rpx;
+  padding-bottom: 20rpx;
+}
+
+.billing_detail_amount {
+  font-size: 32rpx;
+  font-weight:700;
+  color: #F80000;
+}
+
+.billing_detail_content {
+  padding-bottom: 20rpx;
+  font-size: 26rpx;
+}
+
+.billing_detail_item {
+  padding-right: 50rpx;
+}
+
+.billing_detail_item_data {
+  display: inline-block;
+}
+
+.copy_warp {
+  position: relative;
+}
+
+.copy_box {
+  position: absolute;
+  top: -48rpx;
+  right: -130rpx;
+  width: 160rpx;
+  height: 130rpx;
+}
+
+.rental_record_copy {
+  margin-left: 46rpx;
+  border: 1px solid rgba(186,186,186,0.3);
+  border-radius: 4rpx;
+  font-size: 18rpx;
+  color: #000;
+  line-height: 30rpx;
+  height: 30rpx;
+  padding: 0 4rpx;
+}

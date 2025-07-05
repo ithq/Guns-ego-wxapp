@@ -1,0 +1,186 @@
+/* pages/agent/userEdit/userEdit.wxss */
+page {
+    background: #F5F5F7;
+}
+
+.user_info_warp {
+    background: #fff;
+    padding: 55rpx 40rpx;
+    margin-bottom: 20rpx;
+}
+
+.user_info_login {
+    font-size: 40rpx;
+    font-weight: 700;
+}
+
+.user_info_login_id {
+    font-size: 28rpx;
+    font-weight: 400;
+    padding-top: 20rpx;
+    color: #999999;
+}
+
+.user_info_login_avatar {
+    width: 138rpx;
+    height: 138rpx;
+    border-radius: 50%;
+    box-shadow: 2px 10px 9px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+
+.menu_warp {
+    background: #fff;
+    padding: 0 40rpx 60rpx;
+    font-size: 30rpx;
+}
+
+.menu_item {
+    padding-top: 60rpx;
+    padding-bottom: 10rpx;
+}
+
+.menu_item_contetnt {
+    color: #999999;
+}
+
+.menu_item_tel_btn {
+    width: auto !important;
+    background: transparent;
+    padding: 0;
+    margin: 0 !important;
+    font-size: 30rpx;
+    font-weight: 400;
+}
+
+.menu_item_tel_btn::after {
+    border: none;
+}
+
+.rightArrow {
+    float: right;
+    width: 15rpx;
+    height: 28rpx;
+    margin-top: 9rpx;
+    margin-left: 10rpx;
+}
+
+.saveBtn{
+    padding: 0;
+    width:500rpx;
+    height:80rpx;
+    line-height: 80rpx;
+    margin-top: 68rpx;
+}
+
+
+/* 弹出框 */
+.bgBox{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background:rgba(0,0,0,0.4);
+}
+.content{
+    position: absolute;
+    width: 100%;
+    padding: 30rpx 30rpx 0;
+    bottom: 0;
+    background: white;
+    box-sizing: border-box;
+    border-radius:20px 20px 0px 0px;
+}
+.title{
+    font-size:30rpx;
+    font-weight:bold;
+    color:rgba(3,3,3,1);
+    text-align: center;
+}
+.closeImg{
+    position: absolute;
+    width: 26rpx;
+    height: 26rpx;
+    top: 31rpx;
+    right: 31rpx;
+}
+.chooseItem{
+    position: relative;
+    padding: 30rpx 0;
+    font-size:26rpx;
+    color:rgba(64,64,64,1);
+    border-bottom:1px solid rgba(186,186,186,1);
+}
+.chooseImg{
+    position: absolute;
+    width: 30rpx;
+    height: 30rpx;
+    right: 0;
+    bottom: 30rpx;
+}
+
+
+.inputBox{
+    display: flex;
+    text-align: center;
+    line-height: 80rpx;
+    font-size: 26rpx;
+    justify-content: center;
+    margin-top: 30rpx;
+}
+.input{
+    width:524rpx;
+    height:80rpx;
+    line-height: 80rpx;
+    background:rgba(245,245,247,1);
+    border-radius:19rpx;
+    text-align: left;
+}
+
+.sureBtn{
+    width:500rpx;
+    height:80rpx;
+    line-height: 80rpx;
+    border-radius:48rpx;
+    padding: 0;
+    margin: 30rpx auto;
+}
+
+.bgBoxShow{
+    background:rgba(0,0,0,0.4);
+    animation: moveBgShow .5s infinite;
+    animation-iteration-count: 1;
+}
+.bgBoxHide{
+    background:rgba(0,0,0,0) !important;
+    animation: moveBgHidden .5s infinite;
+    animation-iteration-count: 1;
+}
+.contentShow{
+    bottom: 0 !important;
+    animation: moveShow .5s infinite;
+    animation-iteration-count: 1;
+}
+.contentHide{
+    bottom: -400rpx !important;
+    animation: moveHidden .5s infinite;
+    animation-iteration-count: 1;
+}
+@keyframes moveShow{
+    from {bottom:-400rpx;}
+    to {bottom:0;}
+}
+@keyframes moveBgShow{
+    from {background:rgba(0,0,0,0);}
+    to {background:rgba(0,0,0,0.4);}
+}
+@keyframes moveBgHidden{
+    from {background:rgba(0,0,0,0.4);}
+    to {background:rgba(0,0,0,0);}
+}
+@keyframes moveHidden{
+    from {bottom: 0;}
+    to {bottom: -400rpx;}
+}

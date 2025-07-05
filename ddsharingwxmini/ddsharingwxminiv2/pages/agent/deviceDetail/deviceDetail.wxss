@@ -1,0 +1,34 @@
+/* pages/agent/deviceDetail/deviceDetail.wxss */
+page{
+    background: #F5F5F7;
+}
+.main{
+    padding: 30rpx 44rpx 1rpx;
+    background: white;
+    margin-top: 20rpx;
+}
+.txtItem{
+    margin-bottom: 30rpx;
+    display: flex;
+}
+.txtTitle{
+    width: 300rpx;
+    text-align: left;
+    font-size:26rpx;
+}
+.txtVal{
+    width: 450rpx;
+    text-align: right;
+    font-size:26rpx;
+    color:rgba(153,153,153,1);
+}
+
+.btn{
+    padding: 14rpx 20rpx !important;
+    border:1px solid rgba(186,186,186,1);
+    border-radius:6rpx;
+    font-size:24rpx;
+    color:rgba(123,123,123,1);
+    background: white;
+    margin-right: 20rpx;
+}

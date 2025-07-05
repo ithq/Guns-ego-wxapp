@@ -1,0 +1,47 @@
+<view class="nav">
+    <view class="navli {{messageStatus == 2?'active':''}}" data-messagestatus='2' bindtap='mymessageByMessagestatus'>
+      <view class="flex">未读消息({{unRead}})</view>
+    </view>
+    <view class="navli {{messageStatus == 1?'active':''}}" data-messagestatus='1' bindtap='mymessageByMessagestatus'>
+      <view class="flex">已读消息({{read}})</view>
+    </view>
+  </view>
+    <scroll-view class="scroll-view-list" scroll-y="true" scroll-x="false" lower-threshold="50" bindscrolltolower="onScrollLower">
+  <block wx:if="{{items.length > 0}}" wx:for="{{items}}" wx:key="{{id}}" wx:for-index="index">
+    <view wx:if="{{item.status == 2}}" data-id='{{item.id}}' data-title='{{item.title}}' data-time='{{item.createTime}}'  data-content='{{item.content}}' data-status='{{item.status}}' data-index='{{index}}' class="flowrecord" bindtap="readMessage">
+      <view class="flowrecordtit">{{item.title}}
+        <text class="iconfont icon-goto"></text>
+      </view>
+      <view class="flowrecorddetail">系统通知
+        <view class="line"></view>{{item.createTime}}</view>
+    </view>
+    <view wx:if="{{item.status == 1}}" data-id='{{item.id}}' data-title='{{item.title}}' data-time='{{item.createTime}}'  data-content='{{item.content}}' data-status='{{item.status}}' data-index='{{index}}' class="flowrecord alreadyread" bindtap="readMessage">
+      <view class="flowrecordtit">{{item.title}}
+        <text class="iconfont icon-goto"></text>
+      </view>
+      <view class="flowrecorddetail">系统通知
+        <view class="line"></view>{{item.createTime}}</view>
+    </view>
+  </block>
+  <view class="nodatashow" style="display:{{nodatashowHide ? 'block':'none'}}">
+    <image src="{{resourceUrl}}/images/images/nodata.png"></image>
+    <view class='p'>您还没有此类消息！</view>
+  </view>
+    <view class="messagelayer {{messageShowView?'':'hide'}}" bindtap='readMessageHide'>
+      <view class="messagelayercont">
+        <view class="cont">
+          <view class="conttit" style="{{resourceUrl}}/images/images/messagelayer.png) no-repeat top center; background-size: 100% 100%;">
+            <view>
+              <view class="time">{{time}}</view>
+              <view class="tit">{{title}}</view>              
+            </view>
+          </view>
+          <view class="contdetails">
+            <view class="listtextcont">{{content}}</view>
+          </view>
+        </view>
+        <view class="messagelayerclose"><text class="iconfont icon-shaclose"></text></view>
+      </view>
+    </view>  
+  <image class="loading" style="display:{{loadingHidden ? 'block':'none'}}" src='{{resourceUrl}}/images/images/loading.gif'></image>
+</scroll-view>

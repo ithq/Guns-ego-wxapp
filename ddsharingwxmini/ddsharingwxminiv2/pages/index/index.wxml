@@ -1,0 +1,124 @@
+<!--index.wxml-->
+<wxs module="filter" src="../../config/filter.wxs"></wxs>
+<view class="container flex flex_column">
+	<navigation-bar title="{{lg.pageTitle}}" bindback="goBack">
+		<!-- 头像 -->
+		<view slot="left">
+			<view class="left_warp" catchtap="jumpPage" data-url="../personalCenter/personalCenter">
+				<view class="navigation_bar_avatar">
+					<open-data class="image_percent" type="userAvatarUrl"></open-data>
+				</view>
+			</view>
+		</view>
+	</navigation-bar>
+
+	<view class="map_warp">
+		<map id="map" class="map" bindmarkertap="markersTap" bindregionchange="regionchange" bindtap="closeDetail" markers="{{markers}}" latitude="{{lat}}" longitude="{{lng}}" scale="{{scale}}" show-location>
+
+			<!-- 顶部 -->
+			<view class="map_top flex_center_center">
+				<!-- 租借中 -->
+				<view class="leasing_container flex_center_y" catchtap="jumpPage" data-url="../rentalRecord/rentalRecord" wx:if="{{showPowerBank || showMmx}}">
+					<view class="leasing_center flex_1 flex_column flex_center_center">
+						<view class="leasing_text">{{showPowerBank ? lg.usageTime : lg.remainder}}</view>
+						<view class="leasing_data">{{times}}</view>
+					</view>
+
+					<view class="leasing_center flex_1 flex_column flex_center_center">
+						<view class="leasing_text">{{showPowerBank ? lg.rent : lg.rentalFee}}</view>
+						<view class="leasing_data">{{commonLg.symbol}}{{filter.moneyFormato(amount)}}</view>
+					</view>
+				</view>
+
+				<!-- 广告 -->
+				<view class="advertisementBox" wx:if="{{!showPowerBank && !showMmx}}">
+					<!-- bindtap="goAdvertisement" -->
+					<!-- <image mode="widthFix" data-aliMiniprogram="{{advertisement.aliAppid}}" src="{{advertisement.picUrl ? advertisement.picUrl : imgUrl + 'index/adtest.png'}}" class="advertisementBanner"></image> -->
+					<ad unit-id="adunit-4018a10d913fb15a"></ad>
+			</view>
+			</view>
+
+			<!-- 地图中心点 -->
+			<view class="map_center flex_center_y">
+				<view class="map_center_nearby flex_center_center" catchtap="jumpPage" data-url="../nearbyShops/nearbyShops">
+					<view class="map_arrow_icon flex_center_y">{{lg.nearby}}</view>
+				</view>
+
+				<view class="navigation_icon_warp">
+					<image class="map_center_icon" mode="widthFix" src="{{imgUrl + 'index/icon_centre3.png'}}"></image>
+				</view>
+			</view>
+
+			<!-- 扫一扫 -->
+			<view class="scan_warp flex_center_center">
+				<view class="cover_scan flex_between_center" >
+					<!-- <cover-image src="https://zdjs3.zhengdejishu.com/public/wechat_applet/miniprogramicon/index/icon_bottom_bg3.png" class="scan-img"></cover-image> -->
+					<view class="scan_restoration reset-location" catchtap="mapReset">
+						<cover-image class="image_percent" mode="widthFix" src="{{imgUrl + 'index/icon_restoration3.png'}}"></cover-image>
+					</view>
+
+					<view class="scan_scan flex_center_y" catchtap="scanCode">
+						<cover-image class="scan_scan_img" mode="widthFix" src="{{imgUrl + 'index/icon_scan3.png'}}"></cover-image>
+						<cover-view class="scan_scan_text">{{lg.lease}}</cover-view>
+					</view>
+
+					<view class="scan_restoration help-center" catchtap="jumpPage" data-url="../helpCenter/helpCenter">
+						<cover-image class="image_percent" mode="widthFix" src="{{imgUrl + 'index/icon_help3.png'}}"></cover-image>
+					</view>
+				</view>
+			</view>
+
+			<!-- 商家详情 -->
+			<cover-view class="shop_detail_warp flex_center_x" hidden="{{showDetail}}">
+				<cover-view class="shop_detail_container flex flex_column">
+					<cover-view class="shop_detail_close flex_center_x" catchtap="closeDetail">
+						<cover-image class="shop_detail_close_icon" mode="widthFix" src="{{imgUrl + 'nearStore/icon_down3.png'}}"></cover-image>
+					</cover-view>
+
+					<cover-view class="shop_detail_info flex_center_y">
+						<cover-view class="shop_detail_info_img">
+							<cover-image class="image_percent" mode="cover" src="{{shopDetail.logo? shopDetail.logo : imgUrl + 'nearStore/default_logo3.png'}}"></cover-image>
+						</cover-view>
+
+						<cover-view class="shop_detail_info_info">
+							<cover-view class="shop_detail_info_name">{{shopDetail.shopName}}</cover-view>
+							<cover-view class="flex_center_y">
+								<cover-view class="shop_detail_info_address">{{shopDetail.address}}</cover-view>
+								<cover-view class="shop_detail_info_scan" catchtap="scanCode">
+									<cover-image class="shop_detail_info_scan_img" src="{{imgUrl + 'index/icon_scan3.png'}}" mode="widthFix"></cover-image>
+								</cover-view>
+							</cover-view>
+						</cover-view>
+					</cover-view>
+
+					<cover-view class="shop_detail_time_warp flex_center_y">
+						<cover-view class="shop_detail_time_time">{{shopDetail.serviceTime}}</cover-view>
+
+						<cover-view class="shop_detail_time_line" wx:if="{{shopDetail.type == 1}}"></cover-view>
+						<cover-view class="shop_detail_time_status {{shopDetail.onlineNum > 0 ? '' : 'theme_color_red'}}" wx:if="{{shopDetail.type == 1}}">{{shopDetail.onlineNum > 0 ? lg.online : lg.offline}}</cover-view>
+
+					</cover-view>
+
+					<cover-view class="shop_detail_status theme_color flex_center_y" wx:if="{{shopDetail.type == 1}}">
+						<cover-image class="shop_detail_status_img" mode="widthFix" src="{{imgUrl + 'nearStore/icon_charger3.png'}}"></cover-image>
+						<cover-view class="shop_detail_status_status flex">
+							<cover-view class="shop_detail_status_count">{{shopDetail.canBorrow}} </cover-view>
+							<cover-view>{{lg.rentable}}</cover-view>
+						</cover-view>
+						<cover-view class="shop_detail_status_status flex">
+							<cover-view class="shop_detail_status_count">{{shopDetail.canReturn}} </cover-view>
+							<cover-view>{{lg.returnable}}</cover-view>
+						</cover-view>
+					</cover-view>
+
+					<cover-view class="shop_detail_banner {{shopDetail.type == 1 ? '' : 'shop_detail_banner_line'}}">
+						<cover-image class="shop_detail_banner_img" mode="widthFix" src="{{shopDetail.shopBanner[0].image ? shopDetail.shopBanner[0].image : imgUrl + 'nearStore/default_banner3.png'}}"></cover-image>
+					</cover-view>
+
+					<cover-view class="shop_detail_navigation theme_background_color" hover-class='hover_class' catchtap="toNavigation" data-lat="{{shopDetail.lat}}" data-lng="{{shopDetail.lng}}" data-name="{{shopDetail.shopName}}" data-address="{{shopDetail.shopAddr}}">{{lg.navigation}}{{filter.lengthUnitFormat(shopDetail.distance)}}</cover-view>
+				</cover-view>
+			</cover-view>
+
+		</map>
+	</view>
+</view>

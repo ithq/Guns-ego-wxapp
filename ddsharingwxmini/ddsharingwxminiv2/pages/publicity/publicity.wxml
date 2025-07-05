@@ -1,0 +1,10 @@
+<!--pages/publicity/publicity.wxml-->
+<View class='nav' style="height:0;">
+	<navigation-bar title="" background="rgba(0,0,0,0)" navImg="{{img}}" color="#fff" back="{{true}}" iconTheme="white" bindback="goBack"></navigation-bar>
+</View>
+<view>
+    <!-- <view class="header">
+        <image mode="widthFix" src="{{headerBg}}" class="headerBg"/>
+    </view> -->
+    <image mode="widthFix" src="{{headerBg}}" class="adveritisement"/>
+</view>

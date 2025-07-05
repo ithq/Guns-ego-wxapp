@@ -1,0 +1,105 @@
+/* pages/bluetooth/lease/lease.wxss */
+.container_warp {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.container {
+  flex: 1;
+}
+
+.line_lease_top {
+  padding: 30rpx 0 5.34vh;
+}
+.line_lease_top_img {
+  width: 100vw;
+  height: 46.67vw;
+}
+
+.line_lease_title {
+  padding-top: 20rpx;
+  padding-bottom: 40rpx;
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #000000;
+  text-align: center;
+}
+
+.line_lease_time {
+  padding: 0 30rpx;
+  flex-wrap: wrap;
+}
+
+.line_lease_time_item {
+  width: 50%;
+  min-width: 50%;
+  max-width: 50%;
+}
+
+.line_lease_time_btn {
+  width: 254rpx;
+  height: 88rpx;
+  margin-bottom: 30rpx;
+  border-radius: 16rpx;
+  background: #00C176;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 88rpx;
+  color: #FFFFFF;
+}
+
+.line_lease_caption {
+  padding: 0 110rpx;
+}
+
+.line_lease_caption_item {
+  font-size: 28rpx;
+  color: #000000;
+  padding-bottom: 20rpx;
+}
+
+.line_bottom {
+  /* position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 2.25vh; */
+  padding-bottom: 2.25vh;
+}
+
+.line_bottom_img {
+  width: 690rpx;
+  height: 160rpx;
+}
+
+.adBox{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, .5);
+  top: 0;
+  left: 0;
+  padding: 0 6vw;
+  box-sizing: border-box;
+}
+.adImgBox{
+  position: absolute;
+  width: 88vw;
+  height: 44vw;
+  top: 50%;
+  left: 50%;
+  margin-top: -22vw;
+  margin-left: -44vw;
+}
+.adImg{
+  width: 100%;
+}
+.closeImg{
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  top: 20rpx;
+  right: 20rpx;
+  z-index: 100;
+}

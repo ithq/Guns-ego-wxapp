@@ -1,0 +1,94 @@
+<!--pages/rentalRecordDetail/rentalRecordDetail.wxml-->
+<wxs module="filter" src="../../config/filter.wxs"></wxs>
+<view class="container flex_center_y flex_column">
+<navigation-bar leftTitle="{{lg.rentalDetails}}" back="{{true}}" bindback="goBack"></navigation-bar>
+
+<view class="rental_record_detail_warp">
+	<view class="rental_record_detail">
+		<view class="rental_record_status flex_center_y flex_column">
+			<text class="rental_status">{{filter.borrowState(roderDetail.borrowState, commonLg)}}</text>
+			<text class="rental_amount">{{commonLg.symbol}}{{filter.moneyFormato(roderDetail.payPrice)}}</text>
+		</view>
+
+		<!-- 使用详情 -->
+		<view class="rental_record_detail_item">
+			<view class="item_title">{{lg.useDetail}}</view>
+
+			<view class="item_content gray_color flex">
+				<text class="record_item">{{lg.orderNumber}}</text>
+				<text class="record_item_data">{{roderDetail.orderSn}}</text>
+				<view class="copy_warp">
+					<view class="copy_box flex_center_y" catchtap="copyTxt" data-txt="{{roderDetail.orderSn}}">
+						<view class="rental_record_copy">{{commonLg.copy}}</view>
+					</view>
+				</view>
+			</view>
+			<!-- 设备Id -->
+			<view class="rental_record_content gray_color" wx:if="{{roderDetail.deviceId}}">
+				<text class="record_item">{{lg.deviceID}}</text>
+				<text class="record_item_data">{{roderDetail.deviceId}}</text>
+			</view>
+			<!-- 电池Id -->
+			<view class="rental_record_content gray_color" wx:if="{{roderDetail.batteryId}}">
+				<text class="record_item">{{lg.batteryID}}</text>
+				<text class="record_item_data">{{roderDetail.batteryId}}</text>
+			</view>
+
+			<view class="rental_record_content gray_color">
+				<text class="record_item">{{lg.rentShop}}</text>
+				<text class="record_item_data">{{roderDetail.shopName}}</text>
+			</view>
+
+			<view class="rental_record_content gray_color">
+				<text class="record_item">{{lg.rentTime}}</text>
+				<text class="record_item_data">{{roderDetail.borrowTime}}</text>
+			</view>
+
+			<view class="rental_record_content gray_color" wx:if="{{roderDetail.returnShopname}}">
+				<text class="record_item">{{lg.returnShop}}</text>
+				<text class="record_item_data">{{roderDetail.returnShopname}}</text>
+			</view>
+
+			<view class="rental_record_content gray_color" wx:if="{{roderDetail.borrowState == 5 && roderDetail.orderType ==1}}">
+				<text class="record_item">{{lg.returnTime}}</text>
+				<text class="record_item_data">{{roderDetail.settlementTime}}</text>
+			</view>
+
+			<view class="rental_record_content gray_color" wx:if="{{roderDetail.orderType !=1}}">
+				<text class="record_item">{{lg.endTime}}</text>
+				<text class="record_item_data">{{roderDetail.settlementTime}}</text>
+			</view>
+		</view>
+
+		<!-- 价格明细 -->
+		<view class="rental_record_detail_item">
+			<view class="item_title">{{lg.priceDetail}}</view>
+
+			<view class="rental_record_content gray_color">
+				<text class="record_item">{{lg.payType}}</text>
+				<text class="record_item_data">{{commonLg.weChat}}</text>
+			</view>
+
+			<view class="rental_record_content gray_color">
+				<text class="record_item">{{lg.useTime}}</text>
+				<text class="record_item_data"><text wx:if="{{useTime}}">{{roderDetail.usedMinute}}</text></text>
+			</view>
+
+			<view class="rental_record_content gray_color">
+				<text class="record_item">{{lg.settleMoney}}</text>
+				<text class="record_item_data">{{commonLg.symbol}}{{roderDetail.payPrice}}</text>
+			</view>
+		</view>
+
+		<!-- 计费规则 -->
+		<view class="rental_record_detail_item">
+			<view class="item_title">{{lg.chargingStandard}}</view>
+			<view class="rental_record_content gray_color">
+				<text class="rental_record_rule">{{roderDetail.chargingRules}}</text>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="rental_record_detail_btn theme_btn" hover-class="hover_class" bindtap="scanCode">{{lg.rentPowerBank}}</view>
+</view>

@@ -1,0 +1,32 @@
+<!--miniprogram/pages/pay.wxml-->
+<view class="container">
+
+  <view class="uploader">
+    <button bindtap="create">免押租借</button>
+  </view>
+
+  <view class="uploader">
+    <button bindtap="query">查询订单</button>
+  </view>
+
+  <view class="uploader">
+    <button bindtap="change">修改订单</button>
+  </view>
+
+  <view class="uploader">
+    <button bindtap="cancel">取消订单</button>
+  </view>
+
+  <view class="uploader">
+    <button bindtap="complete">完结订单</button>
+  </view>
+
+  <view class="uploader">
+    <button bindtap="payOrder">支付分订单收款</button>
+  </view>
+
+  <view class="uploader">
+    <button bindtap="syncOrder">同步服务订单</button>
+  </view>
+
+</view>

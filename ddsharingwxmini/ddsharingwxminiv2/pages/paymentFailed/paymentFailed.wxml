@@ -1,0 +1,10 @@
+<!--pages/withdrawalFailed/withdrawalFailed.wxml-->
+<navigation-bar title="{{orderType == 1 ? lg.paymentFailed : lg.withdrawalFailed}}" back="{{true}}" bindback="goBack"></navigation-bar>
+
+<view class="withdrawa_result flex_center_y flex_column">
+  <!-- <image class="withdrawa_result_img" mode="widthFix" src="{{imgUrl + 'withdrawal/icon_wechat_pay3.png'}}"></image> -->
+  <image class="withdrawa_result_img" mode="widthFix" src="{{imgUrl + 'prompt/icon_fail3.png'}}"></image>
+  <view class="withdrawa_result_status">{{orderType == 1 ? lg.paymentFailed : lg.withdrawalFailed}}</view>
+  <view class="withdrawa_result_time gray_color">{{createdTime}}</view>
+  <view class="withdrawa_result_btn" hover-class="hover_class" bindtap="jumpPage" data-url="../billingDetail/billingDetail">{{lg.billingDetail}}</view>
+</view>

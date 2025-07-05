@@ -1,0 +1,128 @@
+<!--pages/personalCenter/personalCenter.wxml-->
+<wxs module="filter" src="../../config/filter.wxs"></wxs>
+
+<navigation-bar title="" background="rgba(0,0,0,0)" color="#fff" back="{{true}}" iconTheme="white" bindback="goBack" backgroundImg="{{imgUrl + 'personalCenter/icon_bg3.png'}}" backgroundClass="backgroundClass">
+	<!-- 嵌套内容 -->
+	<view slot="container">
+		<view class="user_info_container">
+			<block wx:if="{{expired}}">
+				<view class="user_info_login flex_between_center">
+					<view class="user_info_login_login" bindtap="jumpPage" data-url="../login/login">{{lg.noLogin}}</view>
+					<view class="user_info_login_avatar" bindtap="jumpPage" data-url="../login/login">
+						<image class="image_percent" src="{{imgUrl + 'personalCenter/icon_defaultAvatar3.png'}}"></image>
+					</view>
+				</view>
+			</block>
+
+			<block wx:else>
+				<view class="user_info_login flex_between_center">
+					<view class="user_info_login_login">
+						{{userInfo.firstName}}
+						<view class="user_info_login_id">ID:{{userInfo.number}}</view>
+					</view>
+					<view class="user_info_login_avatar active" mode="cover" bindtap="jumpPage" data-url="../userInfo/userInfo">
+						<image class="image_percent" src="{{userInfo.pic}}"></image>
+					</view>
+				</view>
+			</block>
+
+			<view class="user_info flex_center_y">
+				<view class="user_info_item_warp flex_center_y" bindtap="jumpPage" data-url="../wallet/wallet">
+					<view class="user_info_item"><text class="symbol">{{commonLg.symbol}}</text>{{filter.moneyFormato(userInfo.accountMy)}}</view>
+					<view class="user_info_item_content">{{lg.balance}}</view>
+				</view>
+
+				<!-- <view class="user_info_item_warp flex_center_y" bindtap="jumpPage" data-url="../wallet/wallet">
+					<view class="user_info_item">{{userInfo.deposit > 0 ? filter.moneyFormato(userInfo.deposit) : lg.unpaid}}</view>
+					<view class="user_info_item_content">{{lg.deposit}}</view>
+				</view> -->
+
+				<view class="user_info_item_warp flex_center_y" bindtap="scanCode">
+					<view class="user_info_item">{{userInfo.rentalStatus == 1 ? lg.inRent : lg.rentable}}</view>
+					<view class="user_info_item_content">{{lg.rentalStatus}}</view>
+				</view>
+			</view>
+		</view>
+		<!-- <image src="https://zdjs3.zhengdejishu.com/public/wechat_applet/miniprogramicon/personalCenter/icon_bg_line.png" mode="widthFix" class="line-img"></image> -->
+	</view>
+</navigation-bar>
+
+<!-- 背景 -->
+<!-- <view class="user_info_warp" style="background-image: url({{imgUrl + 'personalCenter/icon_bg3.png'}});"></view> -->
+
+<!-- 菜单 -->
+<view class="menu_warp">
+	<view class="menu_item flex_center_y" bindtap="jumpPage" data-url="../rentalRecord/rentalRecord">
+		<view class="menu_item_img_warp flex_center_center">
+			<image class="menu_item_img" mode="widthFix" src="{{imgUrl + 'personalCenter/icon_order3.png'}}"></image>
+		</view>
+		{{lg.rentalRecord}}
+	</view>
+	<view class="menu_item flex_center_y" bindtap="jumpPage" data-url="../helpCenter/helpCenter">
+		<view class="menu_item_img_warp flex_center_center">
+			<image class="menu_item_img" mode="widthFix" src="{{imgUrl + 'personalCenter/icon_help3.png'}}"></image>
+		</view>
+		<view class="menu_item_title">
+			<text>{{lg.helpCenter}}</text>
+			<view class="dot" wx:if="{{notViewedNum > 0}}"></view>
+		</view>
+	</view>
+	<view class="menu_item flex_center_y" bindtap="jumpPage" data-url="../userProtocol/userProtocol">
+		<view class="menu_item_img_warp flex_center_center">
+			<image class="menu_item_img" mode="widthFix" src="{{imgUrl + 'personalCenter/icon_servicAgreement3.png'}}"></image>
+		</view>
+		{{lg.userProtocol}}
+	</view>
+	<view class="menu_item flex_center_y" bindtap="jumpPage" data-url="../privacyProtocol/privacyProtocol">
+		<view class="menu_item_img_warp flex_center_center">
+			<image class="menu_item_img" mode="widthFix" src="{{imgUrl + 'personalCenter/icon_privacyAgreement3.png'}}"></image>
+		</view>
+		{{lg.privacyProtocol}}
+	</view>
+	<view class="menu_item flex_center_y" bindtap="jumpPage" data-url="../aboutUs/aboutUs">
+		<view class="menu_item_img_warp flex_center_center">
+			<image class="menu_item_img" mode="widthFix" src="{{imgUrl + 'personalCenter/icon_aboutus3.png'}}"></image>
+		</view>
+		{{lg.aboutUs}}
+	</view>
+	<!--  bindtap="jumpPage" data-url="../agent/productChoose/productChoose" -->
+	<view class="menu_item flex_center_y" wx:if="{{userInfo.isAgent == 1}}" bindtap="goAgent">
+		<view class="menu_item_img_warp flex_center_center">
+			<image class="menu_item_img" mode="widthFix" src="{{imgUrl + 'personalCenter/icon_agent3.png'}}"></image>
+		</view>
+		{{lg.agent}}
+	</view>
+
+	<view class="menu_item flex_center_y"  bindtap="internalLogin" wx:if="{{userInfo.isAgentSwitch == 1}}">
+		<view class="menu_item_img_warp flex_center_center">
+			<image class="menu_item_img" mode="widthFix" src="{{imgUrl + 'personalCenter/icon_agent3.png'}}"></image>
+		</view>
+		{{lg.administrator}}
+	</view>
+</view>
+<!-- <official-account></official-account> -->
+<!-- 登录弹框 -->
+<view class="login_warp flex_center_center" wx:if="{{loginShow}}">
+	<view class="login_content">
+		<view class="login_close" catchtap='loginColse'></view>
+		<view class="login_title">{{lg.administrator}}</view>
+		<view class="login_item">
+			<label>
+				<text>{{lg.account}}</text>
+				<input type="number" class="login_input" placeholder="{{lg.accountPlase}}" data-name="account" value="{{account}}" bindinput="getInputKey"></input>
+			</label>
+		</view>
+
+		<view class="login_item">
+			<label>
+				<text>{{lg.pasd}}</text>
+				<input type="password" class="login_input" placeholder="{{lg.pasdPlase}}" data-name="pasd" value="{{pasd}}" bindinput="getInputKey"></input>
+			</label>
+		</view>
+
+		<view class="flex_center_x">
+			<view class="login_btn {{notFull ? 'btn_active' : 'btn_defail'}}" catchtap="toLogin">{{lg.loginBtn}}</view>
+		</view>
+	</view>
+</view>
+<ad-custom unit-id="adunit-3850d5b6553e7d62" style="width: 100%;position: fixed;left:0;bottom:0;border-top: 1px solid #DDD;"></ad-custom>

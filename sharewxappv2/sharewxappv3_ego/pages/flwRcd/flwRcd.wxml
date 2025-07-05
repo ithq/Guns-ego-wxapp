@@ -1,0 +1,71 @@
+<!-- <view id="homeBtn" class="homeBtnCls" style="bottom: 45%;" bindtap='goToIndexPage'>
+  <image src='/img/icon/home.png' class='homeIconCls'></image>
+</view> -->
+<scroll-view  lower-threshold="50"   scroll-y="true" scroll-x="false"bindscrolltolower="onScrollLower">
+  <block  wx:for="{{items}}" wx:key="{{id}}" wx:for-index="index" wx:if="{{items.length > 0}}">
+    <view class="flwrcdbox" wx:if="{{item.withdrawInfoBOs==null || item.withdrawInfoBOs.length == 0}}">
+       <form data-tradeoutid="{{item.tradeId}}" bindsubmit='' report-submit="true">
+        <button class="flwrcd" formType="submit" disabled="{{!dbOperationFlag}}"> 
+          <view>
+            <view class="flwrcdtit">{{item.createTimeFormat}}
+               <view class="status">{{item.tradeStatusCn}}
+                <text class="iconfont icon-goto" style='opacity:0;'></text>
+              </view> 
+            </view>
+            <view class="flwrcddetail">-{{item.tradeAmount}}元
+              <view class="line"></view>{{item.tradeName}}
+            </view>
+          </view>
+         </button>
+      </form> 
+    </view>
+    <view class="flwrcdbox" wx:elif="{{item.withdrawInfoBOs!=null && item.withdrawInfoBOs.length == 1}}">
+      <block wx:for="{{item.withdrawInfoBOs}}" wx:for-item="withdrawInfoBOs" wx:key='{{outTradeId}}'>
+        <form data-tradeoutid="{{withdrawInfoBOs.outTradeId}}" bindsubmit='handlePrgs' report-submit="true">
+          <button class="flwrcd" formType="submit" disabled="{{!doubleOperateFlag}}">
+            <view>
+              <view class="flwrcdtit">{{item.createTimeFormat}}
+                <view class="status">{{withdrawInfoBOs.bankStatus}}
+                  <text class="iconfont icon-goto"></text>
+                </view>
+              </view>
+              <view class="flwrcddetail">+{{withdrawInfoBOs.withdrawAmt}}元
+                <view class="line"></view>{{item.tradeName}}
+              </view>
+            </view>
+          </button>
+        </form>
+      </block>
+    </view>
+    <view class="flwrcdbox" wx:elif="{{item.withdrawInfoBOs!=null && item.withdrawInfoBOs.length > 1}}">
+      <view class="flwrcd {{item.show ? 'shouqi':'chakan'}}" catchtap='flwrcdHideShow' data-id="{{item.tradeId}}">
+        <view class="flwrcdtit">{{item.createTimeFormat}}
+          <view class="status">
+            <text>查看</text>
+            <text class="iconfont icon-goto"></text>
+          </view>
+        </view>
+        <view class="flwrcddetail">-{{item.tradeAmount}}元
+          <view class="line"></view>{{item.tradeName}}</view>
+      </view>
+      <block wx:for="{{item.withdrawInfoBOs}}" wx:for-item="withdrawInfoBOs" wx:key='{{outTradeId}}'>
+        <view class="flwdetail {{item.show ? 'show':'hide'}}">
+          <form data-tradeoutid="{{withdrawInfoBOs.outTradeId}}" bindsubmit='handleProgress' report-submit="true">
+            <button formType="submit" class="flwdetaill" disabled="{{!dbOperationFlag}}">
+              <view>{{withdrawInfoBOs.withdrawAmt}}元
+                <view class="status">{{withdrawInfoBOs.bankStatus}}
+                  <text class="iconfont icon-goto"></text>
+                </view>
+              </view>
+            </button>
+          </form>
+        </view>
+      </block>
+    </view>
+  </block>
+  <view class="nodatashow" style="display:{{nodatashowHide ? 'block':'none'}}">
+    <image src="/img/icon/nodata.png"></image>
+    <view class='p'>您还没有流水！</view>
+  </view>
+  <image class="loading" style="display:{{loadingHidden ? 'block':'none'}}" src='/img/icon/loading.gif'></image>
+</scroll-view>

@@ -1,0 +1,89 @@
+<!--pages/agent/statistics/statistics.wxml-->
+<wxs module="filter" src="../../../config/filter.wxs"></wxs>
+<View class='nav' style="height:0;">
+	<navigation-bar title="" background="rgba(0,0,0,0)" color="#fff" back="{{true}}" iconTheme="white" bindback="goBack"></navigation-bar>
+</View>
+<view class="main">
+    <view class="header" style="background:url({{imgUrl + 'statistics/headBg3.png'}});">
+        <view class="times clearfix">
+            <picker mode="date" fields="month" value="{{beginDate}}" class="beginTime" bindchange="bindDateChange">
+                <view class="picker">
+                    {{beginDate}}    <!-- 月份 --><image src="{{imgUrl + downArrow}}" class="downArrow"></image>
+                </view>
+            </picker>           
+            ~
+            <picker mode="date" fields="month" value="{{endDate}}" class="endTime" bindchange="bindDateChange2">
+                <view class="picker">
+                    {{endDate}}    <!-- 月份 --><image src="{{imgUrl + downArrow}}" class="downArrow"></image>
+                </view>
+            </picker>    
+        </view>
+
+        <view class="totalStatistics">
+            <view class="turnover">
+                <view class="number"><text class="symbol">{{common.symbol}}</text> {{filter.moneyFormato(balanceInfo.platformTurnover)}}</view>
+                <view>{{lg.turnover}}</view> <!-- 营业额 -->
+            </view>
+            <view class="earnings">
+                <view class="number"><text class="symbol">{{common.symbol}}</text> {{filter.moneyFormato(balanceInfo.platformProfit)}}</view>
+                <view>{{lg.earnings}}</view><!-- 收益 -->
+            </view>
+        </view>
+
+    </view>
+
+
+    <view class="industryStatistics">
+        <view class="title">{{lg.industry}}</view> <!-- 场景占比 -->
+        <view class="pieChartBox">
+            <!-- 饼状图 -->
+            <view class="pieChart">
+                <ec-canvas canvas-id="mychart-pie" ec="{{ pie_ec }}"></ec-canvas>
+            </view>
+
+            <view class="statisticsNum">
+                <view class="statisticsTitle sflex_2">
+                    <view class="sflex grayTxt" style="text-align:left;">{{lg.industry1}}</view><!-- 场景 -->
+                    <view class="sflex grayTxt">{{lg.ratio}}</view><!-- 占比（%） -->
+                    <view class="sflex grayTxt">{{lg.totlalMoney}}</view><!-- 金额（￥） -->
+                </view>
+
+                <view class="statisticsVal sflex_2" wx:for="{{showPie}}" wx:key="index" wx:for-item="i">
+                    <view class="sflex graySences">
+                        <view class="colorBg" style="background:{{i.color}}"></view>{{i.industryName}}<!--  -->    
+                    </view>
+                    <view class="sflex">{{i.proportion}}</view>
+                    <view class="sflex">{{filter.moneyFormato(i.amount)}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="grayBg"></view>
+    <view class="industryStatistics">
+        <view class="title">{{lg.mounth}}</view> <!-- 月收益对比 -->
+        <view class="barChartBox">
+            <!-- 柱状图 -->
+            <view class="barChart">
+                <ec-canvas canvas-id="mychart-bar" ec="{{ bar_ec }}"></ec-canvas>
+            </view>
+        </view>
+    </view>
+    <view class="grayBg"></view>
+    <view class="industryStatistics">
+        <view class="title">{{lg.otherStatistics}}</view> <!-- 其他统计 -->
+        <view class="sflex_3">
+            <view class="item">
+                <view class="blodTxt">{{common.symbol}}{{filter.moneyFormato(balanceInfo.userDepositAmount)}}</view>
+                <view class="grayTitle">{{lg.anWithdraw}}</view> <!-- 未提现金额 -->
+            </view>
+            <view class="item" wx:if="{{type == 1}}">
+                <view class="blodTxt">{{common.symbol}}{{filter.moneyFormato(balanceInfo.costDeduction)}}</view>
+                <view class="grayTitle">{{lg.powerBankMoney}}</view> <!-- 充电宝成本抵扣 -->
+            </view>
+            <view class="item">
+                <view class="blodTxt">{{common.symbol}}{{filter.moneyFormato(balanceInfo.agentTotalAmount)}}</view>
+                <view class="grayTitle">{{lg.agentAccountMoney}}</view> <!-- 代理商账户金额 -->
+            </view>
+        </view>
+    </view>
+</view>

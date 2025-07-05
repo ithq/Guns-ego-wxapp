@@ -1,0 +1,19 @@
+<!--pages/agent/productChoose/productChoose.wxml-->
+<!-- <navigation-bar leftTitle="" back="{{true}}" bindback="goBack"></navigation-bar> -->
+<view class="main">
+    <view class="header">
+        <image mode="widthFix" src="{{imgUrl + back}}" class="back" bindtap="goBack"></image>
+        <image mode="widthFix" src="{{imgUrl + headerBg}}" class="headerBg"></image>
+        <image mode="widthFix" src="{{imgUrl + logo}}" class="logo"></image>
+        <view class="welcome">
+            {{lg.welcome}}<!-- 欢迎来到政德代理系统 -->
+        </view>
+    </view>
+
+    <view class="itemBox">
+        <view class="item" wx:for="{{lg.itemArr}}" wx:for-item="i" wx:key="index" bindtap="jumpPage" data-type="{{index+1}}" data-url="{{i.url}}">
+            <image src="{{imgUrl + i.img}}" class="itemImg"></image>
+            <view class="itemTxt">{{i.text}}</view>
+        </view>
+    </view>
+</view>

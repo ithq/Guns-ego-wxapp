@@ -1,0 +1,14 @@
+<!--components/toast/toast.wxml -->
+<view class='toast_container toast_flex' wx:if="{{isShow}}" animation="{{animationData}}">
+	<view class="toast_content toast_flex">
+		<view class="toast_img">
+			<block wx:if="{{type==='success'}}">
+				<image class="toast_img" mode="widthFix" src="{{success}}" />
+			</block>
+			<block wx:if="{{type==='fail'}}">
+				<image class="toast_img" mode="widthFix" src="{{failure}}" />
+			</block>
+		</view>
+		<view class="toast_txt">{{txt}}</view>
+	</view>
+</view>

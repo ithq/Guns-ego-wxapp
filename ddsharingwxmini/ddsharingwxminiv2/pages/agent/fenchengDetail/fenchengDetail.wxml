@@ -1,0 +1,72 @@
+<!--pages/agent/fenchengDetail/fenchengDetail.wxml-->
+<wxs module="filter" src="../../../config/filter.wxs"></wxs>
+<view class="rental_record_detail_warp">
+	<view class="rental_record_detail">
+		<view class="rental_record_status flex_center_y flex_column">
+			<text class="rental_status">
+				{{lg.divideTitle}}
+			</text>
+			<text class="rental_amount" wx:if="{{info.fenchengAmount >= 0}}">+{{common.symbol}}{{filter.moneyFormato(info.fenchengAmount)}}</text>
+			<text class="rental_amount" wx:else>-{{common.symbol}}{{filter.moneyFormato(info.fenchengAmount)}}</text>
+		</view>
+
+		<view class="rental_record_detail_item">
+			<!-- <view class="item_title">{{lg.settle}}</view> -->
+
+            <view class="item_content gray_color">
+				<text class="record_item">{{lg.settle}}</text>  <!-- 结算金额-->
+				<text class="record_item_data">{{common.symbol}}{{filter.moneyFormato(info.totalAmount)}}</text>
+			</view>
+
+			<view class="item_content gray_color">
+				<text class="record_item">{{lg.orderStatu}}</text>  <!-- 订单状态-->
+				<text class="record_item_data" wx:if="{{info.fenchengAmount < 0}}">{{lg.cancel}}</text> <!-- 后台懒，没返回订单状态，判断金额是否为负数，负数为撤销单 -->
+				<text class="record_item_data" wx:else>{{lg.finish}}</text>
+			</view>
+
+			<view class="item_content gray_color">
+				<text class="record_item">{{lg.orderNumber}}</text> <!--分成单号-->
+				<text class="record_item_data">{{info.orderId}}</text>
+				<view class="rental_record_copy" bindtap="copyTxt" data-txt="{{info.orderId}}">{{common.copy}}</view>
+			</view>
+
+			<view class="rental_record_content gray_color">
+				<text class="record_item">{{lg.divideType}}</text><!--分成类型-->
+					<!-- "1 账号登录  2 facebook 3 google 4 ios 5 微信 6 支付宝" -->
+				<text class="record_item_data">{{info.userType == 5 ? lg.wechat : info.userType == 6 ? lg.alipay : lg.app}}</text>
+			</view>
+
+			<view class="rental_record_content gray_color">
+				<text class="record_item">{{lg.divideShop}}</text><!--分成店铺-->
+				<text class="record_item_data">{{info.shopName}}</text>
+			</view>
+
+			<view class="rental_record_content gray_color" wx:if="{{info.orderDetail.returnShopname}}">
+				<text class="record_item">{{lg.divideDevice}}</text><!--分成设备-->
+				<text class="record_item_data">{{info.deviceID}}</text>
+			</view>
+
+			<view class="rental_record_content gray_color" wx:if="{{info.batteryID}}">
+				<text class="record_item">{{lg.divideBattery}}</text><!--分成电池-->
+				<text class="record_item_data">{{info.batteryID}}</text>
+			</view>
+            <!-- "1：平台  2：省代  3：市代    4：区代   5业务 6:店铺    9.蓝牙线成本抵扣", -->
+			<view class="rental_record_content gray_color">
+				<text class="record_item">{{lg.divideGrade}}</text>
+				<text class="record_item_data">{{info.grade == 1 ? lg.agent1 : info.grade == 2 ? lg.agent2 : info.grade == 3 ? lg.agent3 : info.grade == 4 ? lg.agent4 : info.grade == 5 ? lg.agent5 : info.grade == 6 ? lg.agent6 : info.grade == 7 ? lg.agent7 : info.grade == 8 ? lg.agent7 : info.grade == 9 ? lg.agent7 : info.grade}}</text><!--分成等级-->
+
+			</view>
+
+			<view class="rental_record_content gray_color">
+				<text class="record_item">{{lg.divideUser}}</text><!--分成者-->
+				<text class="record_item_data">{{info.agentName}}</text>
+			</view>
+
+			<view class="rental_record_content gray_color">
+				<text class="record_item">{{lg.divideTime}}</text><!--分成时间-->
+				<text class="record_item_data">{{info.createDate}}</text>
+			</view>
+		</view>
+	</view>
+</view>
+

@@ -1,0 +1,82 @@
+/* pages/agent/batteryList/batteryList.wxss */
+page{
+    background: #F5F5F7;
+}
+.popupAll{
+    margin: 30rpx auto;
+}
+.batteryList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 30rpx;
+}
+.listItem{
+    width: 336rpx;
+    height: 336rpx;
+    background: white;
+    border-radius:20rpx;
+    margin-bottom: 20rpx;
+}
+/* 电量圈 */
+.electricQuantity{
+    position: relative;
+    width:200rpx;
+    height: 170rpx;  
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.electricQuantityBg{
+    position: absolute;
+    width:160rpx;
+    height: 160rpx; 
+}
+.electricQuantityCanvas{ 
+    width:160rpx;
+    height: 160rpx; 
+} 
+.electricQuantityText{ 
+    position: absolute; 
+    /* display: flex;  
+    align-items: center;
+    justify-content: center */
+}
+.electricQuantityInfo{   
+    text-align: center;
+    font-size: 20rpx;
+    /* padding-left: 16rpx; */
+    letter-spacing: 2rpx
+} 
+.power{
+    font-size: 26rpx;
+}
+
+
+.batteryInfo{
+    text-align: center;
+}
+.bayonet{
+    font-size:27rpx;
+    font-weight:bold;
+}
+.id{
+    font-size:20rpx;
+    margin-top: 10rpx;
+    margin-bottom: 15rpx;
+}
+.popupBtn{
+    width:124rpx;
+    height:54rpx;
+    line-height: 54rpx;
+    border:1px solid rgba(0,193,118,1);
+    border-radius:50rpx;
+    margin: 0 auto;
+}
+.noPowerBank{
+    font-size:24rpx;
+    color:rgba(123,123,123,1);
+    border:1px solid rgba(186,186,186,1);
+    margin-top: 20rpx;
+}

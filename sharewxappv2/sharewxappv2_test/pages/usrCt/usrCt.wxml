@@ -1,0 +1,30 @@
+<view style='height:100px;background-color:#F5F5F5'>
+    <view class='userHeaderCls'>
+      <view class="userCenterTitleCls">
+          <view class="avatarBoxCls">
+            <view class="psnInfo">
+                <image style='width:60px;height:60px; border-radius: 5px;' src="{{avatarUrl}}"></image>
+            </view>
+            <view class="avatarCls">
+                <view class="nicknameclass">昵称：{{nickName}}</view>
+                <view class="accountclass">账号：{{custNo}} </view>
+            </view>
+          </view>
+      </view>
+    </view>   
+    <view class="usrCtItems"> 
+      <view id="order" bindtap='orders' class="itemBtnCls">      
+        <view class='itemBtnClsLeft'>
+          <text class="iconfont icon-order" style='color:#FF610A'></text>
+          我的订单
+        </view>
+        <view class="itemBtnClsRight">
+          {{ordersCnt}}
+          <text class="iconfont icon-more"></text>
+        </view>
+      </view>
+    </view>
+    <view id="homeBtn" class="homeBtnCls" bindtap='goToIndexPage'>
+      <image src='/img/icon/home.png' class="homeIconCls"></image>
+    </view>
+</view>

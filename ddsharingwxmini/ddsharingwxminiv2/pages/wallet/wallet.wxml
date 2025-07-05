@@ -1,0 +1,62 @@
+<!--pages/wallet/wallet.wxml-->
+<wxs module="filter" src="../../config/filter.wxs"></wxs>
+<view class="contianer flex_center_y flex_column">
+	<view class="flex_1 wallet_container_bg" style="background-image: url({{imgUrl + 'wallet/wallet_Bg3.png'}});">
+
+		<navigation-bar title="" background="rgba(0,0,0,0)" color="#fff" back="{{true}}" iconTheme="white" bindback="goBack" backgroundClass="backgroundClass">
+			<!-- 嵌套内容 -->
+			<view slot="container">
+				<view class="wallet_container flex_center_y flex_column">
+					<view class="wallet_amount"><text class="symbol">{{commonLg.symbol}}</text>{{filter.moneyFormato(userInfo.accountMy)}}</view>
+					<view class="wallet_balance">{{lg.balance}}</view>
+					<view class="wallet_btn_warp flex_center_x flex_column">
+						<button class="wallet_btn active" style="width: 260rpx" hover-class="hover_class" bindtap="showRecharge">{{lg.recharge}}</button>
+						<button class="wallet_btn" style="width: 260rpx" hover-class="hover_class" bindtap="jumpPage" data-url="../withdraw/withdraw">{{lg.withdrawal}}</button>
+					</view>
+				</view>
+			</view>
+		</navigation-bar>
+	</view>
+	<!-- 背景 -->
+	<!-- <view class="wallet_warp flex_center_y flex_column" style="background-image: url({{imgUrl + 'wallet/wallet_Bg3.png'}});"></view> -->
+
+	<!-- 菜单 -->
+	<view class="wallet_menu_warp">
+		<view class="wallet_menu_box">
+			<view class="wallet_deposit">
+				<view class="wallet_deposit_deposit">{{commonLg.symbol}}{{filter.moneyFormato(userInfo.deposit)}}</view>
+				<view class="wallet_deposit_direction">{{lg.despoitDes}}</view>
+			</view>
+
+			<view class="wallet_menu">
+				<view class="menu_item flex_center_y" bindtap="jumpPage" data-url="../transactionDetail/transactionDetail">
+					{{lg.transactionDetail}}
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<!-- 充值 -->
+<view class="wallet_recharge_modal" hidden="{{hideFlag}}">
+	<view class="modal_mask" catchtap="hideModal"></view>
+	<view class="bottom_dialog_body bottom-positon" animation="{{animationData}}">
+		<view class="wallet_recharge_title_warp">
+			<text class="wallet_recharge_title">{{lg.dialogTitle}}</text>
+			<text>{{lg.chooseTxt}}</text>
+		</view>
+
+		<view class="wallet_recharge_pick_warp flex">
+			<view class="wallet_recharge_pick flex_center_center {{rechargeIndex == index ? 'recharge_active' : ''}}" wx:for="{{moneyList}}" wx:key="index" catchtap="pickAmount" data-amount="{{item}}" data-index="{{index}}">
+				<text>{{commonLg.symbol}}{{filter.moneyFormato(item)}}</text>
+			</view>
+		</view>
+
+		<view class="wallet_recharge_btn theme_btn" hover-class="hover_class" catchtap="confirmRecharge">{{lg.confirmRecharge}}</view>
+
+		<view class="wallet_recharge_protocol gray_color">
+			<!-- <text>{{lg.rechargeAgreement}}</text>
+			<text class="theme_color">{{lg.agreement}}</text> -->
+		</view>
+	</view>
+</view>

@@ -1,0 +1,121 @@
+<!--pages/personCenter/withdrawalHistory/withdrawalHistory.wxml-->
+  <view id="printbtn" class="homepagebtn" style=" background: url({{resourceUrl}}/images/icon/homePage.png) no-repeat; background-size: 100% 100%;" bindtap='goWxAppHomePageForHomePageButton'></view>
+  <scroll-view class="scroll-view-list" scroll-y="true" scroll-x="false" lower-threshold="50" bindscrolltolower="onScrollLower" bindscrolltoupper="onScrollToUpper">
+    <view class="withdrawals-history">
+      <block wx:key='{{tradeId}}' wx:for="{{cashHistoryData}}">
+        <view class="withdrawals-historycont" wx:if="{{item.withdrawInfoBOs==null|| item.withdrawInfoBOs.length == 0}}">
+          <view class="contentt">
+            <view class="chargeid">ID:{{item.tradeId}}</view>
+            <view class="money">￥{{item.withdrawTotalAmt}}</view>
+          </view>
+          <view class="contentb" wx:if='{{item.tradeStatus==1}}'>
+            <view class="time">
+              <text class="iconfont icon-shijian"></text>{{item.tradeTime}}</view>
+            <view class="blank">
+              <text class='bankstatus'>退款成功</text>
+            </view>
+          </view>
+          <view class="contentb" wx:elif='{{item.tradeStatus==2}}'>
+            <view class="time">
+              <text class="iconfont icon-shijian"></text>{{item.tradeTime}}</view>
+            <view class="blank">
+              <text class='bankstatus'>部分退款成功</text>
+            </view>
+          </view>
+          <view class="contentb" wx:elif='{{item.tradeStatus==3}}'>
+            <view class="time">
+              <text class="iconfont icon-shijian"></text>{{item.tradeTime}}</view>
+            <view class="blank">
+              <text class='bankstatus'>退款失败</text>
+            </view>
+          </view>
+          <view class="contentb" wx:elif='{{item.tradeStatus==4}}'>
+            <view class="time">
+              <text class="iconfont icon-shijian"></text>{{item.tradeTime}}</view>
+            <view class="blank">
+              <text class='bankstatus'>退款处理中</text>
+            </view>
+          </view>
+        </view>
+        <view class="withdrawals-historycont" wx:elif="{{item.withdrawInfoBOs!=null&&item.withdrawInfoBOs.length == 1}}">
+          <block wx:for="{{item.withdrawInfoBOs}}" wx:for-item="withdrawInfoBOs" wx:key='{{outTradeId}}'>
+            <view class="contentt">
+              <view class="chargeid">ID:{{item.tradeId}}</view>
+              <view class="money">￥{{item.withdrawTotalAmt}}</view>
+            </view>
+            <view class="contentb" wx:if='{{withdrawInfoBOs.bankStatus=="处理中"}}'>
+              <view class="time mart">
+                <i class="iconfont icon-shijian"></i>{{item.tradeTime}}</view>
+              <view class="doing">{{withdrawInfoBOs.bankStatus}}</view>
+              <view class="btn" id="{{withdrawInfoBOs.outTradeId}}-{{item.tradeId}}" disabled="{{!dbOperationFlag}}" bindtap='searchTradeStatus'>实时查询</view>
+            </view>
+            <view class="contentb" wx:elif='{{withdrawInfoBOs.bankStatus=="成功"}}'>
+              <view class="time">
+                <text class="iconfont icon-shijian"></text>{{withdrawInfoBOs.bankRecvTime == null ? item.tradeTime :withdrawInfoBOs.bankRecvTime}}</view>
+              <view class="blank">(
+                <text class='bankstatus'>{{withdrawInfoBOs.bankStatus}}</text>)
+                <text wx:if="withdrawInfoBOs.refundBank != null">{{withdrawInfoBOs.refundBank}}</text>
+              </view>
+            </view>
+            <view class="contentb" wx:else>
+              <view class="time">
+                <text class="iconfont icon-shijian"></text>{{item.tradeTime}}</view>
+              <view class="blank">
+                (
+                <text class='bankstatus'>{{withdrawInfoBOs.bankStatus}}</text>)
+                <text wx:if="withdrawInfoBOs.refundBank != null">{{withdrawInfoBOs.refundBank}}</text>
+              </view>
+            </view>
+          </block>
+        </view>
+        <view class='withdrawals-out' wx:elif="{{item.withdrawInfoBOs!=null&&item.withdrawInfoBOs.length >1}}">
+          <view id="{{item.tradeId}}" class="withdrawals-historycont" bindtap="withdrawalTetailShow">
+            <view class="contentt">
+              <view class="chargeid">ID:{{item.tradeId}}</view>
+              <view class="money">￥{{item.withdrawTotalAmt}}</view>
+            </view>
+            <view class="contentb">
+              <view class="time">
+                <text class="iconfont icon-shijian"></text>{{item.tradeTime}}</view>
+              <view class="blank" hover-class="blankactive" wx:if="{{item.tradeStatus == 1}}">退款成功>></view>
+              <view class="blank" hover-class="blankactive" wx:if="{{item.tradeStatus == 2}}">部分退款成功>></view>
+              <view class="blank" hover-class="blankactive" wx:if="{{item.tradeStatus == 3}}">退款失败>></view>
+              <view class="blank" hover-class="blankactive" wx:if="{{item.tradeStatus == 4}}">退款处理中>></view>
+            </view>
+          </view>
+          <view class="{{item.tradeId == clickId?'show':'hide'}}">
+            <block wx:for="{{item.withdrawInfoBOs}}" wx:for-item="withdrawInfoBOs" wx:key='{{outTradeId}}' wx:for-index="indexin">
+              <view class="withdrawals-historycont withdrawals-contin">
+                <view class="contentt">
+                  <view class="chargeid">ID:{{withdrawInfoBOs.outTradeId}}</view>
+                  <view class="money">￥{{withdrawInfoBOs.withdrawAmt}}</view>
+                </view>
+                <view class="contentb" wx:if='{{withdrawInfoBOs.bankStatus=="处理中"}}'>
+                  <view class="time">
+                    <view class="btn" style='float:left;' id="{{withdrawInfoBOs.outTradeId}}-{{item.tradeId}}" data-outid="{{indexout}}" data-inid="{{indexin}}" bindtap='searchTradeStatus' disabled="{{!dbOperationFlag}}">实时查询</view>
+                  </view>
+                  <view class="blank">{{withdrawInfoBOs.bankStatus}}</view>
+                </view>
+                <view class="contentb" wx:elif='{{withdrawInfoBOs.bankStatus=="成功"}}'>
+                  <view class="time">
+                    <text class="iconfont icon-shijian"></text>{{withdrawInfoBOs.bankRecvTime == null ? item.tradeTime :withdrawInfoBOs.bankRecvTime}}</view>
+                  <view class="blank">
+                    (
+                    <text class='bankstatus'>{{withdrawInfoBOs.bankStatus}}</text>)
+                    <text wx:if="withdrawInfoBOs.refundBank != null">{{withdrawInfoBOs.refundBank}}</text>
+                  </view>
+                </view>
+                <view class="contentb" wx:else>
+                  <view class="blank" style='float: right;font-size:24rpx;'>
+                    (
+                    <text class='bankstatus'>{{withdrawInfoBOs.bankStatus}}</text>)
+                    <text wx:if="withdrawInfoBOs.refundBank != null">{{withdrawInfoBOs.refundBank}}</text>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>

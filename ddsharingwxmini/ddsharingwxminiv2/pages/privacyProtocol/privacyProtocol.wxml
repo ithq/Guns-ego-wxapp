@@ -1,0 +1,6 @@
+<!--pages/privacyProtocol/privacyProtocol.wxml-->
+<navigation-bar title="{{lg.privacyProtocol}}" back="{{true}}" bindback="goBack"></navigation-bar>
+
+<view class="protocol_warp">
+  <rich-text nodes="{{protocolContent}}"></rich-text>
+</view>

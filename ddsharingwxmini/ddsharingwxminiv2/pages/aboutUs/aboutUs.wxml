@@ -1,0 +1,35 @@
+<!--pages/aboutUs/aboutUs.wxml-->
+<navigation-bar leftTitle="{{lg.pageTitle}}" back="{{true}}" bindback="goBack"></navigation-bar>
+
+<view class="about_us_logo_warp">
+	<image mode="widthFix" src="{{aboutUs.logoUrl}}" class="about_us_logo" />
+	<view class="about_us_version">
+    <text class="gray">—— </text> {{aboutUs.weChatVersion}} <text class="gray"> ——</text>
+    </view>
+</view>
+
+<view class="about_us_content">
+		<view class="about_us_item flex_between_center">
+			<text class="about_us_item_text">{{lg.weChat}}</text>
+			<!--微信公众号-->
+			<text class="about_us_item_text" bindtap="copyTxt" data-txt="{{aboutUs.weChat}}">{{aboutUs.weChat}}</text>
+		</view>
+
+		<view class="about_us_item flex_between_center" bindtap="call">
+			<text class="about_us_item_text">{{lg.serviceTel}}</text>
+			<!--服务电话-->
+			<text class="about_us_item_text">{{aboutUs.tel}}</text>
+		</view>
+
+		<view class="about_us_item flex_between_center">
+			<text class="about_us_item_text">{{lg.email}}</text>
+			<!--联系邮箱-->
+			<text class="about_us_item_text" bindtap="copyTxt" data-txt="{{aboutUs.serviceEmail}}">{{aboutUs.serviceEmail}}</text>
+		</view>
+
+		<view class="about_us_item flex_between_center">
+			<text class="about_us_item_text">{{lg.website}}</text>
+			<!--公司官网-->
+			<text class="about_us_item_text" bindtap="copyTxt" data-txt="{{aboutUs.webSite}}">{{aboutUs.webSite}}</text>
+		</view>
+</view>

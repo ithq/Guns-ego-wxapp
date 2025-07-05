@@ -1,0 +1,9 @@
+<!--pages/withdrawalSuccess/withdrawalSuccess.wxml-->
+<navigation-bar title="{{orderType == 1 ? lg.paymentSuccess : lg.withdrawalSuccess}}" back="{{true}}" bindback="goBack"></navigation-bar>
+
+<view class="withdrawa_result flex_center_y flex_column">
+  <image class="withdrawa_result_img" mode="widthFix" src="{{imgUrl + 'prompt/icon_success3.png'}}"></image>
+  <view class="withdrawa_result_status">{{orderType == 1 ? lg.paymentSuccess : lg.withdrawalSuccess}}</view>
+  <view class="withdrawa_result_time gray_color">{{createdTime}}</view>
+  <view class="withdrawa_result_btn theme_btn" hover-class="hover_class" bindtap="jumpPage" data-url="../billingDetail/billingDetail">{{lg.billingDetail}}</view>
+</view>

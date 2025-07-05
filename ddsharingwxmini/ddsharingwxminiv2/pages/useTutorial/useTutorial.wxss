@@ -1,0 +1,88 @@
+/* pages/useTutorial/useTutorial.wxss */
+.nav {
+  height: 0;
+}
+
+.swiper_warp {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.swiper_warp_bg {
+  position: absolute;
+  width: 100%;
+  height: 380rpx;
+  left: 0;
+  top: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper_item {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper_item_warp {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper_item_img_warp {
+  position: relative;
+  background-image: linear-gradient(180deg, #27DC8B 0%, #00C176 100%);
+}
+
+.swiper_item_img {
+  width: 100%;
+  position: absolute;
+  bottom: -2rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.swiper_item_content {
+  width: 100%;
+  height: 32.54vh;
+  background: #fff;
+  text-align: center;
+}
+
+.swiper_item_title {
+  padding-top: 5.25vh;
+  padding-bottom: 2.25vh;
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #030303;
+}
+
+.swiper_item_description {
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #030303;
+}
+
+.swiper_dots{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 7.5%;
+}
+
+.swiper_dot{
+  margin: 0 10rpx;
+  width: 15rpx;
+  height: 15rpx;
+  background: rgba(201, 201, 201, 1);
+  border-radius: 30rpx;
+  transition: all .6s;
+}
+
+.swiper_dot.active{
+  width: 40rpx;
+  background: rgba(0, 193, 118, 1);
+}

@@ -1,0 +1,66 @@
+<!--pages/agent/deviceDetail/deviceDetail.wxml-->
+<view class="main">
+    <view class="txtItem" wx:if="{{info.platformName}}">
+        <view class="txtTitle">{{lg.ptName}}<!-- 所属平台 --></view>
+        <view class="txtVal">{{info.platformName}}</view>
+    </view>
+    <view class="txtItem" wx:if="{{info.provinceName}}">
+        <view class="txtTitle">{{lg.firstAgent}}<!-- 所属一级代理 --></view>
+        <view class="txtVal">{{info.provinceName}}</view>
+    </view>
+    <view class="txtItem" wx:if="{{info.cityName}}">
+        <view class="txtTitle">{{lg.secondAgent}}<!-- 所属二级代理 --></view>
+        <view class="txtVal">{{info.cityName}}</view>
+    </view>
+    <view class="txtItem" wx:if="{{info.areaName}}">
+        <view class="txtTitle">{{lg.thirdAgent}}<!-- 所属三级代理 --></view>
+        <view class="txtVal">{{info.areaName}}</view>
+    </view>
+    <view class="txtItem" wx:if="{{info.salesmanName}}">
+        <view class="txtTitle">{{lg.saleAgent}}<!-- 所属业务员 --></view>
+        <view class="txtVal">{{info.salesmanName}}</view>
+    </view>
+    <view class="txtItem" wx:if="{{info.storeManagementName}}">
+        <view class="txtTitle">{{lg.storeAgent}}<!-- 所属店铺管理员 --></view>
+        <view class="txtVal">{{info.storeManagementName}}</view>
+    </view>
+    <view class="txtItem">
+        <view class="txtTitle">{{lg.authorization}}<!-- 授权状态 --></view>
+        <view class="txtVal">{{info.lisence==1 ? lg.statu1 : info.lisence==2 ? lg.statu2 : lg.statu0}}</view>
+    </view>
+    <view class="txtItem" wx:if="{{info.mobile}}">
+        <view class="txtTitle">{{lg.cardNumber}}<!-- 流量卡号 --></view>
+        <view class="txtVal">{{info.mobile}}</view>
+    </view>
+    <view class="txtItem" wx:if="{{info.heartTime}}">
+        <view class="txtTitle">{{lg.heartbeatTime}}<!-- 心跳时间 --></view>
+        <view class="txtVal">{{info.heartTime}}</view>
+    </view>
+    <view class="txtItem">
+        <view class="txtTitle">{{lg.shopName}}<!-- 店铺名称 --></view>
+        <view class="txtVal">{{info.shopName ? info.shopName : lg.unBind}}</view>
+    </view>
+    <view class="txtItem">
+        <view class="txtTitle">{{lg.qrcode}}<!-- 二维码编号 --></view>
+        <view class="txtVal">{{info.qrcode}}</view>
+    </view>
+    <view class="txtItem">
+        <view class="txtTitle">{{lg.deviceId}}<!-- 设备编号 --></view>
+        <view class="txtVal">{{info.deviceId}}</view>
+    </view>
+    <view class="txtItem">
+        <view class="txtTitle">{{lg.addTime}}<!-- 添加时间 --></view>
+        <view class="txtVal">{{info.addTime}}</view>
+    </view>
+
+    <!-- 备注 -->
+    <!-- <view class="txtItem" wx:if="{{info.remark}}">
+        <view class="txtTitle">{{lg.mark}}</view>
+        <view class="txtVal">{{info.remark}}</view>
+    </view> -->
+
+    <view class="txtItem">
+        <!-- <view class="btn">{{lg.mark}}</view>添加备注按钮 -->
+        <view class="btn" bindtap="{{info.shopName ? 'unBindShop' : 'bindShop'}}">{{info.shopName ? lg.unBindShop : lg.bindShop}}</view><!-- 绑定/解绑店铺按钮 -->
+    </view>
+</view>

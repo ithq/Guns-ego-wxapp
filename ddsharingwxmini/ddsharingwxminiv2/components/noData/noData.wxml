@@ -1,0 +1,7 @@
+<!--components/noData/noData.wxml-->
+<view class="noData">
+    <view class="nullBox">
+        <image src="http://app.zhengdejishu.com/client/agent/public/null.png" class="null" mode="widthFix"></image>
+        <view class="txt">{{promit}}</view>
+    </view>
+</view>

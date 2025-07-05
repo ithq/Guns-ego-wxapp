@@ -1,0 +1,40 @@
+/* components/toast/toast.wxss */
+.toast_flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.toast_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+}
+
+.toast_content {
+  background: #fff;
+  border-radius: 36rpx;
+  width:390rpx;
+  padding-top: 30rpx;
+  padding-bottom: 60rpx;
+}
+
+.toast_img {
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.toast_txt {
+  width: 300rpx;
+  padding-top: 20rpx;
+  text-align: center;
+  font-family:Microsoft YaHei;
+  font-size:28rpx;
+  color:#404040;
+}

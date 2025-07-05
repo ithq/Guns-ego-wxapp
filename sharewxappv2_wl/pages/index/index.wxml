@@ -1,0 +1,13 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <view class="userCls">
+    <image class="userImg" src="/img/icon/user.png" bindtap="usrCtBindtap"></image>
+  </view>
+  <view class="logViewCls">
+    <image class='logCls' src="/img/img/indexbg.png" mode="scaleToFill"></image>
+  </view>
+  <view class="scanViewCls">
+    <image class="scanCls" src="/img/icon/scan.png" bindtap="handleEwmUrl"></image>
+  </view>
+  <view class="helpCls" bindtap="bindBtnHelp"><text class="iconfont icon-help"></text>使用帮助</view>
+</view>

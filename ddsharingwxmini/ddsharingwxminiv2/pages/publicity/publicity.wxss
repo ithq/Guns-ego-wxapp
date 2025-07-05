@@ -1,0 +1,12 @@
+/* pages/publicity/publicity.wxss */
+.headerBg{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    vertical-align: text-bottom;
+}
+.adveritisement{
+    width: 100%;
+    vertical-align: text-bottom;
+    /* margin-top: 125rpx; */
+}

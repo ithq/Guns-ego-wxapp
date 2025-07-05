@@ -1,0 +1,39 @@
+<view style='height:100px;background-color:#F5F5F5'>
+    <view id="homeBtn" hidden="homeBtnHidden" style="margin-top:10px;bottom:73%"  class="homeBtnCls" onTap='goToIndexPage'>
+      <image src='/assets/icon/home.png' style='width:35px;height:35px;margin-top:11px;margin-left:13px;'></image>
+    </view>
+    <view class="continueTitleBarCls">
+        <view style="width:100%;text-align:center;padding-top:18px">
+          <image style='width:94px;height:94px;' src="/assets/icon/continueIcon.png"></image>
+        </view>  
+        <view style="width:100%; text-align:center">正在充电中...</view>        
+    </view>   
+    <view style="width:100%;height:13px; background-color:#f5f5f5"></view>
+    <view style="orderInfoCls">
+      <view class="orderInfoTitleCls">
+          消费详情
+      </view>
+      <view style="width:100%;height:1px; background-color:#f5f5f5"></view>
+      <view class="orderInfoItemCls">
+            充电时长<text>{{userHaveUsedTimeForSecondTxt}}</text>
+      </view>
+      <view style="width:100%;height:1px; background-color:#f5f5f5"></view>
+      <view class="orderInfoItemCls">
+            预付费用<text>￥{{yfjAmount}}</text>
+      </view>
+      <view style="width:100%;height:1px; background-color:#f5f5f5"></view>
+      <view class="orderInfoItemCls">
+            所需费用<text>￥{{currentUseAmt}}</text>
+      </view>
+    </view>
+    <view class="opt_btn up_btn" style="margin-top:65px;">
+      <form onSubmit="overUsing" report-submit="true">
+        <button class="button button_Up" disabled="{{!doubleOperateFlag}}" a:if="{{closeOrderFlag}}" formType="submit">结束使用</button>
+      </form>
+    </view>
+    <view class="opt_btn down_btn" style="margin-top:13px;">
+      <form onSubmit="continueUsing" report-submit="true">
+          <button  id="submitbtn" class="button button_Down" disabled="{{!doubleOperateFlag}}" formType="submit">继续使用</button>
+      </form>
+    </view>
+</view>

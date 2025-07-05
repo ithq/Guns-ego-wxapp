@@ -1,0 +1,103 @@
+<!--pages/agent/agentWithdrawRecord/agentWithdrawRecord.wxml-->
+<no-data promit="{{lg.promit}}" wx:if="{{showData}}"></no-data>
+<wxs module="filter" src="../../../config/filter.wxs"></wxs>
+<view class="container flex_column">
+    <!-- 头部 -->
+    <view class="header">
+        <view class="statu" bindtap="chooseShow">
+            {{showStatu}}
+        </view>
+
+        <!-- 下拉框 -->
+
+        <view class="{{showBgBox ? 'cover bgBoxShow' : 'cover bgBoxHide'}}"  wx:if="{{showAgentLevel}}">
+            <view class="{{showBgBox ? 'content contentShow' : 'content contentHide'}}">
+                <view class="shooseHeader">{{lg.chooseStatu}}</view><!-- 请选择提现状态 -->
+
+                <view class="flex_4" style="margin-top: 30rpx;">
+                    <view class="item" data-type="" data-showtxt="{{lg.statuAll}}" bindtap="chooseStatu">
+                        <image class="icon" src="{{imgUrlAgent + iconAll}}"></image>
+                        <view class="statuTxt">{{lg.statuAll}}<!-- 所有 --></view>
+                    </view>
+                    <view class="item hide">
+                        <image class="icon" src="{{imgUrlAgent + iconAll}}"></image>
+                        <view class="statuTxt">{{lg.statuAll}}<!-- 所有 占位--></view>
+                    </view>
+                    <view class="item hide">
+                        <image class="icon" src="{{imgUrlAgent + iconAll}}"></image>
+                        <view class="statuTxt">{{lg.statuAll}}<!-- 所有 占位--></view>
+                    </view>
+                    <view class="item hide">
+                        <image class="icon" src="{{imgUrlAgent + iconAll}}"></image>
+                        <view class="statuTxt">{{lg.statuAll}}<!-- 所有 占位--></view>
+                    </view>
+                </view>
+                
+                <view class="more">{{lg.more}}</view><!-- 更多 -->
+                
+                <view class="flex_4">
+                    <!-- <view class="item" data-showtxt="{{lg.statu1}}" data-type="" bindtap="chooseStatu">
+                        <image class="icon" src="{{imgUrlAgent + icon1}}"></image>
+                        <view class="statuTxt">{{lg.statu1}} 待审核 </view>
+                        <view class="number">{{common.symbol}}1100.000</view>
+                    </view> -->
+                    <view class="item" data-type="2" data-showtxt="{{lg.statu1}}" bindtap="chooseStatu">
+                        <image class="icon" src="{{imgUrlAgent + icon2}}"></image>
+                        <view class="statuTxt">{{lg.statu1}}<!-- 待审核 --></view>
+                        <view class="number">{{common.symbol}}{{filter.moneyFormato(info.toBeReviewedAmount)}}</view>
+                    </view>
+                    <view class="item" data-type="1" data-showtxt="{{lg.statu3}}" bindtap="chooseStatu">
+                        <image class="icon" src="{{imgUrlAgent + icon3}}"></image>
+                        <view class="statuTxt">{{lg.statu3}}<!-- 提现成功 --></view>
+                        <view class="number">{{common.symbol}}{{filter.moneyFormato(info.completeWithdrawnAmount)}}</view>
+                    </view>
+                    <view class="item" data-type="0" data-showtxt="{{lg.statu4}}" bindtap="chooseStatu">
+                        <image class="icon" src="{{imgUrlAgent + icon4}}"></image>
+                        <view class="statuTxt">{{lg.statu4}}<!-- 提现失败 --></view>
+                        <view class="number">{{common.symbol}}{{filter.moneyFormato(info.failedAmount)}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+
+	<!-- 列表 -->
+	<view class="transaction_content_warp flex_1">
+		<scroll-view class="transaction_scroll" scroll-y="true" bindscrolltolower='scrollToLower' lower-threshold='30' refresher-enabled="{{true}}" refresher-threshold="{{50}}" refresher-default-style="black" refresher-background="#fff" refresher-triggered="{{triggered}}" bindrefresherrefresh="onRefresh">
+			<view class="transaction_list" wx:for="{{listData}}" wx:key="index">
+				<!-- <block > -->
+					<view class="transaction_mounth" wx:if="{{item.monthShow}}">{{item.month}}</view>
+					<view class="transaction_mounth_list">
+						<view class="transaction_mounth_list_item flex" wx:for="{{item.withdrawalListVOList}}" wx:for-item="i" wx:for-index="idx" wx:key="idx">
+							<view class="transaction_icon_warp flex_center_center">
+								<image class="transaction_icon" mode="widthFix" src="{{imgUrl + 'tradingRecord/icon_add3.png'}}"></image>
+							</view>
+
+							<view class="transaction_mounth_list_item_list flex_between_center border_bottom_dotted">
+								<view class="transaction_type_warp flex">
+									<view class="transaction_type">{{lg.orderNum}}：{{i.withdrawalOrder}}</view>
+									<view class="transaction_time">{{i.createTime2}}</view>
+								</view>
+                                
+								<view class="transaction_amount">
+                                    <view>-{{common.symbol}}{{filter.moneyFormato(i.withdrawalAmount)}}</view>
+                                    <!-- 1通过 0未通过 2 申请中 -->
+                                    <view class="status">
+                                        {{i.withdrawalStatus == 1 ? lg.statu3 : i.withdrawalStatus == 0 ? lg.statu4 : i.withdrawalStatus == 2 ? lg.statu1 : i.withdrawalStatus}}
+                                    </view>
+                                </view>
+							</view>
+						</view>
+					</view>
+				<!-- </block> -->
+
+				
+			</view>
+            <view class="noMore" hidden="{{loadMore}}">
+                ——— {{common.noMore}} ———
+            </view>
+		</scroll-view>
+	</view>
+
+</view>

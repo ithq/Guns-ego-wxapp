@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/skip/skip",
+    "pages/readyToRecharge/readyToRecharge",
+    "pages/continueAndFinish/continueAndFinish",
+    "pages/finishRecharge/finishRecharge",
+    "pages/scanResult/scanResult",
+    "pages/index/index",
+    "pages/index/authlogin",
+    "pages/userCenter/userCenter",
+    "pages/list/list",
+    "pages/netDot/netDot",
+    "pages/myWallet/myWallet",
+    "pages/flowRecord/flowRecord",
+    "pages/withdrawal/withdrawal",
+    "pages/withdrawProgress/withdrawProgress",
+    "pages/myOrders/myOrders",
+    "pages/withdrawalHistory/withdrawalHistory",
+    "pages/myMessage/myMessage",
+    "pages/commentProblem/commentProblem",
+    "pages/feedbackProblem/feedbackProblem",
+    "pages/faultOption/faultOption",
+    "pages/faultReport/faultReport"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#36a3ff",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "易购充电助手",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "networkTimeout": {
+    "request": 30000
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,43 @@
+.bgimg{
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  width:100%;
+  margin:0px auto
+}
+.bgimg image{
+  width: 750rpx;
+  height: 448rpx;
+}
+.boxcls{
+  background: #FFFFFF;
+}
+.item{
+  box-shadow:1px 5px 5px 1px rgba(0,0,0,0.06);
+  border-radius:5px;
+
+  margin: 60rpx 10rpx;
+  padding: 30rpx;
+  border: 1px solid #0C79E4;
+}
+.flex{
+  display: flex;
+  align-items: center;
+}
+.item .icon{
+  width: 40rpx;
+  height: 40rpx;
+}
+.item label{
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-left: 10rpx;
+  font-size: 28rpx;
+}
+.item .progress{
+  height: 40rpx;
+  width: 100%;
+}
+.item .right{
+  position: fixed;
+  right: 30px;
+}

@@ -1,0 +1,35 @@
+<!--pages/useTutorial/useTutorial.wxml-->
+<view class="container">
+	<view class='nav'>
+		<navigation-bar title="" background="rgba(0,0,0,0)" color="#fff" back="{{true}}" iconTheme="white" bindback="goBack"></navigation-bar>
+	</view>
+
+	<view class="swiper_warp">
+		<swiper class="swiper" easing-function="{{exercise}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" current="{{swiperCurrent}}" bindchange="swiperChange">
+			<block wx:for="{{useTutorialImg}}" wx:key="*this">
+				<swiper-item class="swiper_item">
+					<view class="swiper_item_warp flex flex_column">
+						<view class="swiper_item_img_warp flex_1">
+							<image class="swiper_warp_bg" mode="widthFix" src="{{imgUrl + 'useTutorial/bg3.png'}}"></image>
+							<image class="swiper_item_img" mode="widthFix" src="{{item.img}}"></image>
+						</view>
+						<view class="swiper_item_content">
+							<view class="swiper_item_title">{{item.title}}</view>
+							<view class="swiper_item_description">
+								<view>{{item.description_1}}</view>
+								<view>{{item.description_2}}</view>
+							</view>
+						</view>
+					</view>
+				</swiper-item>
+			</block>
+		</swiper>
+
+		<!-- 点 -->
+		<view class="swiper_dots flex_center_center">
+			<block wx:for="{{useTutorialImg}}" wx:key="index">
+				<view class="swiper_dot {{index == swiperCurrent ? ' active' : ''}}"></view>
+			</block>
+		</view>
+	</view>
+</view>

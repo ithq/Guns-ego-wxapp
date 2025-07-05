@@ -1,0 +1,81 @@
+<!--pages/agent/device/device.wxml-->
+<!-- <navigation-bar title="{{lg.pageTitle}}" back="{{true}}" bindback="goBack"></navigation-bar> -->
+<no-data promit="{{lg.promit}}" wx:if="{{showData}}"></no-data>
+<view class="main">
+    <view class="header">
+        <view class="searchBox">
+            <view class="searchInputBox">
+                <image src="{{imgUrl + iconSearch}}" class="search"></image>
+                <input name="search" type='text' confirm-type="search" bindconfirm="bindconfirm" value="{{qrcode}}" class="searchInput" placeholder="{{lg.inputPleasehold}}" /><!-- 请输入查询内容 -->
+            </view>
+            <image src="{{imgUrl + iconScan}}" class="scanBtn" bindtap="scan"></image>
+        </view>
+
+        <view class="navBar">
+            <!-- 机柜才有在线离线 -->
+            <view class="{{deviceStatu == 0 ? 'barItem active' : 'barItem'}}" data-i="0" bindtap="changeNav" wx:if="{{type == 1}}">
+                {{lg.onLine}}({{deviceCount.onLine}})<!-- 在线 -->
+            </view>
+            <view class="{{deviceStatu == 1 ? 'barItem active' : 'barItem'}}" data-i="1" bindtap="changeNav">
+                {{lg.hasBind}}({{deviceCount.binding}})<!-- 已绑 -->
+            </view>
+            <view class="{{deviceStatu == 2 ? 'barItem active' : 'barItem'}}" data-i="2" bindtap="changeNav" wx:if="{{type == 1}}">
+                {{lg.offLine}}({{deviceCount.offLine}})<!-- 离线 -->
+            </view>
+            <view class="{{deviceStatu == 3 ? 'barItem active' : 'barItem'}}" data-i="3" bindtap="changeNav">
+                {{lg.unBind}}({{deviceCount.notBinding}})<!-- 未绑 -->
+            </view>
+        </view>
+    </view>
+
+    <!-- 列表 -->
+    <scroll-view class="deviceList"
+        scroll-y="{{true}}"
+        refresher-enabled="{{true}}"
+        refresher-threshold="{{50}}"
+        lower-threshold="{{100}}"
+        refresher-triggered="{{triggered}}"
+        bindrefresherpulling="onPulling"
+        bindrefresherrefresh="onRefresh"
+        bindrefresherrestore="onRestore"
+        bindrefresherabort="onAbort"
+        bindscrolltolower="lodeMore"
+    >
+        <view class="listItem" wx:for="{{listData}}" wx:key="index" wx:for-item="i">
+            <!-- <image src="{{imgUrl + iconChooseEmpty}}" class="chooseImgItem"></image> -->
+            <view class="deviceInfo">
+                <view class="infoTxt">
+                    {{lg.deviceNum}}：{{i.deviceId}}        <!-- 设备编号 -->
+                </view>
+                <view class="infoTxt" wx:if="{{i.shopName}}">
+                    {{lg.shop}}：{{i.shopName}}                   <!-- 所属商户 -->
+                </view>
+                <view class="infoTxt" wx:if="{{type == 1}}">
+                    <image src="{{imgUrl + iconCharge}}" class="iconCharge"></image>
+                    <text class="text">{{i.canBorrow}}</text>{{lg.canBorrow}}<text class="text canReturn">{{i.canReturn}}</text>{{lg.canReturn}}<!-- 可借可还 -->
+                </view>
+            </view>
+            <view class="operation">
+                <view class="btn" data-deviceId="{{i.deviceId}}" bindtap="restart" wx:if="{{type == 1}}">{{lg.restart}}</view><!-- 重启 -->
+                <view class="btn" data-url="../batteryList/batteryList?id={{i.deviceId}}" bindtap="jumpPage" wx:if="{{type == 1}}">{{lg.battery}}</view><!-- 电池 -->
+                <view class="btn" data-deviceid="{{i.id}}" data-agentid="{{i.agentId}}" data-index="{{index}}" wx:if="{{i.agentBinding == 1  && groupId!=6}}" bindtap="unBindAgent">{{lg.unBindAgent}}</view><!-- 撤销/绑定代理 -->
+                <view class="btn" data-deviceid="{{i.id}}" data-index="{{index}}" wx:if="{{i.agentBinding == 0 && groupId!=6}}" bindtap="bindAgent">{{lg.bindAgent}}</view><!-- 撤销/绑定代理 0：没有绑定。1：已经绑定-->
+                <view class="btn" data-url="../deviceDetail/deviceDetail?id={{i.id}}" bindtap="jumpPage">{{lg.detail}}</view><!-- 详情 -->
+            </view>
+        </view>
+
+        <view class="noMore" hidden="{{loadMore}}">
+            ——— {{common.noMore}} ———
+        </view>
+    </scroll-view>
+
+    <!-- 全选 -->
+    <!-- <view class="footer"> -->
+        <!-- <image src="{{imgUrl + iconChooseEmptyWhite}}" class="chooseImg"></image>
+        <text>{{lg.chooseAll}}</text> -->
+        <!-- 全选 -->
+
+        <!-- <text class="bindAgent">{{lg.bindAgent}}</text> -->
+        <!-- 绑定代理 -->
+    <!-- </view> -->
+</view>

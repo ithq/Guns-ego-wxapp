@@ -1,0 +1,8 @@
+<!--components/refresh/refresh.wxml-->
+<view class="refresh_warp">
+    <view class="refresh_container">
+        <image class="refresh_img" src="http://app.zhengdejishu.com/client/agent/public/null.png" mode="widthFix"></image>
+        <view class="refresh_txt">{{description}}</view>
+        <view class="refresh_btn" bindtap="refresh">{{btnTxt}}</view>
+    </view>
+</view>

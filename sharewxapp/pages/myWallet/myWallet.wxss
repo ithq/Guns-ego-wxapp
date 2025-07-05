@@ -1,0 +1,141 @@
+/* pages/personCenter/myWallet/myWallet.wxss */
+.wallettop{
+	padding-bottom: 20rpx; 
+	background: #36a3ff;
+	text-align: center;
+	color: #fff;
+}
+.balance{
+	padding: 70rpx 0 20rpx 0;
+	font-size: 28rpx;
+  color: #fff;
+}
+.wallettop button{
+  padding: 0;
+  display: inline;
+  background: #36a3ff;
+  border: none;
+}
+.wallettop button::after{
+  border: none;
+}
+.button-hover{
+  background: #36a3ff;
+  color: #ccc;
+}
+button[disabled] {
+  color: #fff600;
+  background: #36a3ff;
+}
+.wallettop button[disabled][type="default"],
+.wallettop wx-button[disabled]:not([type]) {
+color: #fff;
+background-color:#36a3ff;
+}
+.balance text{
+	color: #fff600;
+	font-size: 32rpx;
+}
+.amount{
+	font-size: 80rpx;
+}
+.walletdetail{
+	position: relative;
+	padding: 25rpx 0;
+	height: 140rpx;
+	width: 94.66%;
+	margin: 65rpx auto 0;
+	background: #55b1ff;
+	border-radius: 10rpx;
+	color: #fff;
+	font-size: 0;
+	box-sizing: border-box;
+	-webkit-box-sizing:border-box;
+}
+.walletdetaill{
+	display: inline-block;
+	width: 50%;
+	text-align: center;
+}
+.walletdetaillt{
+	margin-bottom: 20rpx;
+	font-size: 28rpx;
+	opacity: .6;
+}
+.walletdetailln{
+	font-size: 32rpx;
+}
+.line{
+	position: absolute;
+	top: 20rpx;
+	left: 50%;
+	width: 1rpx;
+	height: 100rpx;
+	background: rgba(255,255,255,.2);
+}
+.ucercenternav{
+	background: #fff;
+}
+
+.navbtn{
+	padding: 0 34rpx;
+	height: 100rpx;
+	line-height: 100rpx;
+	color: #444;
+	font-size: 28rpx;
+  text-align: left;
+  background: #fff;
+	border-bottom: 1px solid #f1f3f6;
+}
+.navbtn .icon-more{
+	float: right;
+	font-size: 30rpx;
+}
+.icon-feiyong,.icon-zhangdan{
+	margin-right: 10rpx;
+	font-size: 36rpx;
+	vertical-align: middle;
+}
+.icon-feiyong{
+	color: #ffda0b;
+}
+.icon-zhangdan{
+	color: #36a3ff;
+}
+.shanjin{
+	float: right;
+	height: 100%;
+	font-size: 28rpx;
+}
+.shanjinnum{
+	font-size: 28rpx;
+	color: #959595;
+}
+.shanjinbtn{
+	display: inline-block;
+	width: 98rpx;
+	height: 34rpx;
+	line-height: 34rpx;
+	margin: 0 5rpx 0 25rpx;
+	text-align: center;
+	color: #fff;
+	font-size: 24rpx;
+	background: #55b1ff;
+	border-radius: 5rpx;
+}
+button::after{
+  border:1px solid rgba(0, 0, 0, 0);
+  border-bottom:1px solid #ddd;
+}
+.button-hover{
+  background: #ddd;
+}
+button[disabled] {
+  color: #323232;
+  background: #fff;
+}
+button[disabled][type="default"],
+wx-button[disabled]:not([type]) {
+color: #323232;
+background-color:#fff;
+}

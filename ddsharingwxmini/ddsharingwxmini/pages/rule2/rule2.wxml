@@ -1,0 +1,27 @@
+<wxs module="format" src="../../utils/format.wxs"></wxs>
+<view class="container">
+    <view class="order-info">
+        <view class="item">
+            <view class="l">SN:0{{device.iotProductId}}{{device.iotDeviceId}}</view>
+            <view class="r" bindtap='goPages' data-url='/pages/orderList/orderList'>使用记录</view>
+        </view>
+    </view>
+    <view class="banner">
+        <image src="/static/images/fty_single_pay_banner.jpg" mode="widthFix"></image>
+    </view>
+    <view class="fee-box">
+        <view class="desc">
+            <view class="desc-item">确认充电器已插电，且指示灯亮起，支付成功后</view>
+            <view class="desc-item"><text style="color:#289afb;">点击完成</text>获取密码，在设备上输入密码即可充电</view>
+        </view>
+    </view>
+    <view>
+        <view class="packageBtn" data-id="{{item.id}}" bindtap="pay" wx:for="{{singlePackageData}}">
+            <view class="btnFont">充电{{format.secondToHour(item.secound)}}</view>
+            <view class="price">
+                <block wx:if="{{item.defaulted == 'true'}}">开启设备</block>
+                <block wx:else>{{item.fee}}{{item.suggest ? '(推荐)' : ''}}</block>
+            </view>
+        </view>
+    </view>
+</view>

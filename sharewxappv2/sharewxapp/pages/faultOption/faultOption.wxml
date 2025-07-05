@@ -1,0 +1,17 @@
+<!--pages/faultOption/faultOption.wxml-->
+<view class="wrap">
+  <view hidden="{{replacePassWdHid}}" class='item replacePassWd'>
+    <image bindtap="replacePassWd" class='img' src="/images/icon/genghuanmima.png"></image>
+    <text bindtap="replacePassWd" class='text'>{{replacePassWdText}}</text>
+  </view>
+  <view hidden="{{replacePassWdHid}}" class='line'></view>
+  <view class='item replaceDevice'>
+    <image bindtap="replaceDevice" class='img' src="/images/icon/genghuanshebei.png"></image>
+    <text bindtap="replaceDevice" class='text'>{{replaceDeviceText}}</text>
+  </view>
+  <view class='line'></view>
+  <view class='item faultReport'>
+    <image bindtap="faultReport" class='img' src="/images/icon/guzhangshangbao.png"></image>
+    <text bindtap="faultReport" class='text'>{{faultReportText}}</text>
+  </view>
+</view>

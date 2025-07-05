@@ -1,0 +1,36 @@
+<view id="printbtn" class="homepagebtn" style=" background: url({{resourceUrl}}/images/icon/homePage.png) no-repeat; background-size: 100% 100%;" bindtap='goWxAppHomePageForHomePageButton'></view>
+<view class="wallettop">
+  <view class="balance">账户总余额（元）</view>
+  <view class="amount">{{totalBalance}}</view>
+  <view class="walletdetail">
+    <view class="walletdetaill">
+      <view class="walletdetaillt">冻结金额（元）</view>
+      <view class="walletdetailln">{{frozenBalance}}</view>
+    </view>
+    <view class="line"></view>
+    <view class="walletdetaill" bindtap='rewardWithdrawal'>
+      <view class="walletdetaillt">可提现金额（元）</view>
+      <view class="walletdetailln">{{availableBalance}}</view>
+    </view>
+  </view>
+</view>
+<view class="ucercenternav">
+  <form bindsubmit="withdrawal" report-submit="true">
+    <button formType="submit" class="navbtn" disabled="{{!dbOperationFlag}}">
+      <view>
+        <text class="iconfont icon-feiyong"></text> 提现
+        <view class="shanjin">{{availableBalance}}元
+          <text class="iconfont icon-more"></text>
+        </view>
+      </view>
+    </button>
+  </form>  
+  <form bindsubmit="flowRecord" report-submit="true">
+    <button formType="submit" class="navbtn" disabled="{{!dbOperationFlag}}">
+      <view>
+        <text class="iconfont icon-zhangdan"></text> 流水记录
+        <text class="iconfont icon-more"></text>
+      </view>
+    </button>
+  </form>
+</view>

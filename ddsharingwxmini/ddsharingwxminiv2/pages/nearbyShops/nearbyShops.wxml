@@ -1,0 +1,121 @@
+<!--pages/nearbyShops/nearbyShops.wxml-->
+<wxs module="filter" src="../../config/filter.wxs"></wxs>
+<view class="container flex_column flex_center_y">
+	<view class="nav">
+		<navigation-bar title="{{lg.nearby}}" back="{{back}}" bindback="goBack"></navigation-bar>
+	</view>
+
+	<!-- 店铺列表 -->
+	<view class="shop_list_scroll_warp flex_1" wx:if="{{!refresh}}">
+		<scroll-view class="shop_list_scroll" scroll-y="true" bindscrolltolower='scrollToLower' lower-threshold='50' refresher-enabled="{{true}}" refresher-threshold="{{100}}" refresher-default-style="black" refresher-background="#F5F5F7" refresher-triggered="{{triggered}}" bindrefresherrefresh="onRefresh">
+
+			<view class="shop_list_warp" wx:if="{{!noData}}">
+				<view class="shop_list">
+					<view class="shop_item" wx:for="{{shopList}}" wx:key="id" bindtap="openDetail" data-id="{{item.shopId}}">
+
+						<view class="shop_item_img">
+							<image class="image_percent" mode="cover" src="{{item.shopLogo ? item.shopLogo : imgDefault}}"  lazy-load="true" bindload='onLazyLoad'></image>
+						</view>
+
+						<view class="shop_item_info">
+							<view class="shop_item_info_name">{{item.shopName}}</view>
+
+							<view class="shop_item_info_address flex_center_y">
+								<image class="shop_item_info_address_img" mode="widthFix" src="{{imgUrl + 'nearStore/icon_location3.png'}}"></image>
+								<view class="shop_addres flex_1">{{item.shopAddr}}</view>
+							</view>
+
+							<view class="flex_center_y {{tabStatu == 1 ? 'shop_item_time': 'shop_item_time_line'}}">
+								<view class="shop_item_info_time_time flex_center_y">
+									<image class="shop_item_info_time_time_img" mode="widthFix" src="{{imgUrl + 'nearStore/icon_clock3.png'}}"></image>
+									<text>{{item.businessHours}}</text>
+								</view>
+								<view class="shop_item_info_time_line"></view>
+								<view class="shop_item_info_time_status {{item.onLinesNum > 0 ? '' : 'theme_color_red'}}" wx:if="{{tabStatu == 1}}">{{item.onLinesNum > 0 ? lg.online : lg.offline}}</view>
+								<view class="shop_item_info_time_distance" wx:else>{{filter.lengthUnitFormat(item.distance)}}</view>
+							</view>
+
+							<view class="shop_item_info_status theme_color flex_between_center" wx:if="{{tabStatu == 1}}">
+								<view class="shop_item_info_status_warp flex_center_y">
+									<image class="shop_item_info_status_img" mode="widthFix" src="{{imgUrl + 'nearStore/icon_charger3.png'}}"></image>
+									<view class="shop_item_info_status_status">
+										<text class="shop_item_info_status_count">{{item.canBorrow}}</text>
+										{{lg.rentable}}
+									</view>
+									<view class="shop_item_info_status_status">
+										<text class="shop_item_info_status_count">{{item.canReturn}}</text>
+										{{lg.returnable}}
+									</view>
+								</view>
+								<view class="shop_item_info_status_distance">{{filter.lengthUnitFormat(item.distance)}}</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+
+			<!-- 没有数据 -->
+			<!-- <no-data promit="{{lg.nearbyNoShop}}" wx:if="{{noData}}"></no-data> -->
+
+			<view class="no_data" wx:if="{{noData}}">
+				<view class="no_data_warp">
+					<image src="{{imgUrl + 'nearStore/null3.png'}}" class="null_img" mode="widthFix"></image>
+					<view class="no_data_txt">{{lg.nearbyNoShop}}</view>
+				</view>
+			</view>
+
+		</scroll-view>
+	</view>
+</view>
+
+<!-- 刷新 -->
+<refresh description="{{commonLg.networkLost}}" btnTxt="{{commonLg.refresh}}" wx:if="{{refresh}}" bindrefresh="toRefresh"></refresh>
+
+<!-- 商家详情 -->
+<view class="shop_detail_warp flex_center_x" hidden="{{showDetail}}">
+	<view class="modal_mask" catchtap="closeDetail"></view>
+	<view class="shop_detail_container flex" animation="{{animationData}}">
+		<view class="shop_detail_close" catchtap="closeDetail"></view>
+
+		<view class="shop_detail_info flex_center_y">
+			<view class="shop_detail_info_img">
+				<image class="image_percent" mode="cover" src="{{shopDetiail.shopLogo ? shopDetiail.shopLogo : shopDetiail.imgDefault}}"></image>
+			</view>
+
+			<view class="shop_detail_info_info">
+				<view class="shop_detail_info_name">{{shopDetiail.shopName}}</view>
+				<view class="flex_center_y">
+					<view class="shop_detail_info_address">{{shopDetiail.shopAddr}}</view>
+					<view class="shop_detail_info_scan background_img_style" style="background-image: url({{imgUrl + 'index/icon_scan3.png'}})" catchtap="scanCode"></view>
+				</view>
+			</view>
+		</view>
+
+		<view class="shop_detail_time flex_center_y">
+			<view class="shop_detail_time_time">{{shopDetiail.businessHours}}</view>
+			<view class="shop_item_info_time_line" wx:if="{{tabStatu == 1}}"></view>
+			<view class="shop_item_info_time_status {{shopDetiail.onLinesNum > 0 ? '' : 'theme_color_red'}}" wx:if="{{tabStatu == 1}}">{{shopDetiail.onLinesNum > 0 ? lg.online : lg.offline}}</view>
+		</view>
+
+		<view class="shop_detail_status theme_color flex_center_y" wx:if="{{tabStatu == 1}}">
+			<image class="shop_item_info_status_img" mode="widthFix" src="{{imgUrl + 'nearStore/icon_charger3.png'}}"></image>
+			<view class="shop_item_info_status_status">
+				<text class="shop_item_info_status_count">{{shopDetiail.canBorrow}}</text>
+				{{lg.rentable}}
+			</view>
+			<view class="shop_item_info_status_status">
+				<text class="shop_item_info_status_count">{{shopDetiail.canReturn}}</text>
+				{{lg.returnable}}
+			</view>
+		</view>
+
+		<view class="shop_detail_banner {{tabStatu == 1 ? '' : 'shop_detail_banner_line'}}">
+			<image class="image_percent" mode="cover" src="{{shopDetiail.shopBanner[0].image ?  shopDetiail.shopBanner[0].image : imgUrl + 'nearStore/default_banner3.png'}}" wx:if="{{shopDetiail.shopBanner[0].image}}"></image>
+			<image class="image_percent" mode="cover" src="{{imgUrl + 'nearStore/default_banner3.png'}}" wx:else></image>
+		</view>
+
+		<view class="shop_detail_navigation theme_background_color" hover-class='hover_class' catchtap="toNavigation" data-lat="{{shopDetiail.latitude}}" data-lng="{{shopDetiail.longitude}}" data-name="{{shopDetiail.shopName}}" data-address="{{shopDetiail.shopAddr}}">
+			{{lg.navigation}}{{filter.lengthUnitFormat(shopDetiail.distance)}}
+		</view>
+	</view>
+</view>

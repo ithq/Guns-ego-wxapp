@@ -1,0 +1,16 @@
+<!--pages/useTutorialType/useTutorialType.wxml-->
+<navigation-bar title="{{lg.pageTitle}}"  back="{{true}}" bindback="goBack"></navigation-bar>
+<view class="container">
+  <view class="useTutorialType_item flex_between_center" bindtap="jumpPage" data-type="powerBank" data-url="../useTutorial/useTutorial">
+    <text>{{commonLg.powerBank}}</text>
+    <image class="useTutorialType_arrow" mode="widthFix" src="{{imgUrl + 'personalCenter/icon_arrow3.png'}}"></image>
+  </view>
+  <view class="useTutorialType_item flex_between_center" bindtap="jumpPage" data-type="passwordLine" data-url="../useTutorial/useTutorial">
+    <text>{{commonLg.passwordLine}}</text>
+    <image class="useTutorialType_arrow" mode="widthFix" src="{{imgUrl + 'personalCenter/icon_arrow3.png'}}"></image>
+  </view>
+  <view class="useTutorialType_item flex_between_center" bindtap="jumpPage" data-type="bluetoothCable" data-url="../useTutorial/useTutorial">
+    <text>{{commonLg.bluetoothCable}}</text>
+    <image class="useTutorialType_arrow" mode="widthFix" src="{{imgUrl + 'personalCenter/icon_arrow3.png'}}"></image>
+  </view>
+</view>

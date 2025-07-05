@@ -1,0 +1,59 @@
+<view style='height:100%; background:rgba(245,245,245,1)'>
+    <view id="homeBtn" class="homeBtnCls" bindtap='goToIndexPage'>
+      <image src='/img/icon/home.png' class='homeIconCls'></image>
+    </view> 
+    <view class="banner bgimg">
+      <image bindtap="onAdImageClick" mode='aspectFit' src='/img/img/rdyToBleRchgBg.jpg'></image>
+    </view>
+    <view class="pwdBoxcls">
+      <view>
+        <view style='height:3px; width:100%'> </view>
+        <view class='pwdTitle'>充电器蓝牙解锁</view>
+        <view class='pwdImg'>
+          <image wx:if="{{!bleCharging}}" mode='scaleToFill' src="/img/icon/loading.gif"></image>
+          <view class="counter" wx:if="{{bleCharging}}">
+            <view class="countHours">
+              <span class="position">
+                <label class="digit">{{countHours}}</label>
+              </span>
+            </view>
+            <view class="points"></view>
+            <view class="countMinutes">
+              <view class="position">
+                <label class="digit">{{countMinutes}}</label>
+              </view>
+            </view>
+            <view class="points"></view>
+            <view class="countSeconds">
+              <view class="position">
+                <label class="digit">{{countSeconds}}</label>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- <view wx:if="{{!bleCharging}}">
+          <button bindtap="fnGetPassWord" class="btnGetPwd1">不想等了，密码解锁</button>
+        </view> -->
+        <view class='pwdTitle1'>
+          <lable>{{showTitle}}</lable>
+        </view>
+      </view>
+    </view>
+    <!--开启蓝牙界面-->
+    <view class="messagelayer {{messageShowView?'':'hidCls'}}">
+      <view class="messagelayercont">
+        <view class="cont">
+          <view class="cnttit">
+            <view class='cnttitc'>
+              <view class="img"><image mode='scaleToFill' src='/img/img/openBluetooth.png'></image></view>
+              <view class="tit">打开手机蓝牙</view>      
+              <view class="msg">蓝牙充电器、快速、方便</view>        
+            </view>
+          </view>
+          <view class="msgBtnCls">
+            <button bindtap="fnOpenBluetooth" class="btnOpenBle">蓝牙解锁</button>
+          </view>
+        </view>
+      </view>
+    </view>
+</view>

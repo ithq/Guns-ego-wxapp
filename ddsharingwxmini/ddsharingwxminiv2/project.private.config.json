@@ -1,0 +1,84 @@
+{
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "id": -1,
+                    "name": "pages/agent/personalCenter/personalCenter",
+                    "pathName": "pages/agent/personalCenter/personalCenter",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/agent/shopLine/addShop/addShop",
+                    "pathName": "pages/agent/shopLine/addShop/addShop",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/agent/shopLine/choosePrice/choosePrice",
+                    "pathName": "pages/agent/shopLine/choosePrice/choosePrice",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/agent/shopLine/shopEdit/shopEdit",
+                    "pathName": "pages/agent/shopLine/shopEdit/shopEdit",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 4,
+                    "name": "pages/bluetooth/lease/lease",
+                    "pathName": "pages/bluetooth/lease/lease",
+                    "query": "qrcode=BL20000001",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/agent/agent/agent",
+                    "pathName": "pages/agent/agent/agent",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/feedbackDetails/feedbackDetails",
+                    "pathName": "pages/feedbackDetails/feedbackDetails",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/historicalFeedback/historicalFeedback",
+                    "pathName": "pages/historicalFeedback/historicalFeedback",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/feedBack/feedBack",
+                    "pathName": "pages/feedBack/feedBack",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/index/index",
+                    "pathName": "pages/index/index",
+                    "query": "q=https%253A%252F%252Fbluetooth.qzsinotec.com%252Fbluetooth%252Fqrcode%252F7010000001&scancode_time=1627718382",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

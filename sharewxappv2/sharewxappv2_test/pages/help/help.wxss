@@ -1,0 +1,27 @@
+/* pages/help/help.wxss */
+page{
+    background: #ffffff;
+    font-size: 30rpx;
+    color: #323232;
+}
+.h2{
+    margin: 40rpx 0;
+    text-align: center;
+    font-size: 36rpx;
+    font-weight: bold;
+}
+.title{
+     margin: 20rpx 0;
+     line-height: 40rpx;
+     font-size: 28rpx;
+     font-weight: bold;
+     color: #000;
+}
+.contentbox{
+    padding: 0 30rpx 40rpx;
+}
+.content{
+    line-height: 50rpx;
+    margin-left: 20rpx;
+    font-size: 28rpx;
+}

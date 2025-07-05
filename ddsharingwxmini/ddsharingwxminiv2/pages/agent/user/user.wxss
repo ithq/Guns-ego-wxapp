@@ -1,0 +1,141 @@
+/* pages/agent/user/user.wxss */
+page{
+    background: #F5F5F7;
+}
+.main{
+    height: 100%;
+}
+.header{
+    position: fixed;
+    width: 100%;
+    padding: 30rpx;
+    background: white;
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+    box-shadow:0px 3rpx 22rpx rgba(0,0,0,0.03);
+    z-index: 10;
+}
+.searchBox{
+    display: flex;
+}
+.searchInputBox{
+    position: relative;
+    width:900rpx;
+    height:70rpx;
+    background:rgba(245,245,247,1);
+    border-radius:36rpx;
+}
+.search{
+    position: absolute;
+    width:23rpx;
+    height:25rpx;
+    top: 23rpx;
+    left: 36rpx;
+}
+.searchInput{
+    position: absolute;
+    width: 500rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    left: 70rpx;
+    font-size:22rpx;
+}
+.scanBtn{
+    margin-left: 20rpx;
+    width:70rpx;
+    height:70rpx;
+}
+
+
+.navBar{
+    display: flex;
+    /* padding: 0 30rpx; */
+    font-size:24rpx;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20rpx; 
+    font-weight: bold;
+}
+.barItem{
+    flex: 1;
+    padding-bottom: 8rpx;
+}
+
+.active{
+    position: relative;
+    color:rgba(0,193,118,1);
+}
+
+.active::after{
+    position: absolute;
+    content: '';
+    width: 30rpx;
+    height: 2px;
+    bottom: 0;
+    background: rgba(0,193,118,1);
+    bottom: -8rpx;
+    left: 50%;
+    margin-left: -15rpx;
+}
+
+
+/* 列表 */
+.agentList{
+    padding: 0;
+    margin-top: 210rpx;
+    height: 1077rpx;
+}
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+.listItem{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20rpx 30rpx;
+    background: white;
+
+    /* border-bottom: 1px dashed rgba(216,216,216,1); */
+}
+.listItem:after {
+    position: absolute;
+    bottom: 0;
+    left: 110rpx;
+    right: 30rpx;
+    height: 1px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    border-bottom: 1px dashed rgba(216,216,216,1);
+}
+.agentList .listItem:last-child:after {
+    height: 0;
+}
+.avatar{
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 10rpx;
+}
+.userName{
+    width: 580rpx;
+    font-size:26rpx;
+    padding-left: 30rpx;
+    margin-top: 4rpx;
+}
+.name{
+    font-size:26rpx;
+    color:rgba(3,3,3,1);
+}
+.id{
+    font-size: 20rpx;
+    color:rgba(123,123,123,1);
+}
+.rightArrow{
+    width: 15rpx;
+    height: 28rpx;
+    float: right;
+}

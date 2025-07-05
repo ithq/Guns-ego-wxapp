@@ -1,0 +1,209 @@
+/* pages/agent/agentWithdrawRecord/agentWithdrawRecord.wxss */
+.header {
+  position: relative;
+  height: 100rpx;
+  z-index: 10;
+}
+
+.statu {
+  width: 172rpx;
+  height: 60rpx;
+  font-size: 24rpx;
+  line-height: 60rpx;
+  border: 1px solid rgba(186, 186, 186, 1);
+  border-radius: 48rpx;
+  text-align: center;
+  margin: 20rpx auto;
+}
+
+.transaction_scroll {
+  position: absolute;
+  top: 100rpx;
+  bottom: 0;
+  /* padding-top: 40rpx; */
+}
+
+.transaction_list {
+  padding: 0rpx;
+}
+
+.transaction_scroll::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+
+scroll-view [style*="overflow"]::-webkit-scrollbar {
+  display: none;
+}
+
+.transaction_mounth {
+  padding: 20rpx 36rpx;
+  font-size: 28rpx;
+  color: #999999;
+  background: #F5F5F7;
+}
+
+.transaction_mounth_list_item {
+  height: 153rpx;
+  padding: 0 36rpx;
+}
+
+.transaction_icon_warp {
+  width: 74rpx;
+  height: 100%;
+}
+
+.transaction_icon {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.transaction_mounth_list_item_list {
+  flex: 1;
+  height: 100%;
+}
+
+.transaction_mounth_list_item:nth-last-of-type(1) .border_bottom_dotted::after {
+  border-color: #fff;
+}
+
+.transaction_type_warp {
+  flex-direction: column;
+}
+
+.transaction_type {
+  font-size: 30rpx;
+  padding-bottom: 20rpx;
+}
+
+.transaction_time {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.transaction_amount {
+  font-size: 30rpx;
+  color: #F80000;
+}
+
+.transaction_amount_warp {
+  flex-direction: column;
+}
+
+.transaction_amount_consume {
+  font-size: 30rpx;
+  color: #F80000;
+  padding-bottom: 10rpx;
+}
+
+
+/* 头部下拉框 */
+.cover {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  padding: 0 30rpx 30rpx;
+  background: white;
+  box-sizing: border-box;
+}
+
+.shooseHeader {
+  font-size: 30rpx;
+  line-height: 100rpx;
+  padding: 0 30rpx;
+  text-align: center;
+  border-bottom: 1px solid rgba(233, 231, 231, 1);
+  font-weight:bold;
+  color:rgba(3,3,3,1);
+}
+
+.flex_4 {
+  display: flex;
+}
+
+.icon {
+  width: 56rpx;
+  height: 56rpx;
+}
+
+.all {
+  margin-top: 30rpx;
+}
+
+.statuTxt {
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.more {
+  font-size: 32rpx;
+  margin: 30rpx 0;
+}
+
+.item {
+  text-align: center;
+  flex: 1;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.number {
+  font-size: 22rpx;
+  color: rgba(153, 153, 153, 1)
+}
+
+.bgBoxShow{
+  background:rgba(0,0,0,0.4);
+  animation: moveBgShow 1s infinite;
+  animation-iteration-count: 1;
+}
+.bgBoxHide{
+  background:rgba(0,0,0,0) !important;
+  animation: moveBgHidden 1s infinite;
+  animation-iteration-count: 1;
+}
+.contentShow{
+  top: 0 !important;
+  animation: moveShow 1s infinite;
+  animation-iteration-count: 1;
+}
+.contentHide{
+  top: -580rpx !important;
+  animation: moveHidden 1s infinite;
+  animation-iteration-count: 1;
+}
+
+.status{
+  font-size:24rpx;
+  color:rgba(153,153,153,1);
+}
+
+@keyframes moveShow{
+  from {top:-580rpx;}
+  to {top:0;}
+}
+@keyframes moveBgShow{
+  from {background:rgba(0,0,0,0);}
+  to {background:rgba(0,0,0,0.4);}
+}
+@keyframes moveBgHidden{
+  from {background:rgba(0,0,0,0.4);}
+  to {background:rgba(0,0,0,0);}
+}
+@keyframes moveHidden{
+  from {top: 0;}
+  to {top: -580rpx;}
+}

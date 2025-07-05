@@ -1,0 +1,68 @@
+/* pages/withdraw/withdraw.wxss */
+.withdraw_warp {
+  padding: 30rpx 36rpx;
+}
+
+.withdraw_balance_warp {
+  padding: 46rpx 50rpx;
+  background: linear-gradient(180deg, rgba(39, 220, 139, 1) 0%, rgba(0, 193, 118, 1) 100%);
+  border-radius: 14rpx;
+  font-size: 32rpx;
+  font-weight: 700;
+  line-height: 52rpx;
+  color: #fff;
+}
+
+.withdraw_wechat {
+  font-size: 26rpx;
+  margin-top: 50rpx;
+}
+
+.withdraw_wechat_icon {
+  width: 30rpx;
+  height: 26rpx;
+  margin-right: 6rpx;
+  vertical-align: text-bottom;
+}
+
+.withdraw_input {
+  margin-top: 20rpx;
+  padding: 30rpx 0;
+  vertical-align: text-bottom;
+  border-bottom: 1px solid rgba(184, 184, 184, 0.5);
+  font-size: 34rpx;
+}
+
+.symbol {
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.withdraw_amount {
+  flex: 1;
+  padding-left: 10rpx;
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.withdraw_btn {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 60rpx;
+  width: 500rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius:48rpx;
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+}
+
+.default {
+  background-color :#7FE0BA;
+}
+
+.active {
+  background-color: #00C176;
+}

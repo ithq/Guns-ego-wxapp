@@ -1,0 +1,86 @@
+<view id="homeBtn" hidden="homeBtnHidden" class="homeBtnCls" style=" margin-right:30px;" onTap='goToIndexPage'>
+    <image src='/assets/icon/home.png' style='width:35px;height:35px;margin-top:11px;margin-left:13px;'></image>
+</view>
+<view class="nv">
+    <view data-orderStatus='10' onTap='myOrderByOrderStatus' class="nvli {{orderStatus == 10?'active':''}}">
+      <view class="flex">进行中的订单</view>
+    </view>
+    <view data-orderStatus='11' onTap='myOrderByOrderStatus'  class="nvli {{orderStatus == 11?'active':''}}">
+      <view class="flex">已完成的订单</view>
+    </view>
+</view>
+<scroll-view class='scrollVWList' style="height: {{heightToTop}}px;"  onScrollToLower="onScrollLower" scroll-x="false" scroll-y="true"  lower-threshold="50" >
+  <block a:if="{{items.length > 0}}" a:for="{{items}}" a:key="{{id}}" a:for-index="index">
+    <view class="asrDevl">
+      <view a:if="{{item.myOrderStatus == 10}}" class="asrDevltit shyzh">
+        {{item.createTimeFormat}}
+        <text>使用中</text>
+      </view>
+      <view a:elif="{{item.myOrderStatus == 11}}" class="asrDevltit yh">
+        {{item.backTimeFormat}}
+        <text>已归还</text>
+      </view>
+      <view a:elif="{{item.myOrderStatus == -11}}" class="asrDevltit yh">
+        {{item.backTimeFormat}}
+        <text style="color:red" >退款成功</text>
+      </view>
+      <view class="asrDevlcont">
+        <view class="asrDevlinfo">
+          <text class="label">订单编号</text>
+          <text class="infor">{{item.orderId}}</text>
+        </view>
+        <view class="asrDevlinfo">
+          <text class="label">充电器编号</text>
+          <text class="infor">{{item.chargerId}}</text>
+        </view>
+        <view a:if="{{item.myOrderStatus == 10 || item.myOrderStatus == 11}}" class="asrDevlinfo">
+          <text class="label">预付金</text>
+          <text class="infor">￥{{item.deposit}}</text>
+        </view>
+        <view a:if="{{item.myOrderStatus == 11}}" class="asrDevlinfo">
+          <text class="label">租借时长</text>
+          <text class="infor">{{item.lentTimeRange}}</text>
+        </view>
+        <view a:if="{{item.myOrderStatus == 10}}" class="asrDevlinfo">
+          <text class="label">已产生费用</text>
+          <text class="infor">￥{{item.expectTradeAmount}}</text>
+        </view>
+        <view class="asrDevlinfo">
+          <text class="label">门店地址</text>
+          <text class="infor">{{item.terminalMerAddr}}</text>
+        </view>
+        <view class="asrDevlinfo">
+          <text class="label">门店商户</text>
+          <text class="infor">{{item.terminalMerName}}</text>
+        </view>
+        <view class="asrDevlinfo">
+          <text class="label">支付状态</text>
+          <text class="infor">{{item.payStatusCn}}</text>
+        </view>
+      </view>
+      <view a:if="{{item.myOrderStatus == 10 && item.overUseFlag == true}}" class="asrDevltip">
+        <form onSubmit="overCharging" data-chargerid="{{item.chargerId}}" data-custno="{{item.custNo}}" report-submit="true">
+          <button disabled="{{!dbOperationFlag}}" formType="submit">
+            <text class="iconfont icon-jieshu"></text>结束使用
+          </button>
+        </form>
+      </view>
+      <view a:if="{{item.myOrderStatus == 11 && item.payStatus == 1}}" class="aldyreturn">
+        实付款：
+        <text class="money">￥{{item.tradeAmount}}</text>
+      </view>
+      <view a:if="{{item.myOrderStatus == 11 && item.payStatus != 1}}" class="asrDevltip">
+        <form onSubmit="payOrder" data-chargerid="{{item.chargerId}}" data-custno="{{item.custNo}}" data-orderId="{{item.orderId}}" report-submit="true">
+          <button disabled="{{!dbOperationFlag}}" formType="submit">
+            <text class="iconfont icon-yajin"></text>支付订单
+          </button>
+        </form>
+      </view>
+    </view>
+  </block>
+  <image class="loading" style="display:{{loadingHidden ? 'block':'none'}}" src='/img/icon/loading.gif'></image>
+  <view class="nodatashow" style="display:{{nodatashowHide ? 'block':'none'}}">
+    <image src="/assets/icon/notOrder.png"></image>
+    <view class='p strong'>暂无订单！</view>
+  </view>
+</scroll-view>

@@ -1,0 +1,54 @@
+<!--pages/suggest/suggest.wxml-->
+<navigation-bar leftTitle="{{lg.pageTitle}}" back="{{true}}" bindback="goBack"></navigation-bar>
+
+<!-- 弹框 -->
+<toast id='toast'></toast>
+
+<view class="feedback_warp">
+	<view class="feedback_item_title">
+		<text class="feedback_sign">*</text> {{lg.questionTitle}}
+	</view>
+	<view class="grey_background">
+		<textarea class="feedback_textarea" placeholder-style="color:#757575" placeholder="{{lg.textAreaPlaceholder}}" maxlength="{{maxWord}}" minlength="{{minWord}}" data-name="directions" value="{{directions}}" bindinput="getValueLength"></textarea>
+		<view class="feedback_word_count">{{currentWord}}/{{maxWord}}</view>
+	</view>
+
+	<!-- 上傳照片 -->
+	<view class="feedback_add_img_warp flex_center_y">
+		<block wx:key="index" wx:for="{{imgList}}">
+			<view class="feedback_add_img_content">
+				<image class="feedback_add_img" src="{{item}}" data-index="{{index}}" bindtap="previewImage"></image>
+
+				<!-- 删除 -->
+				<view class="feedback_delete" data-index="{{index}}" bindtap="deleteImage">
+					<image class="image_percent" mode="widthFix" src="{{imgUrl + 'repair/icon_close3.png'}}"></image>
+				</view>
+			</view>
+		</block>
+
+		<view class="feedback_add_img_content" bindtap="addImage" wx:if="{{imgList.length < 3}}">
+			<image class="feedback_add_img" mode="widthFix" src="{{imgUrl + 'repair/icon_add3.png'}}"></image>
+		</view>
+	</view>
+
+	<view class="feedback_item_title">
+		<text class="feedback_sign">*</text> {{lg.contact}}
+		<!--联系方式-->
+	</view>
+
+	<view class="grey_background">
+		<input type="email" class="feedback_phone" placeholder-style="color:#757575" placeholder="{{lg.contactPlaceholder}}" data-name="phone" value="{{phone}}" bindinput="getInputKey"></input>
+	</view>
+
+	<view class="feedback_footer">
+		<!--带*号的为必填项-->
+		<view class="feedback_remark">
+			{{lg.take}} <text class="feedback_sign">*</text> {{lg.promit}}
+		</view>
+
+		<!--提交-->
+		<view type="primary" class="feedback_submit theme_background_color {{canSubmit ? 'feedback_submit_active' : 'feedback_submit_defaul'}}" hover-class="hover_class" bindtap="feedbackSubmit">
+			{{lg.subBtn}}
+		</view>
+	</view>
+</view>

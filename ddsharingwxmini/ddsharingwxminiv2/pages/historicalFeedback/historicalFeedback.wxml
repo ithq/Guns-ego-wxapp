@@ -1,0 +1,15 @@
+<!--pages/historicalFeedback/historicalFeedback.wxml-->
+<no-data promit="{{lg.promit}}" wx:if="{{showData}}"></no-data>
+<view class="container">
+  <view class="listItem" wx:for="{{listData}}" wx:key="index" bindtap="jumpPage" data-url="../feedbackDetails/feedbackDetails?id={{item.id}}">
+    <view class="content">
+      <view class="problem">
+        <view class="title">{{item.content}}</view>
+        <view class="dot-box" wx:if="{{item.msgStatus ==1}}"><view class="dot"></view></view>
+      </view>
+      <!-- status 0未处理，1已处理，2.不予解决 -->
+      <view class="reply" wx:if="{{item.lastContent && status == 1}}">{{lg.replied}}{{item.lastContent}}</view>
+    </view>
+    <view class="date">{{item.addTime}}</view>
+  </view>
+</view>

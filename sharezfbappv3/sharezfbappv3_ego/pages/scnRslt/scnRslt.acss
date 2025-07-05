@@ -1,0 +1,108 @@
+page {
+  height: 100%;
+}
+.viewTitle1{
+  width:100%;
+  height:37px;
+  font-size:26px;
+  font-family:PingFangSC-Semibold;
+  font-weight:600;
+  color:rgba(51,51,51,1);
+  line-height:37px;
+  margin-left: 24px;
+}
+
+.viewTitle2{
+  margin-top:2px;
+  width:100%;
+  height:17px;
+  font-size:12px;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  line-height:17px;
+  margin-left: 24px;
+}
+.viewBar{
+  height:154px; 
+  width:100%; 
+}
+.moneyCls{
+  padding-left: 24px;
+  padding-top: 45px;
+}
+.moneyTitle {
+  width: 100px;
+  text-align:center;
+}
+.moneyBalance {
+  width: 100px;
+  text-align:center;
+  color: blue;
+  font-size:15px;  
+}
+
+.feeBoxCls {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  margin-left: 8px;
+}
+
+
+.feeTitlebox{
+  width: 100%;
+}
+.feeTitle {
+  height: 50.38%;
+  padding: 0 4%;
+  color: #959595;
+  font-size: 26rpx;
+}
+.feemain1{
+  margin-bottom: 8rpx;
+  margin-top: 12rpx;
+  font-size: 28rpx;
+  margin-left: 20px;
+}
+.radioclass{
+  /* height: 44rpx; */
+  padding-top: 5px;
+  margin-left: 25px;
+}
+.feemain {
+  line-height: 46rpx;
+  font-size: 13px;
+  margin-left:25px;
+  margin-top:5px;
+}
+
+/*扫码按钮*/
+.down-button{
+    position: fixed;
+    bottom: 100rpx;
+    width:100%;
+    border-radius: 5rpx;
+    display: flex;    /*设置显示样式**/
+    align-items: center;    /**子view垂直居中*/
+    vertical-align: center; /**垂直居中*/
+    justify-content: center; /**内容居中*/
+}
+
+.down-button form{
+  display: block;
+  width: 85%;
+  height: 100%;
+}
+.btn{
+    width: 100%;
+}
+
+.btnDown{
+    background: #1AD459;
+    border-radius: 5rpx 5rpx 5rpx 5rpx;
+    color: #fff;
+}
+button[class="scanbtn"]::after {
+  border: 0;
+}

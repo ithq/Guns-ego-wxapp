@@ -1,0 +1,38 @@
+/* components/refresh/refresh.wxss */
+.refresh_warp{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.refresh_img {
+  width: 370rpx;
+  height: 370rpx;
+}
+
+.refresh_txt {
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 700;
+  padding: 40rpx 0;
+}
+
+.refresh_btn {
+  width:244rpx;
+  height:70rpx;
+  margin: 0 auto;
+  border-radius:44rpx;
+  background:rgba(0,193,118,1);
+  font-size: 28rpx;
+  line-height: 70rpx;
+  text-align: center;
+  color: #fff;
+}

@@ -1,0 +1,24 @@
+<!--auth.wxml-->
+<view class="container">
+  <view class="login-box">
+    <!-- <block wx:if="{{canIUseOpenData}}" calss="userinfo-opendata">
+      <view class="userinfo-avatar" bindtap="bindViewTap">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName"></open-data>
+    </block> -->
+    <view class="logo-img-box">
+      <image class="img-logo" src="/static/images/logo.png"></image>
+    </view>
+    <block wx:if="{{needUserAuth == 0}}">
+      <text class='login-title'>系统登录中...</text>
+    </block>
+    <block wx:else>
+      <view class="perssion-title">应用需要获取如下权限</view>
+      <view class="perssion-info">昵称、头像</view>
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile" type="primary" class="wx-login-btn"> 授权登录 </button>
+      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" type="primary" class="wx-login-btn"> 授权登录 </button>
+      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+    </block>
+  </view>
+</view>

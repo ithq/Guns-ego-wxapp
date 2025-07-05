@@ -1,0 +1,47 @@
+/* pages/faultOption/faultOption.wxss */
+page {
+    height: 100%;
+    background: #fff;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item {
+    width: 90%;
+    flex-grow: 1;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #555;
+    flex-direction: column;
+}
+
+.item:hover {
+    text-decoration: none;
+}
+
+.item .text {
+    margin-top: 0.76rem;
+}
+
+.img {
+    width: 5rem;
+    height: 5rem;
+    background: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.line {
+    width: 80%;
+    height: 1px;
+    background: #eee;
+}

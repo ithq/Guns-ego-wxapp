@@ -1,0 +1,50 @@
+<view id="homeBtn" class="homeBtnCls" style="bottom:30px; margin-right:30px;" bindtap='goToIndexPage'>
+    <image src='/img/icon/home.png' class='homeIconCls'></image>
+</view>
+<view class="nv">
+    <view data-messagestatus='2' bindtap='mymsgByMsgStatus' class="nvli {{messageStatus == 2?'active':''}}">
+      <view class="flex">未读消息({{unRead}})</view>
+    </view>
+    <view data-messagestatus='1' bindtap='mymsgByMsgStatus'  class="nvli {{messageStatus == 1?'active':''}}">
+      <view class="flex">已读消息({{read}})</view>
+    </view>
+</view>
+<scroll-view scroll-y="true" scroll-x="false"  class="scrollListVw" bindscrolltolower="onScrollLower" lower-threshold="50" >
+  <block wx:if="{{aryForItm.length > 0}}" wx:for="{{aryForItm}}" wx:key="{{id}}" wx:for-index="index">
+    <view wx:if="{{item.status == 1}}" data-id='{{item.id}}' data-title='{{item.title}}' data-time='{{item.createTime}}'  data-content='{{item.content}}' data-status='{{item.status}}' data-index='{{index}}' class="flwRcd alreadyread" bindtap="rdMsg">
+      <view class="flwRcdtit">{{item.title}}
+        <text class="iconfont icon-goto"></text>
+      </view>
+      <view class="flwRcddetail">{{item.createTime}}
+        <view class="line"></view>通知</view>
+    </view>
+    <view wx:if="{{item.status == 2}}" data-id='{{item.id}}' data-title='{{item.title}}' data-time='{{item.createTime}}'  data-content='{{item.content}}' data-status='{{item.status}}' data-index='{{index}}' class="flwRcd" bindtap="rdMsg">
+      <view class="flwRcdtit">{{item.title}}
+        <text class="iconfont icon-goto"></text>
+      </view>
+      <view class="flwRcddetail">{{item.createTime}}
+        <view class="line"></view>系统通知</view>
+    </view>
+  </block>
+  <view class="nodatashow" style="display:{{nodatashowHide ? 'block':'none'}}">
+    <image src="/img/icon/nodata.png"></image>
+    <view class='p'>未查询到消息！</view>
+  </view>
+  <view bindtap='readMessageHide' class="messagelayer {{messageShowView?'':'hd'}}" >
+    <view class="messagelayercont">
+      <view class="cont">
+        <view class="cnttit">
+          <view>
+            <view class="tit">{{title}}</view>      
+            <view class="time">{{time}}</view>        
+          </view>
+        </view>
+        <view class="cntDtls">
+          <view class="listtextcont">{{content}}</view>
+        </view>
+      </view>
+      <view class="msglyClose"><text class="iconfont icon-shaclose"></text></view>
+    </view>
+  </view>  
+  <image class="loading" style="display:{{loadingHidden ? 'block':'none'}}" src='/img/icon/Loading.png'></image>
+</scroll-view>

@@ -1,0 +1,36 @@
+<!--pages/offlineGeneral/chargingSelect/chargingSelect.wxml-->
+  <view id="printbtn" class="homepagebtn" style=" background: url({{resourceUrl}}/images/icon/homePage.png) no-repeat; background-size: 100% 100%;" bindtap='goWxAppHomePageForHomePageButton'></view>
+  <view class="banner" style=" background-image: url({{resourceUrl}}/images/images/recharging.png), -webkit-linear-gradient(top, #33dfcd, #1dc2ff);background-repeat: no-repeat; background-position: bottom right;background-size: auto 100%;">
+    <view class="topfeedback">
+        <view>
+            <text class="iconfont icon-charching"></text>
+            <view>充电中</view>                      
+        </view>       
+    </view>      
+  </view>
+  <view class="costdetail">
+    <view class="costtit">
+      <text class="iconfont icon-star"></text>
+        消费详情
+    </view>
+    <view class="costmain">
+      <view class="costmainflex">
+           充电时长<text>{{haveUsedSecondsTxt}}</text>
+      </view>   
+    </view>
+    <view class="costmain">
+      <view class="costmainflex">
+           所需费用<text>￥{{useAmount}}</text>
+      </view>   
+    </view>
+  </view> 
+  <view class="up-button">
+    <form bindsubmit="overReCharge" report-submit="true">
+       <button class="btn btnUp" disabled="{{!dbOperationFlag}}" formType="submit">结束使用</button>
+    </form>
+  </view>
+  <view class="down-button">
+    <form bindsubmit="continueReCharge" report-submit="true">
+        <button  id="submitbtn" class="btn btnDown" disabled="{{!dbOperationFlag}}" formType="submit">继续使用</button>
+    </form>
+  </view>

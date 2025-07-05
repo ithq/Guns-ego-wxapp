@@ -1,0 +1,282 @@
+/* pages/person/index.wxss */
+
+page {
+  background: #fff;
+  color: #444;
+  font-size: 30rpx;
+  font-family: '冬青黑体简体中文';
+}
+
+.usercentertop {
+  width: 100%;
+  height: 300rpx;
+  padding: 75rpx 50rpx 0 60rpx;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  background: url(../img/usercenter.jpg) no-repeat top center;
+  background-size: auto 100%;
+}
+.usercenterbar{
+  height: 45rpx;
+  background-color: rgb(241, 238, 238);
+}
+.avatarbox {
+  height: 149rpx;
+  display: flex;
+  align-items: center;
+  justify-content:right;
+}
+
+.avatar {
+  width: 149rpx;
+  height: 149rpx;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 8rpx solid rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+}
+
+.avatar image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.avatarbox text {
+  color: #fff;
+  font-size: 52rpx;
+  font-weight: 100;
+}
+
+.gotomember {
+  background-color: transparent;
+  border: none;
+  line-height: 50rpx;
+  padding: 0;
+  border-radius: 0;
+  margin-top: 40rpx;
+  text-align: left;
+}
+.personalinfo {
+  position: relative;
+  font-size: 0;
+  margin-left: 35rpx;
+}
+
+.nicknameclass {
+  display: inline-block;
+  position: relative;
+  margin-right: 22rpx;
+  color: #fff;
+  font-size: 36rpx;
+  margin-top: 2rpx;
+  margin-bottom: 10rpx;
+}
+
+.jibie image {
+  display: inline-block;
+  margin-right: 11rpx;
+  width: 41rpx;
+  height: 33rpx;
+}
+
+.dengjinumber {
+  position: absolute;
+  top: 6rpx;
+  left: 30rpx;
+  font-size: 36rpx;
+  color: #fff;
+  text-shadow: -1rpx 0 #ffda0b, 0 1rpx #ffda0b, 1rpx 0 #ffda0b, 0 -1rpx #ffda0b;
+}
+
+.accountclass {
+  color: #fff;
+  font-size: 36rpx;
+  line-height: 30rpx;
+  margin-top: 10rpx;
+  margin-bottom: 5rpx;
+}
+
+
+.personalinfo .icon-goto {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #fff;
+  font-size: 40rpx;
+}
+
+.icon-goto:active {
+  color: #ccc;
+}
+
+.ucercenternav {
+  margin-top: 20rpx;
+  background: #fff;
+}
+
+.navbtn {
+  padding: 0 34rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #444;
+  font-size: 28rpx;
+  text-align: left;
+  background: #fff;
+  border-bottom: 1px solid #f1f3f6;
+}
+
+.navbtn:active {
+  background: #eef3f4;
+}
+
+.navbtn .icon-more {
+  float: right;
+  font-size: 30rpx;
+  color: #afafaf;
+}
+
+.iconbtn {
+  display: inline-block;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+
+.order {
+  width: 45rpx;
+  height: 45rpx;
+  background-position: -56rpx 0;
+}
+
+.wallet {
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.menber {
+  width: 34rpx;
+  height: 30rpx;
+  background-position: -155rpx 0;
+}
+
+.coupon {
+  width: 34rpx;
+  height: 24rpx;
+  background-position: -211rpx 0;
+}
+
+.news {
+  width: 45rpx;
+  height: 45rpx;
+  background-position: -267rpx 0;
+}
+
+.gift {
+  width: 29rpx;
+  height: 29rpx;
+  background-position: -325rpx 0;
+}
+
+.walletnum {
+  float: right;
+  color: #959595;
+}
+
+.messageredbox {
+  position: relative;
+  display: inline-block;
+}
+
+.messagered {
+  position: absolute;
+  top: 32rpx;
+  left: 28rpx;
+  width: 14rpx;
+  height: 14rpx;
+  background: #f00;
+  border-radius: 50%;
+}
+
+.button-hover {
+  background: #ddd;
+}
+
+button::after {
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-bottom: 1px solid #ddd;
+  border-radius: 0;
+}
+
+button[disabled] {
+  color: #323232;
+  background: #fff;
+}
+
+button[disabled][type="default"], wx-button[disabled]:not([type]) {
+  color: #323232;
+  background-color: #fff;
+}
+
+button::after {
+  border: none;
+  border-bottom: none;
+  outline: none;
+  background-color: transparent;
+}
+
+button[disabled][type="default"], wx-button[disabled]:not([type]) {
+  background-color: transparent;
+}
+
+/* 二维码弹窗 */
+
+.mqrlayer {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 30rpx;
+}
+
+.mqrlayer .mqrlayercont {
+  width: 80%;
+  background: #fff;
+}
+
+.mqrlayercont .h2 {
+  padding: 0 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #f5f5f5;
+}
+
+.mqrlayercont image {
+  display: block;
+  margin: 30rpx auto;
+  width: 380rpx;
+  height: 380rpx;
+}
+
+.mqrlayercont .h2 text {
+  float: right;
+  font-size: 30rpx;
+}
+
+.mqrlayercont .p {
+  margin: 20rpx 0 50rpx;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 40rpx;
+  color: #999;
+}
+
+.homepagebtn {
+  bottom: 8%;
+}

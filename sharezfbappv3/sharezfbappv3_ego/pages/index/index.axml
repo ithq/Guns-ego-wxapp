@@ -1,0 +1,29 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <view class="search">
+    <view a:if="{{msgFlag && unRead>9}}" class='touxiang-imgred'>9+</view>
+    <view a:elif="{{msgFlag && unRead<=9}}" class='touxiang-imgred'>{{unRead}}</view>
+    <form onSubmit="usrCtBindtap" report-submit="true">
+      <button formType="submit" class="touxiang-img" disabled="{{!doubleOperateFlag}}">
+        <image src="{{headImgUrl}}"></image>
+      </button>
+    </form>
+    <view class="text" onTap="searchNearDevices">
+      <text class='iconfont icon-sousuo'></text>{{addrs}}
+    </view>
+    </view>
+  <map id="map" markers="{{markersArray}}" latitude="{{latX}}" longitude="{{lonY}}" onMarkerTap="markertap" polyline="{{polyline}}" onRegionChange="viewChange" show-location controls="{{controls}}" scale="14" onControlTap="bindcontroltap" >
+  </map>
+  <cover-view class="topAdvertView" hidden="{{topAdvertImage}}">
+    <cover-image class="topAdvertImage" src="{{topAdvertImage}}" onTap="clickTopAdvert"></cover-image>
+  </cover-view>
+  <cover-view class="popAdvertView popCenter" a:if="{{popAdvertImage && !popAdvertClose}}">
+    <cover-view class="popAdvertCont popCenter">
+      <cover-image src="{{popAdvertImage}}" class='popAdvertImage' onTap="clickPopAdvert">
+      </cover-image>
+      <cover-view class='popAdvertClose'>
+        <cover-image class="btnclose" src="../../assets/icon/close.png" onTap="clickPopAdvertClose"></cover-image>
+      </cover-view>
+    </cover-view>
+  </cover-view>
+</view>

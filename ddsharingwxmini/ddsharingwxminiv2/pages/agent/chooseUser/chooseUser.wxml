@@ -1,0 +1,38 @@
+<!--pages/agent/chooseUser/chooseUser.wxml-->
+<view class="main">
+    <view class="header">
+        <view class="searchBox">
+            <view class="searchInputBox">
+                <image src="{{imgUrl + iconSearch}}" class="search"></image>
+                <input name="search" type='text' confirm-type="search" class="searchInput" bindconfirm="bindconfirm" placeholder="{{lg.inputPleasehold}}"/><!-- 请输入查询内容 -->
+            </view>
+        </view>
+    </view>
+
+    <!-- 列表 -->
+    <scroll-view class="agentList"
+        scroll-y="{{true}}"
+        refresher-enabled="{{true}}"
+        refresher-threshold="{{50}}"
+        lower-threshold="{{100}}"
+        refresher-triggered="{{triggered}}"
+        bindrefresherpulling="onPulling"
+        bindrefresherrefresh="onRefresh"
+        bindrefresherrestore="onRestore"
+        bindrefresherabort="onAbort"
+        bindscrolltolower="lodeMore"
+    >
+        <view class="listItem" wx:for="{{info}}" wx:key="index" wx:for-item="i" data-id="{{i.id}}" data-firstname="{{i.firstName}}" bindtap="chooseUser">
+            <image src="{{i.pic}}" class="avatar"></image>
+            <view class="userName">
+                <view>{{i.firstName}}</view>
+                <view class="gray">{{i.number}}</view>
+            </view>
+        </view>
+
+        <view class="noMore" hidden="{{loadMore}}">
+            ——— {{common.noMore}} ———
+        </view>
+    </scroll-view>
+</view>
+

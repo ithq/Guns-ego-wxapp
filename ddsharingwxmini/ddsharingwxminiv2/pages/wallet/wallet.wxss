@@ -1,0 +1,199 @@
+/* pages/wallet/wallet.wxss */
+.contianer {
+  width: 100vw;
+  height: 100vh;
+}
+
+.backgroundClass {
+  color: #fff;
+}
+
+.wallet_container_bg {
+  background-repeat: no-repeat;
+  /* background-size: 100% auto; */
+  background-size: 100% 100%;
+  background-position: 0 0;
+}
+
+.wallet_container {
+  padding-top: 140rpx;
+  color: #fff;
+}
+
+.wallet_warp {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.newcenter:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+.wallet_amount {
+  font-size: 80rpx;
+  font-weight: 700;
+  vertical-align: text-bottom;
+}
+
+.symbol {
+  font-size: 40rpx;
+}
+
+.wallet_balance {
+  font-size: 28rpx;
+  line-height: 54rpx;
+}
+
+.wallet_btn_warp {
+  padding-top: 80rpx;
+}
+
+.wallet_btn {
+  width: 260rpx;
+  height: 80rpx;
+  padding: 0;
+  margin: 10rpx 0;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  border-radius: 80rpx;
+  font-size: 28rpx;
+  font-weight:400;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.active {
+  background: #fff;
+  color: #00C176;
+}
+
+.wallet_menu_warp {
+  margin-top: -50rpx;
+  width: 100vw;
+  height: 438rpx;
+  background: #fff;
+  border-radius: 32rpx 32rpx 0px 0px;
+}
+
+.wallet_menu_box {
+  padding: 20rpx 44rpx;
+}
+
+.wallet_deposit {
+  padding: 40rpx 0;
+  margin-bottom: 40rpx;
+  border-bottom: 1px dashed rgba(186,186,186,0.3);
+}
+
+.wallet_deposit_deposit {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #FF3944;
+}
+
+.wallet_deposit_direction {
+  font-size: 24rpx;
+  color: #000000;
+  line-height: 44rpx;
+}
+
+.menu_item {
+  height: 62rpx;
+  font-size: 32rpx;
+  font-weight: 700;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAqCAYAAAC3DKvtAAAABHNCSVQICAgIfAhkiAAAAxJJREFUSEu11zFoE2EUAOD3cr3SoVDs1sGhQ3Fz6dBKSqm0UqhDBUVxELeig5NI07sbnvC/SwviJCh0EgctQamDBUFRCoUuXbpUyNDBoUOhIBSRXnJPnv4pvXhpkku9JYTwf/nv3fvfe4dBEAyKyGcA+MjM9+GMLvR9/xsAXLDeU2Z+eBa2wm8A4FYNExEKw/BxpzgSUVcURe8BYOYE9oiZn3SCoy4mou4oij4AwFQNQ8Q5Y8xyVvwPbPGeKIq+AMCofhcRQcS7zPwqC34MW7w3iqKvADBssTiO4+vFYnG1XTwB6+L5+fk+x3HWEfGixSqIOGuMWWsH/we2O++PomgTAIYsdoSIV40xn1rFU2Fd7HneACJuAMCgxX4BwGVm1j9sejWEdaXv++cBQHH91OuwWq1OLC4ubjWTT4V1sR75OI43EHHAZssPABgPw3D7NLwpbPEhEdEQ9FvsABFHjTHlRnhLsI25ZolmS5/d+V4ul8sbY3bT8JZhXVwoFIYdx9E877XYdwDIM7N+Jq62YPtA9WTqCe2x0m4cxyPFYnH/pNw2bGM+JSJaW7ottuO67hgRHdTwTLDFZ0REq2KXjfl2tVodX1pa0qyBzLAuXlhYuJbL5d4CQM7udMt13XEi+tkRbGN+R0ReImLNWnddd7pj2OL3AOD5iYdX+i+wtreOYd/360PxjJkfdASnPLxlZp7rKCuCIEikGwCsMPNt7WqZ4SAIEgdERFbL5fKNUqlUzXxAfN+vP9JrruvOElEl85FOKUKas1eI6ChzEfI8L1E2AWDTdd1JPWWZy2YQBPWFXo/uBBEdZi709a0JAHYqlcqlWrHJBKc003Icx/n62ttWKFLa/66I5MMw3Gu0y6ZZQUSJgUVE9hBxJK0FtRyK+hFLRPZt02zYkZuGgojqh0Jt82PGmJ1Wbj81FESUGGN16rExPXUwOTUUKYO3Jv1kq3NaaihSXhV0+Jtm5vV2bz8RCs/zVhDx5nFV+juutjULp+7Y87xNTSX90U7v7zrZ6fEGC4XCOcdx9FXgBTO/PgtUjd/9wmHK6T77UgAAAABJRU5ErkJggg==");
+  background-repeat: no-repeat;
+  background-size: 15rpx 28rpx;
+  background-position: center right;
+}
+
+/* 充值 */
+.wallet_recharge_modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10005;
+}
+
+.modal_mask {
+  position: absolute;
+  z-index: 2000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.bottom_dialog_body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3000;
+  background: #fff;
+  border-radius: 32rpx 32rpx 0px 0px;
+  color: #000000;
+}
+
+/*动画前初始位置*/
+.bottom-positon {
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+}
+
+/* 底部弹出框 */
+.wallet_recharge_title_warp {
+  font-size: 24rpx;
+  padding: 60rpx 44rpx 42rpx;
+}
+
+.wallet_recharge_title {
+  font-size: 32rpx;
+  font-weight: 700;
+  padding-right: 20rpx;
+}
+
+.wallet_recharge_pick_warp {
+  padding: 0 20rpx 47rpx;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-around;
+}
+
+.wallet_recharge_pick {
+  width: 216rpx;
+  height: 200rpx;
+  background: #F5F5F7;
+  border-radius: 12rpx;
+  margin: 10rpx 0;
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #253B39;
+}
+
+.recharge_active {
+  background: #00C176;
+  color: #fff;
+}
+
+.wallet_recharge_btn {
+  width: 500rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+
+.wallet_recharge_protocol {
+  padding-top: 30rpx;
+  padding-bottom: 40rpx;
+  font-size: 24rpx;
+  text-align: center;
+}

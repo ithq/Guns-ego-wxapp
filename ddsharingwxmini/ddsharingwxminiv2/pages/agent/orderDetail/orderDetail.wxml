@@ -1,0 +1,125 @@
+<!--pages/agent/orderDetail/orderDetail.wxml-->
+<wxs module="filter" src="../../../config/filter.wxs"></wxs>
+<view class="rental_record_detail_warp">
+	<view class="rental_record_detail">
+		<view class="rental_record_status flex_center_y flex_column">
+			<!-- 0.未租借 1.请求中 2.租借中 3.已撤销 4.故障单 5.已归还 6.购买单 8.超时单 -1.已删除 -->
+			<text class="rental_status">
+				{{info.orderDetail.borrowState == 2 ? lg.inRent : info.orderDetail.borrowState == 5 ? lg.completed : info.orderDetail.borrowState == 6 ? lg.buy : info.orderDetail.borrowState == 8 ? lg.timeOut : info.orderDetail.borrowState}}
+			</text>
+			<text class="rental_amount">{{commonLg.symbol}}{{filter.moneyFormato(info.orderDetail.payPrice)}}</text>
+		</view>
+
+		<!-- 使用详情 -->
+		<view class="rental_record_detail_item">
+			<view class="item_title">{{lg.useDetail}}</view>
+
+			<view class="item_content gray_color">
+				<text class="record_item">{{lg.orderNumber}}</text>
+				<text class="record_item_data">{{info.orderDetail.orderSn}}</text>
+				<view class="rental_record_copy" bindtap="copyTxt" data-txt="{{info.orderDetail.orderSn}}">{{commonLg.copy}}</view>
+			</view>
+
+			<view class="rental_record_content gray_color">
+				<text class="record_item">{{lg.rentShop}}</text>
+				<text class="record_item_data">{{info.orderDetail.shopName}}</text>
+			</view>
+
+			<view class="rental_record_content gray_color">
+				<text class="record_item">{{lg.rentTime}}</text>
+				<text class="record_item_data">{{info.orderDetail.borrowTime}}</text>
+			</view>
+
+
+
+
+			<view class="rental_record_content gray_color" wx:if="{{info.orderDetail.deviceId}}">
+				<text class="record_item">{{lg.deviceId}}</text>
+				<text class="record_item_data">{{info.orderDetail.deviceId}}</text>
+			</view>
+			<view class="rental_record_content gray_color" wx:if="{{info.orderDetail.batteryId}}">
+				<text class="record_item">{{lg.batteryId}}</text>
+				<text class="record_item_data">{{info.orderDetail.batteryId}}</text>
+			</view>
+
+
+
+			<view class="rental_record_content gray_color" wx:if="{{info.orderDetail.returnShopname && (info.orderDetail.borrowState != 8 && info.orderDetail.borrowState != 6)}}">
+				<text class="record_item">{{lg.returnShop}}</text>
+				<text class="record_item_data">{{info.orderDetail.returnShopname}}</text>
+			</view>
+
+			<view class="rental_record_content gray_color" wx:if="{{info.orderDetail.returnTime && (info.orderDetail.borrowState != 8 && info.orderDetail.borrowState != 6)}}">
+				<text class="record_item">{{lg.returnTime}}</text>
+				<text class="record_item_data">{{info.orderDetail.returnTime}}</text>
+			</view>
+
+			<view class="rental_record_content gray_color" wx:if="{{info.orderDetail.orderType != 1}}">
+				<text class="record_item">{{lg.settleTime}}</text>
+				<text class="record_item_data">{{info.orderDetail.settlementTime}}</text>
+			</view>
+		</view>
+
+		<!-- 价格明细 -->
+		<view class="rental_record_detail_item">
+			<view class="item_title">{{lg.priceDetail}}</view>
+
+			<view class="rental_record_content gray_color">
+				<text class="record_item">{{lg.useTime}}</text>
+				<text class="record_item_data" wx:if="{{info.orderDetail.borrowState != 2}}">{{filter.calculateTime(info.orderDetail.usedMinute)}}</text>
+				<text class="record_item_data" wx:if="{{info.orderDetail.borrowState == 2}}">{{info.orderDetail.usedMinute}}</text>
+			</view>
+
+			<view class="rental_record_content gray_color">
+				<text class="record_item">{{lg.settleMoney}}</text>
+				<text class="record_item_data">{{commonLg.symbol}}{{filter.moneyFormato(info.orderDetail.payPrice)}}</text>
+            </view>
+
+            <view class="rental_record_content gray_color">
+				<text class="record_item">{{lg.payType}}</text>
+				<text class="record_item_data">{{info.orderDetail.payState == 0 ? lg.payState0 : info.orderDetail.payState == 1 ? lg.payState1 : info.orderDetail.payState == 2 ? lg.payState2 : info.orderDetail.payState == 3 ? lg.payState3 : info.orderDetail.payState == 4 ? lg.payState4 : info.orderDetail.payState == 5 ? lg.payState5 : info.orderDetail.payState == 9 ? lg.payState6 : info.orderDetail.payState == 6 ? lg.payState5 : info.orderDetail.payState}}</text>
+            </view>
+		</view>
+
+		<!-- 计费规则 -->
+		<view class="rental_record_detail_item">
+			<view class="item_title">{{lg.chargingStandard}}</view>
+			<view class="rental_record_content gray_color">
+				<text class="rental_record_rule">{{info.orderDetail.chargingRules}}</text>
+			</view>
+        </view>
+        
+        <!-- 分成明细 -->
+		<view class="rental_record_detail_item">
+			<view class="item_title">{{lg.divide}}</view>
+
+			<view class="rental_record_content gray_color" wx:if="{{info.share && info.share > 0}}">
+				<text class="record_item">{{lg.platform}}(鲤电)</text>
+				<text class="record_item_data">{{info.share}}%</text>
+			</view>
+
+			<view class="rental_record_content gray_color" wx:if="{{info.share1 && info.share1 > 0}}">
+				<text class="record_item">{{lg.firstAgent}}</text>
+				<text class="record_item_data">{{info.share1}}%</text>
+            </view>
+            
+            <view class="rental_record_content gray_color" wx:if="{{info.share2 && info.share2 > 0}}">
+				<text class="record_item">{{lg.secondAgent}}</text>
+				<text class="record_item_data">{{info.share2}}%</text>
+            </view>
+
+            <view class="rental_record_content gray_color" wx:if="{{info.share3 && info.share3 > 0}}">
+				<text class="record_item">{{lg.thirdAgent}}</text>
+				<text class="record_item_data">{{info.share3}}%</text>
+            </view>
+            <view class="rental_record_content gray_color" wx:if="{{info.share4 && info.share4 > 0}}">
+				<text class="record_item">{{lg.forthAgent}}</text>
+				<text class="record_item_data">{{info.share4}}%</text>
+            </view>
+            <view class="rental_record_content gray_color" wx:if="{{info.share5 && info.share5 > 0}}">
+				<text class="record_item">{{lg.fifthAgent}}</text>
+				<text class="record_item_data">{{info.share5}}%</text>
+            </view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,165 @@
+//取绝对值
+function abs(val){
+    var returnVal;
+    returnVal = Math.abs(val);
+    return returnVal;
+}
+
+//计算使用时长（分钟）
+function calculateTime(min) {
+    if(!min) return "0分钟";
+    var returnTxt,days,hours,seconds;
+    if(min < 60){
+        returnTxt = min + "分钟";
+    }else if(min >= 60 && min < 1440){
+        hours = Math.floor(min/60);
+        seconds = min%60;
+        returnTxt = hours + "小时" + seconds + "分钟";          //待优化多语言
+    }else if(min >= 1440){
+        days = Math.floor(min/60/24);
+        min = min%(60*24);
+        hours = Math.floor(min/60); 
+        seconds = min%60;
+        returnTxt = days + "天" + hours + "小时" + seconds + "分钟";
+    };
+    return returnTxt;
+};
+//计算使用时长（秒）
+function calculateTimeSeconds(min) {
+    if(!min) return "0分钟";
+    var returnTxt,days,hours,mins,seconds;
+    if(min < 60){
+        returnTxt = min + "秒";
+    }else if(min >= 60 && min < 3600){
+        mins = Math.floor(min/60);
+        seconds = min%60;
+        returnTxt = mins + "分钟" + seconds + "秒";          //待优化多语言
+    }else if(min >= 3600 && min < 86400){
+        mins = Math.floor(min/60);
+        hours = Math.floor(mins/60); 
+        seconds = min%60;
+        returnTxt = hours + "小时" + seconds + "分钟" + seconds + "秒";
+    }else if(min >= 86400){
+        mins = Math.floor(min/60);
+        hours = Math.floor(mins/60);
+        days = Math.floor(hours/24);
+        hours = hours%24;
+        mins = mins%60;
+        seconds = min%60;
+        returnTxt = days + "天" + hours + "小时" + mins + "分钟" + seconds + "秒";
+    };
+    return returnTxt;
+};
+
+// 对金额的处理（保留两位小数位， 每隔三位添加‘，’）
+function moneyFormato(value = 0, num) {
+    value = value ? value : 0;
+    value = Math.abs(value);
+    num = num > 0 && num <= 20 ? num : 2;
+    var reg = getRegExp('[^\d\.-]', 'g');
+    value = parseFloat((value + "").replace(reg, "")).toFixed(num) + ""; //将金额转成比如 123.45的字符串
+    var valueArr = value.split(".")[0].split("").reverse(); //将字符串的数变成数组
+    var valueFloat = value.split(".")[1]; // 取到 小数点后的值
+    var valueString = "";
+    for (var i = 0; i < valueArr.length; i++) {
+        valueString += valueArr[i] + ((i + 1) % 3 == 0 && (i + 1) != valueArr.length ? "," : ""); //循环 取数值并在每三位加个','
+    }
+    var money = valueString.split("").reverse().join("") + "." + valueFloat; //拼接上小数位 如：123,4.12
+    return money
+};
+
+// 租借状态
+// 订单状态 0.未租借 1.请求中 2.租借中 3.已撤销 4.故障单 5.已归还 6.购买单 8.超时单 -1.已删除
+function borrowState(state, language) {
+    switch (state) {
+        case 0:
+            return language['noRented']
+            break;
+        case 1:
+            return language['requesting']
+            break;
+        case 2:
+            return language['leased']
+            break;
+        case 3:
+            return language['revoked']
+            break;
+        case 4:
+            return language['trouble']
+            break;
+        case 5:
+            return language['returned']
+            break;
+        case 6:
+            return language['purchase']
+            break;
+        case 8:
+            return language['timeout']
+            break;
+        case 9:
+            return language['refunded']
+            break;
+        case -1:
+            return language['deleted']
+            break;
+        default:
+            return state
+            break;
+    }
+};
+
+// 账户变更类型：1.余额充值 2.余额自动退款 3 租金支出，4.押金转余额，5.余额转押金,6.余额手动提现,7.逾期购买
+function billType(state, language) {
+    switch (state) {
+        case 1:
+            return language['rechargeAmount']
+            break;
+        case 2:
+            return language['chargeStatu1']
+            break;
+        case 3:
+            return language['chargeStatu2']
+            break;
+        case 4:
+            return language['chargeStatu3']
+            break;
+        case 5:
+            return language['chargeStatu4']
+            break;
+        case 6:
+            return language['chargeStatu5']
+            break;
+        case 7:
+            return language['chargeStatu6']
+            break;
+        default:
+            return state
+            break;
+    }
+};
+
+// 隐藏中间手机号码4位
+function telFormat(tel) {
+    var reg = getRegExp('^(\d{3})\d{4}(\d{4})$');
+    return tel.replace(reg, "$1****$2");
+}
+
+// 米-公里单位换算
+function lengthUnitFormat(distance) {
+    if (distance > 0) {
+      return (Math.round(distance / 100) / 10).toFixed(1) + "km"
+    } else {
+      return distance
+    }
+}
+
+module.exports = {
+    abs: abs,
+    moneyFormato: moneyFormato,
+    calculateTime: calculateTime,
+    borrowState: borrowState,
+    billType: billType,
+    telFormat: telFormat,
+    lengthUnitFormat: lengthUnitFormat,
+    calculateTimeSeconds:calculateTimeSeconds
+}

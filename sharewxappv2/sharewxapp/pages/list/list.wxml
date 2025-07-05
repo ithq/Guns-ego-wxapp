@@ -1,0 +1,28 @@
+<!--list.wxml-->
+<view id="printbtn" class="homepagebtn" style=" background: url({{resourceUrl}}/images/icon/homePage.png) no-repeat; background-size: 100% 100%;" bindtap='goWxAppHomePageForHomePageButton'></view>
+<scroll-view class="scroll-view-list" scroll-y="true" scroll-x="false" lower-threshold="50" >
+    <block wx:for="{{item}}" wx:key="{{deviceId}}">
+      <view class="merchant" data-otherimgurllist="{{item.otherImgUrlList}}" data-shopaddr="{{item.shopAddr}}" data-latitude="{{item.latitude}}" data-longitude="{{item.longitude}}" data-phone="{{item.phone}}"  bindtap="{{!buttonClicked?'netDot':''}}">
+        <view class='touxiang-imgbox'>
+          <image class="touxiang-img" wx:if="{{item.merchantLogo}}" src="{{item.merchantLogo}}"></image>
+          <image class="touxiang-img" wx:else src="{{ossImgRoot}}images/logoIcon.png"></image>
+        </view>
+        <view class="devinfor">
+          <view class="cont">
+            <text class='iconfont icon-fangzi'></text>
+            <text class="title">{{item.shopName}}</text>
+            <text class="distance">{{item.distance}}</text>
+          </view>
+          <view class="charge">
+            总充电器数：
+            <text class="num">{{item.maxChargerNum}}</text>
+            可借个数：
+            <text class="num">{{item.canUseChargerNum}}</text>
+          </view>          
+          <text class="adress">地址：{{item.shopAddr}}</text>
+          <text class="iconfont icon-weizhi"></text>
+        </view>
+      </view>
+    </block>
+<image class="loading" style="display:{{loadingHidden ? 'block':'none'}}" src='{{resourceUrl}}/images/images/loading.gif'></image>
+  </scroll-view>

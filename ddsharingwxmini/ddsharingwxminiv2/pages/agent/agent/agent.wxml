@@ -1,0 +1,66 @@
+<!--pages/agent/agent/agent.wxml-->
+<wxs module="filter" src="../../../config/filter.wxs"></wxs>
+<no-data promit="{{lg.promit}}" wx:if="{{showData}}"></no-data>
+<view class="main">
+    <view class="header">
+        <view class="searchBox">
+            <view class="searchInputBox">
+                <image src="{{imgUrl + iconSearch}}" class="search"></image>
+                <input name="search" type='text' value="{{key}}" confirm-type="search" bindconfirm="bindconfirm" class="searchInput" placeholder="{{lg.inputPleasehold}}" /><!-- 请输入查询内容 -->
+            </view>
+            <image src="{{imgUrl + iconAdd}}" class="scanBtn" data-url="../agentAdd/agentAdd" bindtap="jumpPage"></image>
+        </view>
+
+        <view class="navBar">
+            <view wx:for="{{agentArr}}" wx:key="index" wx:for-item="i" class="{{statu == index ? 'barItem active' : 'barItem'}}" data-i="{{index}}" data-groupid="{{i.groupId}}" bindtap="changeNav">
+                {{i.name}}({{i.agentCount}})
+            </view>
+            <!-- <view class="{{statu == 1 ? 'barItem active' : 'barItem'}}" data-i="1" bindtap="changeNav">
+                业务员
+            </view>
+            <view class="{{statu == 2 ? 'barItem active' : 'barItem'}}" data-i="2" bindtap="changeNav">
+                店铺管理
+            </view> -->
+        </view>
+    </view>
+
+    <!-- 列表 -->
+    <scroll-view class="agentList"
+        scroll-y="{{true}}"
+        refresher-enabled="{{true}}"
+        refresher-threshold="{{50}}"
+        lower-threshold="{{100}}"
+        refresher-triggered="{{triggered}}"
+        bindrefresherpulling="onPulling"
+        bindrefresherrefresh="onRefresh"
+        bindrefresherrestore="onRestore"
+        bindrefresherabort="onAbort"
+        bindscrolltolower="lodeMore"
+    >
+        <view class="listItem" wx:for="{{listData}}" wx:key="index" wx:for-item="i">
+            <image src="{{i.pic}}" class="avatar"></image>
+            <view class="userName" style="{{index == (listData.length-1) ? 'border-bottom:none;' : ''}}">
+                <view class="itemName">
+                    {{i.name}}
+                </view>
+                <view class="itemTc">
+                    {{common.symbol}}{{filter.moneyFormato(i.amount)}}({{i.agentMoney}}%)
+                </view>
+
+                <button class="btn bindBtn" data-agintid="{{i.id}}" bindtap="scan">
+                    {{lg.bindDevice}}<!-- 绑定 -->
+                </button>
+                <button class="btn editBtn" data-url="../agentDetail/agentDetail?id={{i.id}}" bindtap="jumpPage">
+                    {{lg.edit}}<!-- 编辑 -->
+                </button>
+                <button class="btn" data-id="{{i.id}}" bindtap="deleteAgent">
+                    {{lg.delete}}<!-- 删除 -->
+                </button>
+            </view>
+        </view>
+
+        <view class="noMore" hidden="{{loadMore}}">
+            ——— {{common.noMore}} ———
+        </view>
+    </scroll-view>
+</view>

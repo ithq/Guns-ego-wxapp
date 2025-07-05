@@ -1,0 +1,80 @@
+/* pages/bluetooth/leaseSuccess/leaseSuccess.wxss */
+.main{
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(#27DC8B, #00C176);
+  }
+  .topBg{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  .bottomBg{
+    position: fixed;
+    width: 430rpx;
+    height: 314rpx;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .clockBox{
+    position: relative;
+    text-align: center;
+    padding-top: 149rpx;
+    z-index: 999;
+  }
+  .clockImg{
+    position: absolute;
+    width: 484rpx;
+    height: 484rpx;
+    left: 50%;
+    margin-left: -242rpx;
+  }
+  .smallTxt{
+    font-size: 28rpx;
+    color: #FFFFFF;
+    margin-top: 185rpx;
+  }
+  .countDown{
+    font-size: 60rpx;
+    font-weight: 600;
+    color: #FFFFFF;
+  }
+  
+  .timeBox{
+    margin-top: 320rpx;
+    display: flex;
+    color: white;
+    font-size: 28rpx;
+  }
+  
+  .beginTime,.endTime{
+    flex: 1;
+    text-align: center;
+  }
+  
+  .time{
+    font-weight: bold;
+    margin-bottom: 20rpx;
+  }
+
+  .line_bottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 2.25vh;
+  }
+  
+  .line_bottom_img {
+    width: 690rpx;
+    height: 160rpx;
+    border-radius: 6rpx;
+  }
+
+  .promitTxt{
+    text-align: center;
+    color: white;
+    font-size: 28rpx;
+    margin-top: 60rpx;
+  }

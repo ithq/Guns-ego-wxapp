@@ -1,0 +1,124 @@
+/* 租借充电器页面 */
+.bgimg{
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+}
+.bgimg image{
+  width: 750rpx;
+  height: 448rpx;
+}
+.pwdBoxcls{
+  width:96%;
+  height:66.2%;
+  background:rgba(255,255,255,1);
+  box-shadow:1px 5px 5px 1px rgba(0,0,0,0.06);
+  border-radius:5px;
+  /* margin-left: 12rpx;
+  margin-top: 20rpx;
+  margin-right: 10rpx; */
+  margin: 5px auto;
+}
+.pwdTitle{
+  width:150px;
+  height:30px;
+  line-height:30px;
+  font-size:21px;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  padding: 10px 0;
+  padding-left: 15px;
+}
+.pwdTitle1{
+  padding-left: 18px;
+  width:100%;
+  height:17px;
+  font-size:14px;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(149,149,149,1);
+  line-height:17px;
+}
+.bottomBarCls{
+  position: absolute;
+  bottom: 100px;
+  width:100%;
+  height:17px;
+  font-size:12px;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(149,149,149,1);
+  line-height:17px;
+  text-align: center;
+}
+.passwordcode{
+    height: 300rpx;
+    text-align: center;
+}
+.passwordcode .text{
+    margin-top: 20rpx;
+}
+.codelistfive{
+    height: 95rpx;
+    text-align: center;
+    font-size: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.codelistfive{
+  padding: 10px 0;
+}
+.codelistfive text{  
+    display: inline-block;
+    margin: 0 7rpx;
+    color: #FF610A;
+    font-weight: bolder;
+    font-family: 'Hiragino Sans GB';
+    text-align: center;
+    border: 2rpx #cdcfcf solid;
+    border-radius: 5rpx;
+    background-color: #F5F5F5;
+    box-shadow:1px 5px 5px 1px rgba(0,0,0,0.06);
+}
+.codelistfive text{
+    width: 95rpx;
+    height: 95rpx;
+    line-height: 98rpx;
+    font-size: 72rpx;
+}    
+.codelistsix text{
+    width: 80rpx;
+    height:80rpx;
+    line-height: 80rpx;
+    font-size: 50rpx;
+}
+.passwordDesc{
+  margin-top: 20rpx;
+  font-size:13px;
+}
+.official{
+  width:96%;
+  box-shadow:1px 5px 5px 1px rgba(0,0,0,0.06);
+  border-radius:5px;
+  margin-left: 6px;
+  margin-right: 5px;
+}
+.btnFaultOption{
+    width: 100%;
+    background-color:rgb(255, 255, 255);
+}
+.btnFaultOption::after{
+  border: 0;
+}
+.bottom{
+    position: fixed;
+    width: 100%;
+    height: 46px;
+    bottom: 0px;
+}
+.flex{
+    text-align: center;
+    width: 100%;
+}

@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/index/index",  
+    "pages/kp/kp",
+    "pages/flwRcd/flwRcd",
+    "pages/cntuAndFnsh/cntuAndFnsh",
+    "pages/myMsg/myMsg",
+    "pages/fnhRchg/fnhRchg",
+    "pages/myOrds/myOrds",
+    "pages/rdyToRchg/rdyToRchg",
+    "pages/scnRslt/scnRslt",
+    "pages/wthDrwPrgs/wthDrwPrgs",
+    "pages/usrCt/usrCt",
+    "pages/myWlt/myWlt", 
+    "pages/wthDrwl/wthDrwl",
+    "pages/commentPro/commentPro"
+  ],
+  "window": {
+    "defaultTitle": "小助手测试",
+    "titleBarColor": "#FF610A"
+  }
+}

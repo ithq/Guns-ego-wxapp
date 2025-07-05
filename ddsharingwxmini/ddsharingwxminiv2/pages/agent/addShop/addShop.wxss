@@ -1,0 +1,105 @@
+/* pages/agent/addShop/addShop.wxss */
+
+.inputItem{
+    padding: 30rpx;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #DEDEDE;
+}
+.icon{
+    width: 26rpx;
+    height: 26rpx;
+    vertical-align: text-bottom;
+    margin-bottom: 3rpx;
+    margin-right: 5rpx;
+}
+.left{
+    width: 200rpx;
+    font-size:24rpx;
+    height: 31rpx;
+    line-height: 31rpx;
+    border-right: 1px solid #DEDEDE;
+}
+.right{
+    width: 600rpx;
+    display: flex;
+    padding-left: 20rpx;
+}
+.red{
+    color: red;
+    margin-right: 6rpx;
+}
+
+.inputItemLogo{
+    align-items: flex-start;
+}
+.input{
+    width: 100%;
+    font-size: 24rpx;
+}
+.addLogo{
+    width: 110rpx;
+    height: 110rpx;
+}
+
+.footer{
+    background: #F5F5F7;
+    padding-bottom: 30rpx;
+}
+.promit{
+    text-align: center;
+    font-size: 26rpx;
+    color:rgba(123,123,123,1);
+    padding: 30rpx 0;
+}
+.saveBtn{
+    width: 500rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    padding: 0;
+    box-sizing: border-box;
+}
+.gray{
+    color: #7B7B7B;
+}
+
+radio .wx-radio-input.wx-radio-input-checked {
+    border-color: #03a9f4;
+    background: #03a9f4;
+}
+
+/* 自定义样式.... */
+
+radio .wx-radio-input {
+    height: 28rpx;
+    width: 28rpx;
+    margin-top: -4rpx;
+    border-radius: 50%;
+    border: 2rpx solid #999;
+    background: transparent;
+}
+
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+    border-radius: 50%; /* 圆角 */
+    width: 28rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+    height: 28rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+    line-height: 28rpx;
+    text-align: center;
+    font-size: 18rpx; /* 对勾大小 30rpx */
+    color: #fff; /* 对勾颜色 白色 */
+    /* background: #f00; */
+    transform: translate(-50%, -50%) scale(1);
+    -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+
+.delAgent{
+    font-size: 24rpx;
+    width: 80rpx !important;
+    height: 50rpx;
+    line-height: 50rpx;
+    padding: 0;
+    color: white;
+}

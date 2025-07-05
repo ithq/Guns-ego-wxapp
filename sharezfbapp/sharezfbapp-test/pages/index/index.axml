@@ -1,0 +1,16 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <view class="search">
+    <view a:if="{{msgFlag && unRead>9}}" class='touxiang-imgred'>9+</view>
+    <view a:elif="{{msgFlag && unRead<=9}}" class='touxiang-imgred'>{{unRead}}</view>
+    <form onSubmit="usrCtBindtap" report-submit="true">
+      <button formType="submit" class="touxiang-img" disabled="{{!doubleOperateFlag}}">
+        <image src="{{headImgUrl}}"></image>
+      </button>
+    </form>
+    <view class="text" onTap="searchNearDevices">
+      <text class='iconfont icon-sousuo'></text>{{addrs}}
+    </view>
+    </view>
+  <map id="map" markers="{{markersArray}}" latitude="{{latX}}" longitude="{{lonY}}" onMarkerTap="markertap" polyline="{{polyline}}" onRegionChange="viewChange" show-location controls="{{controls}}" scale="14" onControlTap="bindcontroltap" />
+</view>

@@ -1,0 +1,35 @@
+<view id="printbtn" class="homepagebtn" style=" background: url({{resourceUrl}}/images/icon/homePage.png) no-repeat; background-size: 100% 100%;" bindtap='goWxAppHomePageForHomePageButton'></view>
+<form bindsubmit="withdraw" report-submit="true">
+	<view style="height: 1.43%;"></view>
+	<view class="payinfo">
+		<view class="inputinfo">
+			<view class="paynum">付款金额</view>
+			<view class="aboutinput">
+				<text>￥</text>
+        <view class="inputbox">
+					<view class="input">{{withdrawalMoney}}</view>
+					<view class="guangbiao"></view>				
+				</view>
+			</view>
+			<view class="huiyuan">可提现金额：{{canWithdrawalMoney}}元，<text bindtap="allAmt">全部提现</text></view>
+      <button class="klbtn" disabled="{{!dbOperationFlag}}" formType="submit">提现</button>
+		</view>		
+	</view>
+	<view class="knowzd">您的提现金额，将退回到您的原充值账户</view>
+	<view class="keybord">
+		<view class="numbox">
+			<view class="num" bindtap='bindtapNum1'>1</view>
+			<view class="num" bindtap='bindtapNum2'>2</view>
+			<view class="num" bindtap='bindtapNum3'>3</view>
+			<view class="num" bindtap='bindtapNum4'>4</view>
+			<view class="num" bindtap='bindtapNum5'>5</view>
+			<view class="num" bindtap='bindtapNum6'>6</view>
+			<view class="num" bindtap='bindtapNum7'>7</view>
+			<view class="num" bindtap='bindtapNum8'>8</view>
+			<view class="num" bindtap='bindtapNum9'>9</view>
+			<view class="numgrey"></view>
+			<view class="num" bindtap='bindtapNum0'>0</view>
+			<view class="numgrey" bindtap='bindtapNumDel'>×</view>
+		</view>
+	</view>
+  </form>

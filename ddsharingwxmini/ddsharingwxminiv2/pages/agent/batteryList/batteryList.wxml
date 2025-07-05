@@ -1,0 +1,29 @@
+<!--pages/agent/batteryList/batteryList.wxml-->
+<view class="main">
+    <button class="theme_btn popupAll" data-type="1" bindtap="popupConfirm">
+        {{lg.popupAll}} <!-- 弹出所有 -->
+    </button>
+    
+    <view class="batteryList">
+        <view class="listItem" wx:for="{{listData}}" wx:key="index" wx:for-item="i">
+            <!-- 电量 -->
+            <view class='electricQuantity'>
+                <canvas class="electricQuantityBg" canvas-id="{{'canvasElectricQuantityBg'+index}}">  </canvas> 
+                <canvas class="electricQuantityCanvas" canvas-id="{{'canvasElectricQuantity'+index}}" wx:if="{{i.capacity}}">  </canvas> 
+                <view class="electricQuantityText">
+                    <view class="electricQuantityInfo power" wx:if="{{i.capacity}}">{{i.capacity}}%</view>
+                    <view class='electricQuantityInfo' wx:if="{{i.capacity}}">{{lg.capacity}}</view>
+                    <view class='electricQuantityInfo' wx:else>{{lg.noPowerbank}}</view>
+                </view>     
+            </view>
+            <view class="batteryInfo">
+                <view class="bayonet">
+                    {{lg.number}}{{i.bayonetInt}}  <!-- NO. -->
+                </view>
+                <view class="id" wx:if="{{i.batteryId}}">{{lg.id}}:{{i.batteryId}}<!-- ID --></view>
+                <view class="popupBtn theme_color" data-bayonet="{{i.bayonetInt}}" data-type="2" bindtap="popupConfirm" wx:if="{{i.batteryId}}">{{lg.popup}}</view> <!-- 弹出 -->
+                <view class="popupBtn noPowerBank" data-bayonet="{{i.bayonetInt}}" data-type="2" bindtap="popupConfirm" wx:else>{{lg.popup}}</view>
+            </view>
+        </view>
+    </view>
+</view>

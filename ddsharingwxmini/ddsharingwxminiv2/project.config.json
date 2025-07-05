@@ -1,0 +1,125 @@
+{
+    "description": "项目配置文件",
+    "packOptions": {
+        "ignore": []
+    },
+    "setting": {
+        "urlCheck": false,
+        "es6": true,
+        "enhance": false,
+        "postcss": true,
+        "preloadBackgroundData": false,
+        "minified": true,
+        "newFeature": true,
+        "coverView": true,
+        "nodeModules": false,
+        "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "scopeDataCheck": false,
+        "uglifyFileName": false,
+        "checkInvalidKey": true,
+        "checkSiteMap": true,
+        "uploadWithSourceMap": true,
+        "compileHotReLoad": false,
+        "useMultiFrameRuntime": true,
+        "useApiHook": true,
+        "useApiHostProcess": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
+        "enableEngineNative": false,
+        "useIsolateContext": true,
+        "useCompilerModule": false,
+        "userConfirmedUseCompilerModuleSwitch": false,
+        "userConfirmedBundleSwitch": false,
+        "packNpmManually": false,
+        "packNpmRelationList": [],
+        "minifyWXSS": true
+    },
+    "compileType": "miniprogram",
+    "libVersion": "2.11.3",
+    "appid": "wx3cae1bb322323668",
+    "projectname": "%E6%94%BF%E5%BE%B73.0%E6%96%B0%E7%B3%BB%E7%BB%9F",
+    "debugOptions": {
+        "hidedInDevtools": []
+    },
+    "isGameTourist": false,
+    "simulatorType": "wechat",
+    "simulatorPluginLibVersion": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "id": -1,
+                    "name": "pages/agent/personalCenter/personalCenter",
+                    "pathName": "pages/agent/personalCenter/personalCenter",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/agent/shopLine/addShop/addShop",
+                    "pathName": "pages/agent/shopLine/addShop/addShop",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/agent/shopLine/choosePrice/choosePrice",
+                    "pathName": "pages/agent/shopLine/choosePrice/choosePrice",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/agent/shopLine/shopEdit/shopEdit",
+                    "pathName": "pages/agent/shopLine/shopEdit/shopEdit",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 4,
+                    "name": "pages/bluetooth/lease/lease",
+                    "pathName": "pages/bluetooth/lease/lease",
+                    "query": "qrcode=BL20000001",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages/agent/agent/agent",
+                    "pathName": "pages/agent/agent/agent",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/feedbackDetails/feedbackDetails",
+                    "pathName": "pages/feedbackDetails/feedbackDetails",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/historicalFeedback/historicalFeedback",
+                    "pathName": "pages/historicalFeedback/historicalFeedback",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/feedBack/feedBack",
+                    "pathName": "pages/feedBack/feedBack",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

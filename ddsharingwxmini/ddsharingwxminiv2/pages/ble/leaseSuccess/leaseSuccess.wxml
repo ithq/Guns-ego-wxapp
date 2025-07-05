@@ -1,0 +1,45 @@
+<!--pages/bluetooth/leaseSuccess/leaseSuccess.wxml-->
+<navigation-bar title="" back="{{true}}" bindback="goBack" background="rgba(39,220,139,1)" iconTheme="white" color="#fff"></navigation-bar>
+<view class="main">
+  <!-- <canvas class="canvas-element" id="canvas" style="width: 100%;height: 100vh;"></canvas> -->
+  <image mode="widthFix" src="{{topBg}}" class="topBg"/>
+  <image mode="widthFix" src="{{bottomBg}}" class="bottomBg"/>
+
+  <view class="clockBox">
+    <image mode="widthFix" src="{{clock}}" class="clockImg"/>
+    <view class="smallTxt">
+      {{lg.remaining}}<!-- 剩余时间 -->
+    </view>
+    <view class="countDown">
+      {{remainingTime}}
+    </view>
+  </view>
+
+  <view class="timeBox">
+    <view class="beginTime">
+      <view class="time">
+        {{beginTime}}
+      </view>
+      <view class="timeTxt">
+        {{lg.begin}}<!-- 开始 -->
+      </view>
+    </view>
+    <view class="endTime">
+      <view class="time">
+        {{ghtime}}
+      </view>
+      <view class="timeTxt">
+        {{lg.end}}<!-- 结束 -->
+      </view>
+    </view>
+  </view>
+  <view class="promitTxt">
+    {{lg.promit}}<!-- 如遇断电情况，请重新扫码充电！ -->
+  </view>
+  <!-- 图 -->
+    <view class="line_bottom flex_center_x" bindtap="goAdvertisement" data-default="{{advertisement.isDefault}}">
+        <image class="line_bottom_img" mode="widthFix" src="{{advertisement.picUrl}}"></image>
+    </view>
+</view>
+
+

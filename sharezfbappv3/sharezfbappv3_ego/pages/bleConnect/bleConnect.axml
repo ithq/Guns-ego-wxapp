@@ -1,0 +1,26 @@
+<view style='height:100%; background:rgba(255,255,255,1)'>
+  <view class="bgimg" onTap="clickAdvertInfo">
+    <image mode='aspectFit' src='{{advertImage}}'></image>
+  </view>
+  <view class="boxcls">
+    <view class="item flex">
+        <image class="icon" mode="scaleToFill" src="{{getLocationFlag ? '/assets/icon/success.png' : '/assets/icon/fail.png'}}"/>
+        <label>{{posTitle}}</label>
+        <button class="right" type="primary" size="mini" onTap="openLocation" a:if="{{!getLocationFlag}}">设置</button>
+    </view>
+    <view class="item flex">
+        <image class="icon" mode="scaleToFill" src="{{bleOpenFlag ? '/assets/icon/success.png' : '/assets/icon/fail.png'}}"/>
+        <label>{{bleTitle}}</label>
+        <button class="right" type="primary" size="mini" onTap="openBluetooth" a:if="{{!bleOpenFlag}}">设置</button>
+    </view>
+    <view class="item">
+      <view class="flex">
+        <image class="icon" mode="scaleToFill" src="{{bleOpenFlag ?  (bleConnected ? '/assets/icon/success.png' : '/assets/icon/loading.gif') : '/assets/icon/fail.png'}}"/>
+        <label>{{bleStatus}}</label>
+      </view>
+      <view class="progress">
+        <progress percent="{{progressNum}}" show-info active/>
+      </view>
+    </view>
+  </view>
+</view>

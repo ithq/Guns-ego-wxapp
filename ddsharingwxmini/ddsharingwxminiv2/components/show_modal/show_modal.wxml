@@ -1,0 +1,11 @@
+<!--components/show_modal/show_modal.wxml-->
+<view class='modal_container modal_flex' bindtap='modalColse' wx:if="{{showModal}}">
+  <view class="modal_box modal_flex">
+    <view class="modal_close" bindtap='modalColse'></view>
+    <view class="modal_title">{{title}}</view>
+    <view class="modal_content">
+      <slot name="modal_content"></slot>
+    </view>
+    <view class="modal_btn" bindtap="modalConfirm" style="background:{{btnBackground}}">{{btnText}}</view>
+  </view>
+</view>

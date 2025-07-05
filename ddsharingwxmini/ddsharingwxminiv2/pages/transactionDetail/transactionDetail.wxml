@@ -1,0 +1,85 @@
+<!--pages/transactionDetail/transactionDetail.wxml-->
+<wxs module="filter" src="../../config/filter.wxs"></wxs>
+<view class="container flex_column flex_center_y">
+	<!-- 顶部导航 -->
+	<View class='nav'>
+		<navigation-bar leftTitle="{{lg.pageTitle}}" back="{{true}}" bindback="goBack"></navigation-bar>
+	</View>
+
+	<!-- tab切换 -->
+	<view class="transaction_nav flex_center_center">
+		<view class="transaction_nav_btn {{switchNavStatu == 0 ? 'active' : ''}}" data-index="0" data-type="create_date" data-apitype="rechargeList" bindtap="switchNav">
+			{{lg.rechargeMode}}
+		</view>
+		<view class="transaction_nav_btn {{switchNavStatu == 1 ? 'active' : ''}}" data-index="1" data-type="add_time" data-apitype="tranlist" bindtap="switchNav">
+			{{lg.consume}}
+		</view>
+	</view>
+
+	<!-- 列表 -->
+	<view class="transaction_content_warp flex_1">
+		<scroll-view class="transaction_scroll" scroll-y="true" bindscrolltolower='scrollToLower' lower-threshold='30' refresher-enabled="{{true}}" refresher-threshold="{{50}}" refresher-default-style="black" refresher-background="#fff" refresher-triggered="{{triggered}}" bindrefresherrefresh="onRefresh">
+
+			<!-- 充值 -->
+			<view class="transaction_list" hidden="{{switchNavStatu != 0}}">
+				<block wx:for="{{listData}}" wx:key="index">
+					<view class="transaction_mounth" wx:if="{{item.monthShow}}">{{item.month}}</view>
+
+					<view class="transaction_mounth_list">
+						<view class="transaction_mounth_list_item flex" wx:for="{{item.data}}" wx:for-item="i" wx:for-index="idx" wx:key="idx" bindtap="jumpPage" data-url="{{'../billingDetail/billingDetail?transactionId='+i.tradeNo+'&orderType=1'}}">
+							<view class="transaction_icon_warp flex_center_center">
+								<image class="transaction_icon" mode="widthFix" src="{{imgUrl + 'tradingRecord/icon_add3.png'}}"></image>
+							</view>
+
+							<view class="transaction_mounth_list_item_list flex_between_center">
+								<view class="transaction_type_warp flex">
+									<view class="transaction_type">{{lg.rechargeAmount}}</view>
+									<view class="transaction_time">{{i.createDate}}</view>
+								</view>
+								<view class="transaction_amount">+{{commonLg.symbol}}{{filter.moneyFormato(i.amount)}}</view>
+							</view>
+						</view>
+					</view>
+				</block>
+
+				<!-- <view class="noMore" hidden="{{loadMore}}">
+					——— {{commonLg.noMore}} ———
+				</view> -->
+			</view>
+
+			<!-- 消费 -->
+			<view class="transaction_list" hidden="{{switchNavStatu != 1}}">
+				<block wx:for="{{listData}}" wx:key="index">
+					<view class="transaction_mounth" wx:if="{{item.monthShow}}">{{item.month}}</view>
+
+					<view class="transaction_mounth_list">
+						<view class="transaction_mounth_list_item flex" wx:for="{{item.data}}" wx:for-item="i" wx:for-index="idx" wx:key="idx" bindtap="jumpPage" data-url="{{'../billingDetail/billingDetail?transactionId='+i.id+'&orderType=2'}}">
+							<view class="transaction_icon_warp flex_center_center">
+								<image class="transaction_icon" mode="widthFix" src="{{imgUrl + 'tradingRecord/icon_subtract3.png'}}"></image>
+							</view>
+
+							<view class="transaction_mounth_list_item_list flex_between_center">
+								<view class="transaction_type_warp flex">
+									<!-- 账户变更类型：1.余额充值 2.余额自动退款 3 租金支出，4.押金转余额，5.余额转押金,6.余额手动提现,7.逾期购买 -->
+									<view class="transaction_type">{{filter.billType(i.accountChangeType, commonLg)}}</view>
+									<view class="transaction_time">{{i.addTime}}</view>
+								</view>
+
+								<view class="transaction_amount_warp flex_center_center">
+									<text class="transaction_amount_consume">-{{commonLg.symbol}}{{filter.moneyFormato(filter.abs(i.changeAmount))}}</text>
+									<!-- <text class="gray_color">{{i.accountChangeState == 1 ? lg.changeSuccess : lg.changeFail}}</text> -->
+									<text class="gray_color" wx:if="{{i.accountChangeState != 1}}">{{lg.changeFail}}</text>
+								</view>
+							</view>
+						</view>
+					</view>
+				</block>
+
+				<!-- <view class="noMore" hidden="{{loadMore}}">
+					——— {{commonLg.noMore}} ———
+				</view> -->
+			</view>
+		</scroll-view>
+	</view>
+
+</view>

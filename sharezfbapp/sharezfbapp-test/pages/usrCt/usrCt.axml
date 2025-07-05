@@ -1,0 +1,50 @@
+<view style='height:100px;background-color:#F5F5F5'>
+    <view class='userHeaderCls'>
+      <view class="userCenterTitleCls">
+          <view class="avatarBoxCls">
+            <view class="psnInfo">
+                <image style='width:60px;height:60px; border-radius: 5px;' src="{{avatarUrl}}"></image>
+            </view>
+            <view class="avatarCls">
+                <view class="nicknameclass">{{nickName}}</view>
+                <view class="accountclass">账号：{{custNo}} </view>
+            </view>
+          </view>
+      </view>
+    </view>   
+    <view class="usrCtItems"> 
+      <view id="wallet" onTap='wallet' class='itemBtnCls' >
+        <view class='itemBtnClsLeft'>
+          <text class="iconfont icon-qita" style='color:#FF610A'></text>
+           我的钱包
+        </view>
+        <view class="itemBtnClsRight">
+          ￥{{currentBalance}}
+          <text class="iconfont icon-more"></text>
+        </view>
+      </view>
+      <view id="order" onTap='orders' class="itemBtnCls">      
+        <view class='itemBtnClsLeft'>
+          <text class="iconfont icon-order" style='color:#FF610A'></text>
+          我的订单
+        </view>
+        <view class="itemBtnClsRight">
+          {{ordersCnt}}
+          <text class="iconfont icon-more"></text>
+        </view>
+      </view>
+      <view id="message" onTap='messages' class="itemBtnCls">      
+        <view class='itemBtnClsLeft'>
+          <text class="iconfont icon-message" style='color:#FF610A'></text>
+          我的消息  
+        </view>
+        <view class="itemBtnClsRight">
+          {{unRd}}
+          <text class="iconfont icon-more"></text>
+        </view>
+      </view>
+    </view>
+    <view id="homeBtn" class="homeBtnCls" onTap='goToIndexPage'>
+      <image src='/assets/icon/home.png' style='width:35px;height:35px;margin-top:11px;margin-left:13px;'></image>
+    </view>
+</view>

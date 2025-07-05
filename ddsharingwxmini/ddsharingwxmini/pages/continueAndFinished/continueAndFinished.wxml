@@ -1,0 +1,36 @@
+<!--pages/continueAndFinished/continueAndFinished.wxml-->
+<view class="container">
+    <view class="order-info">
+        <view class="item">
+            <view class="l">SN:0{{iotProductId}}{{iotDeviceId}}</view>
+            <view class="r" bindtap='goPages' data-url='/pages/orderList/orderList'>使用记录</view>
+        </view>
+    </view>
+    <view class="banner">
+        <image src="/static/images/fty_single_pay_banner.jpg" mode="widthFix"></image>
+    </view>
+    <view class="fee-box">
+        <view class="rule-img">
+            <image src="/static/images/fee_detail1.png" mode="aspectFit"></image>
+        </view>
+        <view class="desc">
+            <view class="desc-item">
+                <view class="l">充电时长</view>
+                <view class="r">{{useTimeStr}}</view>
+            </view>
+            <view class="desc-item">
+                <view class="l">所需费用</view>
+                <view class="r">{{useFee}}</view>
+            </view>
+            <view class="desc-item">
+                结束充电，即可退还剩余预付款
+            </view>
+        </view>
+    </view>
+    <view class="bottom">
+        <view class="flex">
+            <button class="btn" bindtap="closeSingleOrder">结束使用</button>
+            <button class="btn btn-primary" bindtap="continueUse">继续使用</button>
+        </view>
+    </view>
+</view>

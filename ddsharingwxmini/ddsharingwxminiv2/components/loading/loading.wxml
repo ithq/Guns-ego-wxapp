@@ -1,0 +1,7 @@
+<!--components/loading/loading.wxml-->
+<view class='loading_container loading_flex' wx:if="{{showLoading}}">
+	<view class='loading_content loading_flex'>
+		<image direction="all" class="loading_img" src='{{loadingImg}}'></image>
+		<view class="loading_text">{{loadingTitle}}</view>
+	</view>
+</view>

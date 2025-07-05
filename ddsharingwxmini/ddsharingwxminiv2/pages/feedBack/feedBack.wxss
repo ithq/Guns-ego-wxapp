@@ -1,0 +1,121 @@
+/* pages/feedBack/feedBack.wxss */
+.feedback_warp {
+  padding: 0 30rpx;
+  font-size: 24rpx;
+}
+
+.grey_background {
+  background: #F5F5F7;
+  border-radius: 20rpx;
+  padding: 0 30rpx;
+  position: relative;
+}
+
+.feedback_item_title {
+  padding-top: 50rpx;
+  padding-bottom: 20rpx;
+  font-size: 28rpx;
+}
+
+.feedback_sign {
+  color: #FF3944;
+}
+
+.feedback_input {
+  padding: 18rpx 0;
+  font-size: 24rpx;
+  flex: 1;
+}
+
+.feedback_scan {
+  width: 68rpx;
+  height: 100%;
+}
+
+.feedback_scan_img {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.feedback_textarea {
+  padding: 20rpx 0;
+  height: 260rpx;
+}
+
+.feedback_word_count {
+  position: absolute;
+  right: 30rpx;
+  bottom: 30rpx;
+  font-size:24rpx;
+  color: #B3B3B3;
+}
+
+.feedback_phone {
+  padding: 18rpx 0;
+  width: 100%;
+}
+
+.feedback_add_img_warp {
+  margin-top: 30rpx; 
+  justify-content: flex-start;
+}
+
+.feedback_add_img_content {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 12rpx;
+  position: relative;
+  text-align: center;
+  margin-right: 30rpx;
+}
+
+.feedback_add_img {
+  width: 100%;
+  height: 100%;
+  border-radius: 12rpx;
+}
+
+.feedback_add{
+  width: 110rpx;
+  height: 110rpx;
+}
+
+.feedback_delete {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top: -4rpx;
+  right: -4rpx;
+}
+
+.feedback_footer {
+  position: fixed;
+  left: 0rpx;
+  right: 0px;
+  bottom: 60rpx;
+}
+
+.feedback_remark {
+  padding-bottom: 40rpx;
+  color: #757575;
+  text-align: center;
+}
+
+.feedback_submit {
+  width:500rpx;
+  height:88rpx;
+  margin: 20rpx auto 0;
+  border-radius:48rpx;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 88rpx;
+  color: #fff;
+}
+
+.feedback_submit_defaul {
+  background:rgba(0,193,118,0.5);
+}
+
+.feedback_submit_active {
+  background:rgba(0,193,118,1);
+}

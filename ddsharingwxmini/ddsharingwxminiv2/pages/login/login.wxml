@@ -1,0 +1,40 @@
+<!--pages/login/login.wxml-->
+<view class="container flex flex_column">
+<navigation-bar background="rgba(0,0,0,0)" color="#fff"></navigation-bar>
+
+<View class="login_warp flex_center_center flex_column flex_1">
+	<image class="login_background_img" mode="widthFix" src="{{imgUrl + 'login/login3.png'}}"></image>
+	<view class="login_content flex_between_center flex_column">
+		<view>
+			<view class="login_text">
+				<view class=" login_welcome">{{lg.welcome}}</view>
+				<view class="login_better">{{lg.better}}</view>
+			</view>
+			<view class="login_btn_warp flex_center_y flex_column">
+				<button class="login_authorize_btn theme_btn" hover-class="hover_class" lang="{{language}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">{{lg.authorize}}</button>
+				<button class="login_look theme_btn" hover-class="hover_class" bindtap="goBack">{{lg.look}}</button>
+			</view>
+		</view>
+
+		<view class="login_footer_warp ">
+			<text>{{lg.footer}}</text>
+			<text class="login_protocol" bindtap="jumpPage" data-url="../userProtocol/userProtocol">{{lg.userProtocol}}</text>
+			<text class="login_protocol" bindtap="jumpPage" data-url="../privacyProtocol/privacyProtocol">{{lg.privacyProtocol}}</text>
+		</view>
+	</view>
+</View>
+
+<!-- 拒接弹框 -->
+<show-modal class="refuse-modal" title="{{lg.modalTitle}}" btnText="{{commonLg.confirm}}" bindmodalConfirm="refuse">
+	<view slot="modal_content">
+		<view>{{lg.refuseText}}</view>
+	</view>
+</show-modal>
+
+<!-- 失败弹框 -->
+<show-modal class="fail-modal" title="{{lg.modalTitle}}" btnText="{{commonLg.confirm}}" bindmodalConfirm="loginAgain">
+	<view slot="modal_content">
+		<view>{{modalText}}</view>
+	</view>
+</show-modal>
+</view>

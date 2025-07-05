@@ -1,0 +1,41 @@
+/* netDot.wxss */
+.netdot{
+  width: 100%;
+}
+
+.netdot-img {
+  width: 100%;
+  height: 512rpx;
+  margin: 0 auto;
+}
+.addr-view{
+  width: 92%;
+  padding:40rpx 4%;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  flex-direction: row;
+}
+
+.addr{
+  width: 640rpx;
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  overflow: hidden;  /*溢出隐藏*/
+  text-overflow: ellipsis; /*以省略号...显示*/
+  white-space: nowrap;  /*强制不换行*/
+}
+.addr-view .iconfont{
+	font-size: 40rpx;
+	color: #666;
+}
+.scanbtn{
+  position:absolute;
+  bottom:50rpx;
+  left:4%;
+  width:92%;
+  height:80rpx;
+  line-height:80rpx;
+  text-align:center;
+  color:#fff;
+  background:#0f94f7;
+}

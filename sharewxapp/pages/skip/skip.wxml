@@ -1,0 +1,17 @@
+<!--pages/skip/skip.wxml-->
+<view wx:if ="{{needUserAuth==0}}" class="splash">
+  <image src='/images/images/log.jpg'></image>
+  <text style='color:blue'>系统登录中....</text>
+</view>
+
+<view wx:if ="{{needUserAuth==1}}" >
+  <view class="loginlogo">
+    <image src="/images/images/log.jpg"></image>
+  </view>
+
+  <view class="logintit">易购充电助手申请获得以下权限</view>
+  <view class="logininfo">获得您的公开信息（昵称、头像等）</view>
+  <button wx:if="{{canIUseOpenTypeGetUserInfo}}"  class="loginbtn" open-type="getUserInfo" bindgetuserinfo="bindGetUserinfoTab">授权登录 ></button>
+  <view wx:else>请升级微信版本</view>
+</view>
+ 

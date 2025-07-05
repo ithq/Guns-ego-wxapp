@@ -1,0 +1,97 @@
+/* list.wxss */
+page {
+  height: 100%;
+}
+.merchant-list{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+.merchant{
+    width: 92%;
+    padding: 40rpx 4%;
+    border-bottom: 2rpx solid #ccc;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20rpx;
+    background: #fff;
+}
+.touxiang-imgbox{
+  width: 140rpx;
+  height: 140rpx;
+  border: #ccc 5rpx solid;
+  border-radius: 50%;
+  box-sizing: border-box;
+  -webkit-border-box: border-box;
+}
+.touxiang-img{
+  display: block;
+    width: 100rpx;
+    height: 100rpx;
+    margin: 20rpx auto;
+    border-radius: 10rpx;
+}
+.devinfor{
+  position: relative;
+    display: block;
+    width: 520rpx;
+    margin-left: 20rpx;
+    line-height: 42rpx;
+    background-color: white;
+}
+.cont{ 
+    font-size: 34rpx;
+    display: flex;
+    flex-direction: row;  
+}
+.num{
+    margin-right: 20rpx;
+    color: #2196F3;
+}
+.adress,.title{
+    display: block;
+    overflow: hidden;  /*溢出隐藏*/
+    text-overflow: ellipsis; /*以省略号...显示*/
+    white-space: nowrap;  /*强制不换行*/ 
+}
+.charge,.title{
+  margin-bottom: 15rpx;
+}
+.title{
+    width: 70%;
+}
+.adress{
+    width:80%;
+    color: #909090; 
+}
+.charge{
+    color: #626262; 
+}
+.adress,.charge{
+  font-size: 30rpx;
+}
+.distance{
+  width: 30%;
+  color: #909090;
+  text-align: right;
+}
+.loading{
+  display:block;
+  width:40rpx;
+  height:40rpx;
+  margin:40rpx auto;
+}
+.myMessage {
+  margin-bottom: 20rpx;
+  background: #fff;
+}
+.icon-fangzi{
+  font-size: 34rpx;
+  margin-right: 10rpx;
+}
+.icon-weizhi{
+  position: absolute;
+  right: 0;
+  bottom: 10rpx;
+  font-size: 40rpx;
+}

@@ -1,0 +1,35 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <view class="search">
+    <view wx:if="{{msgFlag && unRead>9}}" class='touxiang-imgred'>9+</view>
+    <view wx:elif="{{msgFlag && unRead<=9}}" class='touxiang-imgred'>{{unRead}}</view>
+    <form bindsubmit="usrCtBindtap" report-submit="true">
+      <button formType="submit" class="touxiang-img" disabled="{{!userOperateForFlag}}">
+        <image src="{{headImgUrl}}"></image>
+      </button>
+    </form>
+    <view class="text" bindtap="searchNearDevices">
+      <text class='iconfont icon-sousuo'></text>{{addrs}}</view>
+    <form bindsubmit="listMerchants" report-submit="true">
+      <button class='listbtn' formType="submit" disabled="{{!userOperateForFlag}}">
+        <view class="listbtnview">
+          <text class='iconfont icon-liebiao'></text>
+        </view>
+      </button>
+    </form>
+  </view>
+  <map id="map" markers="{{markersArray}}" latitude="{{latX}}" longitude="{{lonY}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="viewChange" show-location controls="{{controls}}" scale="16" bindcontroltap="bindcontroltap" >
+    <cover-image wx:if="{{topAdvertImage}}" src='{{topAdvertImage}}' class='topAdvert' bindtap="clickTopAdvert">
+    </cover-image>
+    <ad wx:else class="topAdvert" unit-id="adunit-470b5cf6fc8ea75a"></ad>
+    <cover-view class='popAdvertView popCenter' wx:if="{{popAdvertImage && !popAdvertClose}}">
+      <cover-view class="popAdvertCont popCenter">
+        <cover-image  src='{{popAdvertImage}}' class='popAdvertImage' bindtap="clickPopAdvert">
+        </cover-image>
+        <cover-view class='popAdvertClose'>
+          <cover-image class="btnclose" src="../../img/icon/close.png" bindtap="clickPopAdvertClose"></cover-image>
+        </cover-view>
+      </cover-view>
+    </cover-view>
+  </map>
+</view>

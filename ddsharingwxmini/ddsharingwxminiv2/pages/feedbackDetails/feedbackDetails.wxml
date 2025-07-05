@@ -1,0 +1,78 @@
+<!--pages/feedbackDetails/feedbackDetails.wxml-->
+<!-- msgType 消息类型 1 文字 2 图片 3 视频
+isLike 是否点赞 0 不显示 1 显示 2 赞 3 差
+replyType 回复人类型 1 用户 2 后台
+replyStatus 0 未回复 1 未查看 2 已查看 -->
+
+<view class="container">
+  <scroll-view scroll-y="true" id="feedbackDetails">
+    <view class="listItem" wx:for="{{listData}}" wx:key="index">
+      <!-- 用户反馈 -->
+      <view class="user-feedback" wx:if="{{item.replyType == 1}}">
+        <view class="date user-data" wx:if="{{item.timeShow}}">{{item.addTime}}</view>
+
+        <view class="feedback-info" wx:if="{{item.msgType == 2}}">
+          <view class="feedback-img">
+            <image class="feedback-img-img" mode="widthFix" src="{{item.content}}" alt="" data-index="{{index}}" bindtap="previewImage"></image>
+          </view>
+          <view class="avatar">
+            <open-data class="image_percent" type="userAvatarUrl"></open-data>
+          </view>
+        </view>
+
+        <view class="feedback-info" wx:if="{{item.msgType == 1}}">
+          <view class="feedback-content">
+            <view class="problem"><rich-text nodes="{{item.content}}"></rich-text></view>
+          </view>
+          <view class="avatar">
+            <open-data class="image_percent" type="userAvatarUrl"></open-data>
+          </view>
+        </view>
+      </view>
+
+      <!-- 客服回复 -->
+      <view class="service-feedback" wx:if="{{item.replyType == 2}}">
+        <view class="date" wx:if="{{item.timeShow}}">{{item.addTime}}</view>
+        <!-- 文字 -->
+        <view class="feedback-info" wx:if="{{item.msgType == 1}}">
+          <view class="avatar">
+            <image class="image_percent" mode="widthFix" src="{{item.adminPic ? item.adminPic : imgUrl + 'help/icon_zd3.png'}}" ></image>
+          </view>
+          <view class="feedback-content">
+            <view class="problem"><rich-text nodes="{{item.content}}"></rich-text></view>
+            <view class="serial-number">感谢您对鲤电的支持，祝您生活愉快！</view>
+          </view>
+          <view class="useful">
+            <image mode="widthFix" src="{{item.isLike == 0 ? imgUrl + 'help/icon_good_gray3.png' : imgUrl + 'help/icon_good3.png'}}" class="icon" bindtap="bindLike" data-like="2" data-index="{{index}}"/>
+            <image mode="widthFix" src="{{item.isLike == 0 ? imgUrl + 'help/icon_good_down3.png' : imgUrl + 'help/icon_down3.png'}}" class="icon" bindtap="bindLike" data-like="3" data-index="{{index}}"/>
+          </view>
+        </view>
+
+        <!-- 图片 -->
+        <view class="feedback-info" wx:if="{{item.msgType == 2}}">
+          <view class="avatar">
+            <image class="image_percent" mode="widthFix" src="{{item.adminPic ? item.adminPic : imgUrl + 'help/icon_zd3.png'}}" ></image>
+          </view>
+          <view class="feedback-img">
+            <image class="feedback-img-img" mode="widthFix" src="{{item.content}}" alt="" data-index="{{index}}" bindtap="previewImage"></image>
+          </view>
+          <view class="useful">
+            <image mode="widthFix" src="{{item.isLike == 0 ? imgUrl + 'help/icon_good_gray3.png' : imgUrl + 'help/icon_good3.png'}}" class="icon" bindtap="bindLike" data-like="2" data-index="{{index}}"/>
+            <image mode="widthFix" src="{{item.isLike == 0 ? imgUrl + 'help/icon_good_down3.png' : imgUrl + 'help/icon_down3.png'}}" class="icon" bindtap="bindLike" data-like="3" data-index="{{index}}"/>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class="chatbox">
+  <view class="send-img" bindtap="addImage">
+    <image mode="widthFix" class="send-img-icon" src="/images/help/pic.png"></image>
+  </view>
+  <view class="type-box">
+    <input class="input-box" type='text' name="textContent" data-name="textContent" value="{{textContent}}" bindinput="getInputKey" placeholder="在这里输入聊天内容" placeholder-style="color:7B7B7B;" confirm-type="send"  bindconfirm="bindconfirm"></input>
+  </view>
+  <view class="sent-btn" bindtap="sendText">发送</view>
+</view>

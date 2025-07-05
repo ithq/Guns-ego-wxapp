@@ -1,0 +1,52 @@
+<!--faultReport.wxml-->
+<view class="container">
+  <text class="issues-label">故障反馈</text>
+  <form bindsubmit="submitForm">
+    <view class="issues-panel">
+      <view class="issues-input">
+        <label>设备SN：{{chargerId}}</label>
+      </view>
+      <view class="issues-input">
+        <input placeholder="请输入手机号" name="tel" type="number" maxlength="20" value="{{tel}}" />
+      </view>
+      <textarea class="issues-textarea" cursor-spacing="50" placeholder="请输入您遇到的问题" name="questNote" value="{{questNote}}" maxlength="50" bindinput="textareaInput"></textarea>
+      <label class="issues-label issues-textlen">{{textlen}}</label>
+    </view>
+
+    <block>
+      <text class="issues-label">选择图片（可选）</text>
+      <view class="issues-img-panel">
+        <view class="issues-photo-item add-photo" bindtap="uploadPic" hidden="{{hasImage1&&hasImage2&&hasImage3}}"></view>
+        <view wx:if="{{hasImage1}}" class="issues-photo-item">
+          <view class="picPre">
+            <image src="{{image1}}" mode="aspectFit" bindtap="showImage" data-index="1"></image>
+          </view>
+        </view>
+        <view wx:if="{{hasImage2}}" class="issues-photo-item">
+          <view class="picPre">
+            <image src="{{image2}}" mode="aspectFit" bindtap="showImage" data-index="2"></image>
+          </view>
+        </view>
+        <view wx:if="{{hasImage3}}" class="issues-photo-item">
+          <view class="picPre">
+            <image src="{{image3}}" mode="aspectFit" bindtap="showImage" data-index="3"></image>
+          </view>
+        </view>
+      </view>
+    </block>
+    <button class="submit-btn" hover-start-time="200" formType="submit">提交反馈</button>
+  </form>
+</view>
+
+<!--弹窗-->
+<cover-view class="modal-dialog" wx:if="{{modal.isShow}}">
+  <cover-view class="modal-content">
+    <cover-image src="{{modal.image}}" class="img-full" style="height:auto;" mode="widthFix"></cover-image>
+  </cover-view>
+  <cover-view class="modal-footer" wx-if="{{modal.isFooter}}">
+    <cover-view class="btn-cancel" bindtap="onCancel" data-status="cancel">{{modal.cancel}}     
+    </cover-view>
+    <cover-view class="btn-confirm" bindtap="onConfirm" data-status="confirm">{{modal.ok}}
+    </cover-view>
+  </cover-view>
+</cover-view>

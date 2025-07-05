@@ -1,0 +1,24 @@
+{
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "q",
+                    "pathName": "pages/index/index",
+                    "query": "q=https%3a%2f%2fewx.szego168.com%2frest%2fshare%2frh%3fid%3d3300506002",
+                    "scene": 1011
+                }
+            ]
+        }
+    }
+}

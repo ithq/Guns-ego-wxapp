@@ -1,0 +1,39 @@
+<view style='width:100%; height:100%;'>
+    <view id="homeBtn" class="homeBtnCls" style="bottom: 45%;" bindtap='goToIndexPage'>
+      <image src='/img/icon/home.png' class='homeIconCls'></image>
+    </view>
+    <form bindsubmit="takeMoney" report-submit="true">
+      <view style="height:10px;"></view>
+      <view class="payItemInfo">
+        <view class="payIptinfo">
+          <view class="payTitleNum">请输入提现金额</view>
+          <view class="aboutinput">
+            <text>￥</text>
+            <view class="inptbox">
+              <view class="aboutinput_input">{{willTakeMoney}}</view>
+              <view class="gngBiao"></view>				
+            </view>
+          </view>
+          <view class="hy">可提现金额：{{canTakeMoney}}元，<text bindtap="takeAllMoney">全部提现</text></view>
+          <button class="klButton" disabled="{{!doubleOperateFlag}}" formType="submit">提现</button>
+        </view>		
+      </view>
+      <view class="knowzd">提现成功后额，金额将退回到您原的充值账户</view>
+      <view class="kyBrdCls">
+        <view class="numbox">
+          <view class="number" bindtap='bindtapNum1'>1</view>
+          <view class="number" bindtap='bindtapNum2'>2</view>
+          <view class="number" bindtap='bindtapNum3'>3</view>
+          <view class="number" bindtap='bindtapNum4'>4</view>
+          <view class="number" bindtap='bindtapNum5'>5</view>
+          <view class="number" bindtap='bindtapNum6'>6</view>
+          <view class="number" bindtap='bindtapNum7'>7</view>
+          <view class="number" bindtap='bindtapNum8'>8</view>
+          <view class="number" bindtap='bindtapNum9'>9</view>
+          <view class="numgrey"></view>
+          <view class="number" bindtap='bindtapNum0'>0</view>
+          <view class="numgrey" bindtap='bindtapNumDel'>×</view>
+        </view>
+      </view>
+      </form>
+</view>

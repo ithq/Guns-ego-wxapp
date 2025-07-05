@@ -1,0 +1,73 @@
+<!--pages/agent/shop/shop.wxml-->
+<no-data promit="{{lg.promit}}" wx:if="{{showData}}"></no-data>
+<view class="main">
+    <view class="header">
+        <view class="searchBox">
+            <view class="searchInputBox">
+                <image src="{{imgUrl + iconSearch}}" class="search"></image>
+                <input name="search" type='text' confirm-type="search" value="{{key}}" bindconfirm="bindconfirm" class="searchInput" placeholder="{{lg.inputPleasehold}}" /><!-- 请输入查询内容 -->
+            </view>
+            <image src="{{imgUrl + iconAdd}}" class="scanBtn" data-url="{{deviceType == 1 ? '../addShop/addShop' : '../shopLine/addShop/addShop'}}" bindtap="jumpPage"></image>
+        </view>
+
+        <view class="navBar">
+            <view class="{{statu == 0 ? 'barItem active' : 'barItem'}}" data-i="0" bindtap="changeNav">
+                {{lg.statu0}}({{shopCount.wholeCount}})<!-- 全部 -->
+            </view>
+            <view class="{{statu == 1 ? 'barItem active' : 'barItem'}}" data-i="1" wx:if="{{groupID != 6}}" bindtap="changeNav">
+                {{lg.statu1}}({{shopCount.directlyUnderCount}})<!-- 直属 -->
+            </view>
+            <view class="{{statu == 2 ? 'barItem active' : 'barItem'}}" data-i="2" wx:if="{{groupID != 6}}" bindtap="changeNav">
+                {{lg.statu2}}({{shopCount.subordinateCount}})<!-- 下属 -->
+            </view>
+        </view>
+    </view>
+
+
+    <!-- 列表 -->
+    <scroll-view class="shopList"
+        scroll-y="{{true}}"
+        refresher-enabled="{{true}}"
+        refresher-threshold="{{50}}"
+        lower-threshold="{{200}}"
+        refresher-triggered="{{triggered}}"
+        bindrefresherpulling="onPulling"
+        bindrefresherrefresh="onRefresh"
+        bindrefresherrestore="onRestore"
+        bindrefresherabort="onAbort"
+        bindscrolltolower="lodeMore"
+    >
+        <view class="listItem" wx:for="{{info}}" wx:key="index" wx:for-item="i">
+            <view class="shopInfo">
+                <image src="{{i.logo}}" class="shopLogo"></image>
+                <view class="statistic">
+                    <view class="shopName">{{i.shopName}}</view>
+                    <view class="statisticInfo">
+                        <view class="infoItem">
+                            {{lg.dayIncome}}<!-- 日收益 -->：{{common.symbol}}{{i.dailyIncome}}
+                        </view>
+                        <view class="infoItem">
+                            {{lg.mouthIncome}}<!-- 月收益 -->：{{common.symbol}}{{i.monthlyIncome}}
+                        </view>
+                        <view class="infoItem">
+                            {{lg.totalIncome}}<!-- 总收益 -->：{{common.symbol}}{{i.totalMoney}}
+                        </view>
+                        <view class="infoItem">
+                            {{lg.totalRent}}<!-- 总租借 -->：{{i.count}}{{lg.pic}}
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="operation">
+                <view class="btn" data-url="../shopDevice/shopDevice?shopid={{i.id}}&shopName={{i.shopName}}" bindtap="jumpPage">{{lg.deviceList}}</view><!-- 设备 -->
+                <view class="btn" data-url="{{deviceType == 1 ? '../shopEdit/shopEdit?shopid=' + i.id : '../shopLine/shopEdit/shopEdit?shopid=' + i.id}}" bindtap="jumpPage">{{lg.edit}}</view><!-- 编辑 -->
+                <view class="btn" data-shopid="{{i.id}}" bindtap="bindDevice">{{lg.bindDevice}}</view><!-- 绑设备 -->
+            </view>
+        </view>
+
+        <view class="noMore" hidden="{{loadMore}}">
+            ——— {{common.noMore}} ———
+        </view>
+    </scroll-view>
+
+</view>

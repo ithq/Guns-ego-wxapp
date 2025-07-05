@@ -1,0 +1,12 @@
+<!--netDot.wxml-->
+  <view class="netdot">
+    <view class="netdot-img" wx:if="{{ortherImgUrl == null || ortherImgUrl == 'null'}}" style=" background: url({{resourceUrl}}/images/netdot.jpg) no-repeat top center;background-size: auto 100%;"></view>
+    <view class="netdot-img" wx:else style=" background: url({{ortherImgUrl}}) no-repeat top center;background-size: auto 100%;"></view>
+    <view class="addr-view" bindtap="gotoTheShop">
+      <text class="iconfont icon-position"></text>
+      <text class="addr">{{shopAddr}}</text>
+      <text class="iconfont icon-goto"></text>
+    </view>
+    
+    <view class="scanbtn" disabled="{{!dbOperationFlag}}" bindtap="scanEWM">扫码充电</view>
+  </view>
